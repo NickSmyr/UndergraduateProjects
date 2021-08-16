@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>7</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>112</x>
+      <y>336</y>
+      <w>553</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+SeartchTechniciansView
+--
+--
++setJobTypeSpinnerEnabled() : void
++showErrorMessage(message : String) : void
++setSpecialtiesSource(source : List&lt;String&gt;) : void
++setJobTypesSource(ids : List&lt;Integer&gt; , names : List&lt;String&gt;) : void
++setAreasSource(names : List&lt;String&gt;) : void
++populateTechnicianList(ids : List&lt;Integer&gt; , names : List&lt;String&gt; , avgRatings : List&lt;Double&gt; , prices : List&lt;Double&gt;) : void
++navigateToRequestRepair(technicianId : int , jobType : int  , year : int , month : int , day : int ) : void
++navigateToLogin() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>1204</x>
+      <y>364</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+TechnicianDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>455</x>
+      <y>616</y>
+      <w>140</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>SearchTechniciansActivity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>532</x>
+      <y>455</y>
+      <w>34</w>
+      <h>174</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>21;21;21;161</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1064</x>
+      <y>378</y>
+      <w>154</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;50.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1064</x>
+      <y>406</y>
+      <w>154</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>1204</x>
+      <y>413</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+SpecialtyDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1064</x>
+      <y>406</y>
+      <w>154</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>1204</x>
+      <y>476</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+JobTypeDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>1204</x>
+      <y>518</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+AreaDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>406</y>
+      <w>126</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;310.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>406</y>
+      <w>371</w>
+      <h>287</h>
+    </coordinates>
+    <panel_attributes>SearchTechniciansPresenter
+--
+loggedInUser : int
+selectedSpecialtyId : int
+year : int
+month : int
+dayOfMonth : int
+selectedJobTypeId : int
+selectedArea : String
+selectedMaxPrice : int
+--
++setView(view : SearchTechniciansView) : void
++setLoggedInUser(int : loggedInUser) : void
++onStart() : void
++selectSpecialty(int specialtyId) : void
++setDate(year : int , month : int ,day : int) : void
++selectJobType(int : jobTypeId) : void
++setArea(area : String) : void
++setMaxPrice(maxPrice : int) : void
++onTechnicianClick(technicianId : int) : void
+#repopulateTechnicianList() : void
+#offersJobType(technicianId : int . jobTypeId : int) : boolean
+#offersJobTypeForLessThan(technicianId : int . jobTypeId : int , price : int) : boolean
+#getTechnicianPriceForJobType(technicianId : int . jobTypeId : int) : double
+#getTechnicianAverageRatings(technicianId : int) : boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>658</x>
+      <y>343</y>
+      <w>63</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+
+&lt; has</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1064</x>
+      <y>406</y>
+      <w>154</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;180.0</additional_attributes>
+  </element>
+</diagram>

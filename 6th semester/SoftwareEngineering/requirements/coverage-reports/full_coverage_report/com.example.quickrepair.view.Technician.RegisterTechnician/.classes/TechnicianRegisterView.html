@@ -1,0 +1,218 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: TechnicianRegisterView</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.Technician.RegisterTechnician</a> ]
+</div>
+
+<h1>Coverage Summary for Class: TechnicianRegisterView (com.example.quickrepair.view.Technician.RegisterTechnician)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">TechnicianRegisterView</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.Technician.RegisterTechnician;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.quickrepair.view.Base.BaseView;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.util.List;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;public interface TechnicianRegisterView extends BaseView
+<i>8</i>&nbsp;{
+<i>9</i>&nbsp;    /**
+<i>10</i>&nbsp;     * Set the name of the technician trying to register or edit.
+<i>11</i>&nbsp;     *
+<i>12</i>&nbsp;     * @param name The name of the technician.
+<i>13</i>&nbsp;     */
+<i>14</i>&nbsp;    void setName(String name);
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    /**
+<i>17</i>&nbsp;     * Set the surname of the technician trying to register or edit.
+<i>18</i>&nbsp;     *
+<i>19</i>&nbsp;     * @param surname The surname of the technician.
+<i>20</i>&nbsp;     */
+<i>21</i>&nbsp;    void setSurname(String surname);
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    /**
+<i>24</i>&nbsp;     * Set the phone number of the technician trying to register or edit.
+<i>25</i>&nbsp;     *
+<i>26</i>&nbsp;     * @param phoneNumber The phone number of the technician.
+<i>27</i>&nbsp;     */
+<i>28</i>&nbsp;    void setPhoneNumber(String phoneNumber);
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    /**
+<i>31</i>&nbsp;     * Set the email of the technician trying to register or edit.
+<i>32</i>&nbsp;     *
+<i>33</i>&nbsp;     * @param email The email of the technician.
+<i>34</i>&nbsp;     */
+<i>35</i>&nbsp;    void setEmail(String email);
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    /**
+<i>38</i>&nbsp;     * Set the bank account number of the technician trying to register or edit.
+<i>39</i>&nbsp;     *
+<i>40</i>&nbsp;     * @param accountNumber The bank account number of the technician.
+<i>41</i>&nbsp;     */
+<i>42</i>&nbsp;    void setAccountNumber(String accountNumber);
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    /**
+<i>45</i>&nbsp;     * Set the AFM of the technician trying to register or edit.
+<i>46</i>&nbsp;     *
+<i>47</i>&nbsp;     * @param AFM The AFM of the technician.
+<i>48</i>&nbsp;     */
+<i>49</i>&nbsp;    void setAFM(String AFM);
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    /**
+<i>52</i>&nbsp;     * Set the username of the technician trying to register or edit.
+<i>53</i>&nbsp;     *
+<i>54</i>&nbsp;     * @param username The username of the technician.
+<i>55</i>&nbsp;     */
+<i>56</i>&nbsp;    void setUsername(String username);
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;    /**
+<i>59</i>&nbsp;     * Set the password of the technician trying to register or edit.
+<i>60</i>&nbsp;     *
+<i>61</i>&nbsp;     * @param password The password of the technician.
+<i>62</i>&nbsp;     */
+<i>63</i>&nbsp;    void setPassword(String password);
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;    /**
+<i>66</i>&nbsp;     * Set the speciality of the user trying to register or edit.
+<i>67</i>&nbsp;     *
+<i>68</i>&nbsp;     * @param specialityID The speciality id of the technician.
+<i>69</i>&nbsp;     */
+<i>70</i>&nbsp;    void setSpecialityID(int specialityID);
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    /**
+<i>73</i>&nbsp;     * Set the notification method of the user trying to register or edit.
+<i>74</i>&nbsp;     *
+<i>75</i>&nbsp;     * @param notificationMethodID The notification method id of the technician.
+<i>76</i>&nbsp;     */
+<i>77</i>&nbsp;    void setNotificationMethodID(int notificationMethodID);
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;    /**
+<i>80</i>&nbsp;     * Get the name of the technician trying to register or edit.
+<i>81</i>&nbsp;     *
+<i>82</i>&nbsp;     * @return The name of the technician trying to register or edit.
+<i>83</i>&nbsp;     */
+<i>84</i>&nbsp;    String getName();
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;    /**
+<i>87</i>&nbsp;     * Get the surname of the technician trying to register or edit.
+<i>88</i>&nbsp;     *
+<i>89</i>&nbsp;     * @return The surname of the technician trying to register or edit.
+<i>90</i>&nbsp;     */
+<i>91</i>&nbsp;    String getSurname();
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;    /**
+<i>94</i>&nbsp;     * Get the phone number of the technician trying to register or edit.
+<i>95</i>&nbsp;     *
+<i>96</i>&nbsp;     * @return The phone number of the technician trying to register or edit.
+<i>97</i>&nbsp;     */
+<i>98</i>&nbsp;    String getPhoneNumber();
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;    /**
+<i>101</i>&nbsp;     * Get the email of the technician trying to register or edit.
+<i>102</i>&nbsp;     *
+<i>103</i>&nbsp;     * @return The email of the technician trying to register or edit.
+<i>104</i>&nbsp;     */
+<i>105</i>&nbsp;    String getEmail();
+<i>106</i>&nbsp;
+<i>107</i>&nbsp;    /**
+<i>108</i>&nbsp;     * Get the bank account number of the technician trying to register or edit.
+<i>109</i>&nbsp;     *
+<i>110</i>&nbsp;     * @return The bank account number of the technician trying to register or edit.
+<i>111</i>&nbsp;     */
+<i>112</i>&nbsp;    String getAccountNumber();
+<i>113</i>&nbsp;
+<i>114</i>&nbsp;    /**
+<i>115</i>&nbsp;     * Get the AFM of the technician trying to register or edit.
+<i>116</i>&nbsp;     *
+<i>117</i>&nbsp;     * @return The AFM of the technician trying to register or edit.
+<i>118</i>&nbsp;     */
+<i>119</i>&nbsp;    String getAFM();
+<i>120</i>&nbsp;
+<i>121</i>&nbsp;    /**
+<i>122</i>&nbsp;     * Get the username of the technician trying to register or edit.
+<i>123</i>&nbsp;     *
+<i>124</i>&nbsp;     * @return The username of the technician trying to register or edit.
+<i>125</i>&nbsp;     */
+<i>126</i>&nbsp;    String getUsername();
+<i>127</i>&nbsp;
+<i>128</i>&nbsp;    /**
+<i>129</i>&nbsp;     * Get the password of the technician trying to register or edit.
+<i>130</i>&nbsp;     *
+<i>131</i>&nbsp;     * @return The password of the technician trying to register or edit.
+<i>132</i>&nbsp;     */
+<i>133</i>&nbsp;    String getPassword();
+<i>134</i>&nbsp;
+<i>135</i>&nbsp;    /**
+<i>136</i>&nbsp;     *  Get the speciality id of the technician trying to register or edit.
+<i>137</i>&nbsp;     *
+<i>138</i>&nbsp;     * @return The speciality id of the technician trying to register or edit.
+<i>139</i>&nbsp;     */
+<i>140</i>&nbsp;    Integer getSpecialityID();
+<i>141</i>&nbsp;
+<i>142</i>&nbsp;    /**
+<i>143</i>&nbsp;     *  Get the notification method id of the technician trying to register or edit.
+<i>144</i>&nbsp;     *
+<i>145</i>&nbsp;     * @return The notification method id of the technician trying to register or edit.
+<i>146</i>&nbsp;     */
+<i>147</i>&nbsp;    Integer getNotificationMethodID();
+<i>148</i>&nbsp;
+<i>149</i>&nbsp;    /**
+<i>150</i>&nbsp;     * Populate the list holding all available specialities.
+<i>151</i>&nbsp;     *
+<i>152</i>&nbsp;     * @param specialityList The list of specialities.
+<i>153</i>&nbsp;     * @param defaultName A default speciality placeholder.
+<i>154</i>&nbsp;     */
+<i>155</i>&nbsp;    void setSpecialityList(List&lt;String&gt; specialityList, String defaultName);
+<i>156</i>&nbsp;
+<i>157</i>&nbsp;    /**
+<i>158</i>&nbsp;     * Populate the list holding all available notification methods.
+<i>159</i>&nbsp;     *
+<i>160</i>&nbsp;     * @param notificationMethods The list of notification methods.
+<i>161</i>&nbsp;     * @param defaultName A default notification placeholder.
+<i>162</i>&nbsp;     */
+<i>163</i>&nbsp;    void setNotificationList(List&lt;String&gt; notificationMethods, String defaultName);
+<i>164</i>&nbsp;
+<i>165</i>&nbsp;    /**
+<i>166</i>&nbsp;     * Navigate a valid technician to the technician schedule page.
+<i>167</i>&nbsp;     *
+<i>168</i>&nbsp;     * @param id The technician&#39;s id.
+<i>169</i>&nbsp;     */
+<i>170</i>&nbsp;    void onSuccessfulRegister(Integer id);
+<i>171</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

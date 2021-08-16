@@ -1,0 +1,66 @@
+F	1.64	45	Jun	purple	64	3	0	35	dog
+F	1.68	78	Jan	purple	1	5	6.5	39	dog
+M	1.87	80	Jan	black	64	5.5	8	45	dog
+M	1.79	75	Sep	yellow	24	9.5	8.5	43	dog
+F	1.58	53	Mar	blue	77	3	6	38	cat
+F	1.61	56	May	blue	15	6.5	6	38	cat
+F	1.7	60	Sep	green	2	5.5	7.5	39	dog
+F	1.74	68	Feb	black	100			43	dog
+M	1.75	85	Jun	black	25	8	7	44	dog
+F	1.76	68	May	black	28	7	6	42	dog
+M	1.75	88	Aug	black	74	2	2	44	dog
+M	1.84	76	Dec	black	13	7	7	44	cat
+F	1.77	57	Apr	purple	68	6	6.5	39	dog
+F	1.71	60	Dec	blue	13	8	8.5	40	cat
+F	1.6	60	Aug	red	4	3	5.5	36	cat
+M	1.78	67	May	black	7	6	6	43	dog
+M	1.77	73	July	gray	1	7	8.5	42	dog
+M	1.79	80	Aug	orange	67	5	5	44	dog
+M	1.72	63	Dec	orange	69	10	10	42	dog
+F	1.68	60	Sep	purple	28	9.5	5.5	39	cat
+M	1.71	55	Mar	blue	7	7	9	42	dog
+F	1.68	57	Mar	black	28	5	5	39	dog
+F	1.7	75	Nov	blue	17	2	8	39.5	dog
+M	1.8	1.85	Aug	white	13	7.5		43	dog
+M	1.9	120	Aug	blue	56	5	5.5	49	rhino
+M	1.73	98	Nov	blue	67	6	6	43	dog
+M	1.76	71	Nov	black	37	5.5		44	cat
+M	1.76	60	Nov	blue	75	8	8	42	dog
+M	1.8	73	Nov	green	13	6	8	43	
+M	1.83	85	Sep	green	11	5.5	7	44	cat
+M	1.73	77.7	Aug	red	35	8	5	43	dog
+F	1.7	58	July	purple	4			39	cat
+M	1.87	80	Apr	white	55	5.5	5.5	45	parrot
+M	1.77	80	Mar	green	13	8	6.5	43	dog
+M	1.77	73	Oct	black	62	8	9.5	45.5	cat
+M	1.75	80	Dec	blue	16			43	cat
+F	1.67	60	Dec	blue	29	5.5	5.5	38	dog
+F	1.58	56	Dec	blue	56	8	10	37	dog
+F	1.76	65	Aug	blue	13	7	8	41	dog
+F	1.9	76	Aug	purple	12	10	10	43	cat
+M	1.88	73	Aug	blue	69	9.5	8	46	cat
+F	1.6	64	Aug	white	56	5.5	5	38	dog
+M	1.84	82	July	black	56	5.5	8	45	dog
+M	1.8	65	Feb	black	41	8.5	9.5	44	dog
+M	1.75	69	Nov	bordeaux	21	6	10	41.5	dog
+M	1.7	55	Oct	orange	34	9.5	9	41	dog
+M	1.8	65	Aug	red	26	10	7.5	42	dog
+M	1.81	75	Aug	yellow	53	6	6	43	parrot
+F	1.63	61	Jun	bordeaux	15	7.5	9.5	40	cat
+M	1.82	90	Jan	red	23	10	10	47	dog
+F	1.65	60	Feb	purple	45	6	8.5	38	dog
+M	1.85	90	Nov	black	67		7.5	46	dog
+M	1.88	85	Aug	black	7	10	9	44	dog
+M	1.85	74	Sep	orange	5	0	0	44	dog
+M	1.9	105	Jan	purple	44	5.5	5	49.5	dog
+F	1.64	44	Jun	white	94	3	0	35	dog
+M	1.8	70	May	blue	65	6.5		46.5	dog
+F	1.7	52	Aug	purple	23	5.5	8.5	39	dog
+M	1.83	93	Mar	black	61	8.5	6	45	dog
+M	1.78	66	May	purple	7			42	dog
+F	1.53	53	Jan	black	7	5.5	10	39	dog
+M	1.82	94	Oct	red	45	3	8	45	dog
+M	1.84	94	Jun	black	88	5	7	46	cat
+M	1.8	85	Jun	blue	55	5.5	5	43	dog
+M	1.71	74	Mar	blue	52	8.5	9	42	dog
+F	1.65	60	Jan	pink	8	9	9.5	39	dog

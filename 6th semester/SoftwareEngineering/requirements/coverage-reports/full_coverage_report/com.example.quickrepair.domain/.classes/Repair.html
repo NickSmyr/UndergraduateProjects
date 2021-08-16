@@ -1,0 +1,301 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Repair</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Repair (com.example.quickrepair.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Repair</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (19/ 19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (42/ 42)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.util.Calendar;
+<i>4</i>&nbsp;import java.util.Objects;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public class Repair
+<i>7</i>&nbsp;{
+<i>8</i>&nbsp;    private int uid;
+<i>9</i>&nbsp;    private double quantity;
+<i>10</i>&nbsp;    private Payment payment;
+<i>11</i>&nbsp;    private Evaluation evaluation;
+<i>12</i>&nbsp;    private RepairRequest repairRequest;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    /**
+<i>15</i>&nbsp;     * Default constructor
+<i>16</i>&nbsp;     */
+<i>17</i>&nbsp;    public Repair()
+<b class="fc"><i>18</i>&nbsp;    {</b>
+<b class="fc"><i>19</i>&nbsp;    }</b>
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    /**
+<i>22</i>&nbsp;     * Repair&#39;s constructor with quantity
+<i>23</i>&nbsp;     * technician is going to be paid later
+<i>24</i>&nbsp;     *
+<i>25</i>&nbsp;     * @param repairRequest Repair&#39;s request
+<i>26</i>&nbsp;     * @param quantity Job&#39;s quantity, this parameter is going to define the final cost, the type of the job define the meaning of this parameter
+<i>27</i>&nbsp;     */
+<i>28</i>&nbsp;    public Repair(RepairRequest repairRequest, double quantity)
+<b class="fc"><i>29</i>&nbsp;    {</b>
+<b class="fc"><i>30</i>&nbsp;        setRepairRequest(repairRequest);</b>
+<b class="fc"><i>31</i>&nbsp;        setQuantity(quantity);</b>
+<i>32</i>&nbsp;
+<b class="fc"><i>33</i>&nbsp;    }</b>
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    /**
+<i>36</i>&nbsp;     * Get the quantity of the repair.
+<i>37</i>&nbsp;     *
+<i>38</i>&nbsp;     * @return Repair&#39;s quantity
+<i>39</i>&nbsp;     */
+<i>40</i>&nbsp;    public double getQuantity()
+<i>41</i>&nbsp;    {
+<b class="fc"><i>42</i>&nbsp;        return quantity;</b>
+<i>43</i>&nbsp;    }
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    /**
+<i>46</i>&nbsp;     * set repair&#39;s quantity
+<i>47</i>&nbsp;     * only possitive and non zero quantity
+<i>48</i>&nbsp;     *
+<i>49</i>&nbsp;     * @param quantity customer&#39;s quantity
+<i>50</i>&nbsp;     */
+<i>51</i>&nbsp;    public void setQuantity(double quantity)
+<i>52</i>&nbsp;    {
+<b class="fc"><i>53</i>&nbsp;        if (quantity &lt;= 0) throw new IllegalArgumentException(&quot;non positive quantity&quot;);</b>
+<i>54</i>&nbsp;
+<b class="fc"><i>55</i>&nbsp;        if (repairRequest.getJob().getJobType().getMeasurementUnit() == MeasurementUnit.NONE)</b>
+<i>56</i>&nbsp;        {
+<b class="fc"><i>57</i>&nbsp;            if ((int) quantity != quantity) throw new IllegalArgumentException(&quot;for fixed price the quantity must be integer&quot;);</b>
+<i>58</i>&nbsp;        }
+<i>59</i>&nbsp;
+<b class="fc"><i>60</i>&nbsp;        this.quantity = quantity;</b>
+<b class="fc"><i>61</i>&nbsp;    }</b>
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;    /**
+<i>64</i>&nbsp;     * return repair&#39;s payment
+<i>65</i>&nbsp;     */
+<i>66</i>&nbsp;    public Payment getPayment()
+<i>67</i>&nbsp;    {
+<b class="fc"><i>68</i>&nbsp;        return payment;</b>
+<i>69</i>&nbsp;    }
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;    /**
+<i>72</i>&nbsp;     * set repair&#39;s payment
+<i>73</i>&nbsp;     *
+<i>74</i>&nbsp;     * @param payment customer&#39;s payment
+<i>75</i>&nbsp;     */
+<i>76</i>&nbsp;    private void setPayment(Payment payment)
+<i>77</i>&nbsp;    {
+<b class="fc"><i>78</i>&nbsp;        if (this.payment != null) throw new IllegalStateException(&quot;The repair already has a payment.&quot;);</b>
+<i>79</i>&nbsp;
+<b class="fc"><i>80</i>&nbsp;        this.payment = payment;</b>
+<b class="fc"><i>81</i>&nbsp;    }</b>
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;    //return repair&#39;s evaluation
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;    /**
+<i>86</i>&nbsp;     * return repair&#39;s evaluation
+<i>87</i>&nbsp;     */
+<i>88</i>&nbsp;    public Evaluation getEvaluation()
+<i>89</i>&nbsp;    {
+<b class="fc"><i>90</i>&nbsp;        return evaluation;</b>
+<i>91</i>&nbsp;    }
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;    /**
+<i>94</i>&nbsp;     * set repair&#39;s evaluation
+<i>95</i>&nbsp;     *
+<i>96</i>&nbsp;     * @param evaluation customer&#39;s evaluation
+<i>97</i>&nbsp;     */
+<i>98</i>&nbsp;    private void setEvaluation(Evaluation evaluation)
+<i>99</i>&nbsp;    {
+<i>100</i>&nbsp;
+<b class="fc"><i>101</i>&nbsp;        if (this.evaluation != null) throw new IllegalStateException(&quot;only one evaluation, can&#39;t reset it.&quot;);</b>
+<i>102</i>&nbsp;
+<b class="fc"><i>103</i>&nbsp;        this.evaluation = evaluation;</b>
+<b class="fc"><i>104</i>&nbsp;    }</b>
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;    /**
+<i>107</i>&nbsp;     * Checks if the repair has been evaluated
+<i>108</i>&nbsp;     *
+<i>109</i>&nbsp;     * @return true if it is evaluated
+<i>110</i>&nbsp;     */
+<i>111</i>&nbsp;    public boolean isEvaluated()
+<i>112</i>&nbsp;    {
+<b class="fc"><i>113</i>&nbsp;        return getEvaluation() != null;</b>
+<i>114</i>&nbsp;    }
+<i>115</i>&nbsp;
+<i>116</i>&nbsp;    /**
+<i>117</i>&nbsp;     * Checks if the repair has been marked as completed
+<i>118</i>&nbsp;     *
+<i>119</i>&nbsp;     * @return true if it is completed
+<i>120</i>&nbsp;     */
+<i>121</i>&nbsp;    public boolean isPaid()
+<i>122</i>&nbsp;    {
+<b class="fc"><i>123</i>&nbsp;        return getPayment() != null;</b>
+<i>124</i>&nbsp;    }
+<i>125</i>&nbsp;
+<i>126</i>&nbsp;    /**
+<i>127</i>&nbsp;     * @return repair request that was the cause of the repair
+<i>128</i>&nbsp;     */
+<i>129</i>&nbsp;    public RepairRequest getRepairRequest()
+<i>130</i>&nbsp;    {
+<b class="fc"><i>131</i>&nbsp;        return repairRequest;</b>
+<i>132</i>&nbsp;    }
+<i>133</i>&nbsp;
+<i>134</i>&nbsp;    /**
+<i>135</i>&nbsp;     * Sets the repair request of this object
+<i>136</i>&nbsp;     *
+<i>137</i>&nbsp;     * @param repairRequest
+<i>138</i>&nbsp;     */
+<i>139</i>&nbsp;    public void setRepairRequest(RepairRequest repairRequest)
+<i>140</i>&nbsp;    {
+<b class="fc"><i>141</i>&nbsp;        if (repairRequest == null) throw new NullPointerException(&quot;null repairRequest&quot;);</b>
+<i>142</i>&nbsp;
+<b class="fc"><i>143</i>&nbsp;        this.repairRequest = repairRequest;</b>
+<b class="fc"><i>144</i>&nbsp;    }</b>
+<i>145</i>&nbsp;
+<i>146</i>&nbsp;    /**
+<i>147</i>&nbsp;     * Get the repair UID.
+<i>148</i>&nbsp;     *
+<i>149</i>&nbsp;     * @return The repair UID.
+<i>150</i>&nbsp;     */
+<i>151</i>&nbsp;    public int getUid()
+<i>152</i>&nbsp;    {
+<b class="fc"><i>153</i>&nbsp;        return uid;</b>
+<i>154</i>&nbsp;    }
+<i>155</i>&nbsp;
+<i>156</i>&nbsp;    /**
+<i>157</i>&nbsp;     * Set the repair UID.
+<i>158</i>&nbsp;     *
+<i>159</i>&nbsp;     * @param uid The repair UID.
+<i>160</i>&nbsp;     */
+<i>161</i>&nbsp;    public void setUid(Integer uid)
+<i>162</i>&nbsp;    {
+<b class="fc"><i>163</i>&nbsp;        this.uid = uid;</b>
+<b class="fc"><i>164</i>&nbsp;    }</b>
+<i>165</i>&nbsp;
+<i>166</i>&nbsp;    /**
+<i>167</i>&nbsp;     * set evaluation
+<i>168</i>&nbsp;     *
+<i>169</i>&nbsp;     * @param title   evaluation&#39;s title
+<i>170</i>&nbsp;     * @param comment evaluation&#39;s comment
+<i>171</i>&nbsp;     * @param rate    evaluation&#39;s rate
+<i>172</i>&nbsp;     */
+<i>173</i>&nbsp;    public Evaluation evaluate(String title, String comment, int rate)
+<i>174</i>&nbsp;    {
+<b class="fc"><i>175</i>&nbsp;        Evaluation evaluation = new Evaluation(this, title, comment, rate);</b>
+<i>176</i>&nbsp;
+<b class="fc"><i>177</i>&nbsp;        setEvaluation(evaluation);</b>
+<i>178</i>&nbsp;
+<b class="fc"><i>179</i>&nbsp;        return evaluation;</b>
+<i>180</i>&nbsp;    }
+<i>181</i>&nbsp;
+<i>182</i>&nbsp;    /**
+<i>183</i>&nbsp;     * pay for repair
+<i>184</i>&nbsp;     *
+<i>185</i>&nbsp;     * @param date        payment&#39;s date
+<i>186</i>&nbsp;     * @param paymentType payment&#39;s type
+<i>187</i>&nbsp;     */
+<i>188</i>&nbsp;    public Payment pay(Calendar date, PaymentType paymentType)
+<i>189</i>&nbsp;    {
+<b class="fc"><i>190</i>&nbsp;        Payment payment = new Payment(this, date, paymentType);</b>
+<b class="fc"><i>191</i>&nbsp;        payment.setCost(calculateCost());</b>
+<b class="fc"><i>192</i>&nbsp;        setPayment(payment);</b>
+<b class="fc"><i>193</i>&nbsp;        return payment;</b>
+<i>194</i>&nbsp;    }
+<i>195</i>&nbsp;
+<i>196</i>&nbsp;    /**
+<i>197</i>&nbsp;     * calculate cost for this repair
+<i>198</i>&nbsp;     * @return repair&#39;s cost
+<i>199</i>&nbsp;     */
+<i>200</i>&nbsp;    public double calculateCost(){
+<b class="fc"><i>201</i>&nbsp;        return quantity * repairRequest.getJob().getPrice();</b>
+<i>202</i>&nbsp;    }
+<i>203</i>&nbsp;
+<i>204</i>&nbsp;    @Override
+<i>205</i>&nbsp;    public boolean equals(Object o)
+<i>206</i>&nbsp;    {
+<b class="fc"><i>207</i>&nbsp;        if (this == o) return true;</b>
+<b class="fc"><i>208</i>&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="fc"><i>209</i>&nbsp;        Repair repair = (Repair) o;</b>
+<b class="fc"><i>210</i>&nbsp;        return Double.compare(repair.quantity, quantity) == 0 &amp;&amp; Objects.equals(uid, repair.uid) &amp;&amp; Objects.equals(payment, repair.payment) &amp;&amp; Objects.equals(evaluation, repair.evaluation) &amp;&amp; Objects.equals(repairRequest, repair.repairRequest);</b>
+<i>211</i>&nbsp;    }
+<i>212</i>&nbsp;
+<i>213</i>&nbsp;    @Override
+<i>214</i>&nbsp;    public int hashCode()
+<i>215</i>&nbsp;    {
+<b class="fc"><i>216</i>&nbsp;        return Objects.hash(quantity, repairRequest);</b>
+<i>217</i>&nbsp;    }
+<i>218</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

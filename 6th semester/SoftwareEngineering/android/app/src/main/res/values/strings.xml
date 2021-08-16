@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Quick Repair</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="email">email@example.com</string>
+    <string name="phone_number">Phone number</string>
+    <string name="bank_account_number">Bank account number</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="search">Search</string>
+    <string name="register">Register</string>
+    <string name="registerCustomer">Register As Customer</string>
+    <string name="registerTechnician">Register As Technician</string>
+    <string name="login">Login</string>
+    <string name="unconfirmed">Unconfirmed</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="completed">Completed</string>
+
+    <string name="specialty">Specialty</string>
+    <string name="job_type">Job Type</string>
+    <string name="max_price">Maximum Price</string>
+    <string name="area">Area</string>
+    <string name="duration_hint">Please enter estimated duration(minutes)</string>
+    <string name="quantity_hint">Please enter quantity</string>
+    <string name="evaluation_hint">Please enter your evaluation</string>
+    <string name="title_hint">Please enter a title for your evaluation</string>
+    <string name="ok">OK</string>
+    <string name="add">Add</string>
+    <string name="finish">Finish</string>
+    <string name="next">Next</string>
+    <string name="price">Price</string>
+    <string name="average_rating">Average rating</string>
+    <string name="address">Address</string>
+    <string name="confirm">Confirm</string>
+    <string name="comments">Comments</string>
+    <string name="afm">AFM</string>
+    <string name="number">No.</string>
+    <string name="profile">Profile</string>
+    <string name="save">Save</string>
+</resources>

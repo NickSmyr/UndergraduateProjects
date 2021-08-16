@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.quickrepair">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".view.Technician.AddEditSchedule.AddEditScheduleActivity"></activity>
+        <activity android:name=".view.RequestRepair.RequestRepairActivity" />
+        <activity android:name=".view.Technician.AddEditJob.AddEditJobActivity" />
+        <activity android:name=".view.Technician.AddEditArea.AddEditAreaActivity" />
+        <activity android:name=".view.SearchTechnicians.SearchTechniciansActivity" />
+        <activity android:name=".view.User.LoginUser.LoginActivity" />
+        <activity
+            android:name=".view.Technician.RepairRequests.TechnicianRepairRequestsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.Technician.ShowCompletedRepairRequest.TechnicianCompletedRepairRequestActivity" />
+        <activity android:name=".view.Technician.ShowConfirmedRepairRequest.TechnicianConfirmedRepairRequestActivity" />
+        <activity android:name=".view.Technician.ShowUnconfirmedRepairRequest.TechnicianUnconfirmedRepairRequestActivity" />
+        <activity android:name=".view.Technician.RegisterTechnician.TechnicianRegisterActivity" />
+        <activity
+            android:name=".view.Customer.RepairRequests.CustomerRepairRequestsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.Customer.ShowCompletedRepairRequest.CustomerCompletedRepairRequestActivity" />
+        <activity android:name=".view.Customer.ShowConfirmedRepairRequest.CustomerConfirmedRepairRequestActivity" />
+        <activity android:name=".view.Customer.ShowUnconfirmedRepairRequest.CustomerUnconfirmedRepairRequestActivity" />
+        <activity android:name=".view.Customer.RegisterCustomer.CustomerRegisterActivity" />
+        <activity android:name=".view.HomePage.HomePageActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

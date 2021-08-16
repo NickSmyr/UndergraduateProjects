@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="el">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>e-Library</title>
+        </title>
+        <link rel="stylesheet" href="./stylesheet.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script src="./editScript.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1><a href="./index.html">e-Library</a></h1>
+            <a href="./favourites.html">Favourites</a>
+            
+        </header>
+        <main>
+            <form style="display: grid; grid-template-columns: 25% 75%;">
+                <label for="title">Title:</label>
+                <input id="title" name="title">
+                <label for="subtitle">Subtitle:</label>
+                <input id="subtitle" name = "subtitle">
+                <label for="author">Author:</label>
+                <input id="author" name="author">
+                <label for="comments">Comments:</label>
+                <input id="comments" name="comments">
+                <button id="submit" type='button'>Confirm Edits</button>
+                <div id="id" style="display:none"></div>
+
+            </form>       
+        </main>
+        <footer>
+    </body>
+</html>

@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <help_text>// Uncomment the following line to change the fontsize and font:
+fontsize=14
+fontfamily=SansSerif
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use +/- or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>215</x>
+      <y>75</y>
+      <w>395</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+User
+--
+_# &lt;&lt;Property&gt;&gt; username: String_
+# &lt;&lt;Property&gt;&gt;: password : String
+# &lt;&lt;Property&gt;&gt; name: String
+# &lt;&lt;Property&gt;&gt; surname: String
+# &lt;&lt;Property&gt;&gt; phoneNumber: String
+# &lt;&lt;Property&gt;&gt; email: String
+# &lt;&lt;Property&gt;&gt; bankAccount: String
+--
++setUserInfo(name:String, surname:String, phoneNumber:String,  email:String,bankAccount:String, username:String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>260</y>
+      <w>395</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Technician
+--
+# &lt;&lt;Property&gt;&gt;: AFM : String
+# areas: HashSet&lt;String&gt;
+# &lt;&lt;Property&gt;&gt; schedule: Integer[][]
+--
++addArea(area: String) : void
++addJob(jobType: JobType , price : double) : Job
++getAreas(): Set&lt;String&gt;
++getAvailableHourRanges(GregorianCalendar date) : ArrayList&lt;ArrayList&lt;GregorianCalendar&gt;&gt;
++getJobs() : Set&lt;Job&gt;
++isDayAvailable(day : int): boolean
++isNormallyAvailable(day : int , hourOfDay): boolean
++removeArea(area : String) : void
++removeJob(job : Job) : void
++servesArea(area: String): boolean
++setAvailableOnDay(day : int , hourStart : int , hourEnd : int) : void 
++setSpecialty(specialty : Specialty): void
++setTechnicianInfo(name:String, surname:String, phoneNumber:String,  email:String,bankAccount:String, username:String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>315</y>
+      <w>385</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Customer
+--
+
+--
++addRequest(repairRequest: RepairRequest): void
++getRequests(repairRequest: RepairRequest): Set&lt;RepairRequest&gt;
++requestRepair(dateNow : Calendar , date : Calendar , job : Job  , comments: String ,address : Address )
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>405</x>
+      <y>165</y>
+      <w>210</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;400.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>165</y>
+      <w>210</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>400.0;10.0;10.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>825</x>
+      <y>740</y>
+      <w>110</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Evaluation
+--
+# &lt;&lt;Propery&gt;&gt; title : String
+# &lt;&lt;Propery&gt;&gt; comment : String
+# &lt;&lt;Propery&gt;&gt; rate: int
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>740</y>
+      <w>235</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Repair
+--
+# &lt;&lt;Property&gt;&gt; evaluation : Evaluation
+# &lt;&lt;Property&gt;&gt; payment : Payment
+# &lt;&lt;Property&gt;&gt; quantity : double
+--
++evaluate(title : String , comment : String, rate : int) : Evaluation
++getRepairRequest() : RepairRequest
++isPaid() : boolean
++pay(date : Calendar , paymentType : PaymentType) : Payment
++setRepairRequest(repairRequest : RepairRequest) : RepairRequest
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1175</x>
+      <y>405</y>
+      <w>60</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+PaymentType
+--
+CARD
+CASH</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1095</x>
+      <y>95</y>
+      <w>150</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Specialty
+--
+# &lt;&lt;Property&gt;&gt; name: String
+--
++addJobType(jobType : JobType) : void
++getJobTypes() : Set&lt;JobType&gt;
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1145</x>
+      <y>465</y>
+      <w>90</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+Address
+--
+#streetName: String
+#number: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>75</y>
+      <w>190</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+JobType
+--
+# &lt;&lt;Property&gt;&gt; name: String
+# &lt;&lt;Property&gt;&gt; measurementUnit: MeasurementUnit
+--
++addJob(job : Job) : void
++getJobs() : Set&lt;Job&gt;
++getSpecialty() : Specialty
++getTechnicians() : Set&lt;Technician&gt;
++setSpecialty(specialty : Specialty) : void
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>165</y>
+      <w>200</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Job
+--
+# &lt;&lt;Property&gt;&gt; price : double
+--
++getJobType() : JobType
++getTechnician() : Technician
++setTechnician(technician : Technician) : void
++addRepairRequest(repairRequest : RepairReques) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>515</x>
+      <y>530</y>
+      <w>155</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+RepairRequest
+--
+# &lt;&lt;Property&gt;&gt; conductionDate: Calendar
+# &lt;&lt;Property&gt;&gt; creationDate: Calendar
+# &lt;&lt;Property&gt;&gt; address: Address
+# &lt;&lt;Property&gt;&gt; commentsFromCustomer : String
+# &lt;&lt;Property&gt;&gt; estimatedDuration : int
+# status : Status
+--
++complete(quantity : double) : Repair
++confirm(duration : estimatedDuration) : void
++getCustomer() : Customer
++getJob() : Job
++getRepair() : Repair
++isCompleted() : boolean
++isConfirmed() : boolean
++reject() : void
++setCustomer(customer : Customer) : void
++setJob(job : Job) : void
++setRepair(repair : Repair) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1175</x>
+      <y>240</y>
+      <w>60</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+Status
+--
+REJECTED
+CONFIRMED
+UNCONFIRMED
+COMPLETED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>185</x>
+      <y>740</y>
+      <w>145</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Payment
+--
+# &lt;&lt;Property&gt;&gt; date: Calendar
+# &lt;&lt;Property&gt;&gt; paymentType: PaymentType
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>185</x>
+      <y>375</y>
+      <w>340</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=1
+m2=0..n
+creates &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;330.0;660.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>585</x>
+      <y>690</y>
+      <w>70</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..1
+m2=1
+is completed by &gt;</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>875</x>
+      <y>95</y>
+      <w>230</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=0..n
+m2=1
+can be done by &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;440.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>150</y>
+      <w>130</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=0..n
+&lt; involves</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;240.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>225</y>
+      <w>170</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=1
+m2=0..n
+offers &gt;</panel_attributes>
+    <additional_attributes>10.0;90.0;300.0;90.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>145</y>
+      <w>335</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=0..n
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;320.0;650.0;320.0;650.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>665</x>
+      <y>225</y>
+      <w>345</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=0..n
+m2=1
+requests &gt;</panel_attributes>
+    <additional_attributes>10.0;630.0;670.0;630.0;670.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1175</x>
+      <y>315</y>
+      <w>60</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+MeasurementUnit
+--
+NONE
+METER
+SQR_METER
+INCH
+FOOT
+SQR_INCH
+SQR_FOOT</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>735</y>
+      <w>135</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=0..1
+m2=1
+is evaluated by &gt;</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>325</x>
+      <y>735</y>
+      <w>155</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=3
+m2=1
+&lt; is paid for by</panel_attributes>
+    <additional_attributes>10.0;20.0;290.0;20.0</additional_attributes>
+  </element>
+</diagram>

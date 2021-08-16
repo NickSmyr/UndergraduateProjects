@@ -1,0 +1,88 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CustomerDAO</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CustomerDAO (com.example.quickrepair.dao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">CustomerDAO</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.quickrepair.domain.Customer;
+<i>4</i>&nbsp;import com.example.quickrepair.domain.RepairRequest;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.List;
+<i>7</i>&nbsp;import java.util.Set;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public interface CustomerDAO {
+<i>10</i>&nbsp;    /**
+<i>11</i>&nbsp;     * Delete a customer
+<i>12</i>&nbsp;     * @param entity Customer
+<i>13</i>&nbsp;     */
+<i>14</i>&nbsp;    void delete(Customer entity);
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    /**
+<i>17</i>&nbsp;     * Save a customer
+<i>18</i>&nbsp;     * @param entity Customer
+<i>19</i>&nbsp;     */
+<i>20</i>&nbsp;    void save(Customer entity);
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    /**
+<i>23</i>&nbsp;     * Find a customer by id
+<i>24</i>&nbsp;     * @param customerID customer&#39;s id
+<i>25</i>&nbsp;     * @return Customer or null
+<i>26</i>&nbsp;     */
+<i>27</i>&nbsp;    Customer find(int customerID);
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    /**
+<i>30</i>&nbsp;     * Returns all customers
+<i>31</i>&nbsp;     * @return all Costumers
+<i>32</i>&nbsp;     */
+<i>33</i>&nbsp;    List&lt;Customer&gt; findAll();
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    /**
+<i>37</i>&nbsp;     * Return the next id for a Customer.
+<i>38</i>&nbsp;     * @return Customer&#39;s id
+<i>39</i>&nbsp;     */
+<i>40</i>&nbsp;    int nextId();
+<i>41</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

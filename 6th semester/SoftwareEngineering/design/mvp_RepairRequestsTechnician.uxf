@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>12</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>2136</x>
+      <y>360</y>
+      <w>168</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+repairRequestDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>588</x>
+      <y>780</y>
+      <w>264</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>TechnicianRepairRequestsActivity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1956</x>
+      <y>372</y>
+      <w>204</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;50.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>420</y>
+      <w>324</w>
+      <h>396</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;310.0;250.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1140</x>
+      <y>420</y>
+      <w>828</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>TechnicianRepairRequestsPresenter
+--
+repairRequests : ArrayList&lt;RepairRequest&gt;
+--
++setView(view : CustomerRepairRequestsView) : void
++clearView() : void
++setRepairRequestDAO(repairRequestDAO: repairRequestDAO) : void
++onEditDataPage() : void
++searchRepairRequests(technicianID : int, status : RepairRequest.Status) : ArrayList&lt;RepairRequest&gt;
++onRepairRequestSelectedCompleted(repairRequest : RepairRequest) : void 
++onRepairRequestSelectedCompleted(repairRequest : RepairRequest) : void
++onRepairRequestSelectedUnconfirmed(repairRequest: RepairRequest) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1044</x>
+      <y>324</y>
+      <w>120</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+
+&lt; has</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>336</y>
+      <w>1056</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+TechnicianRepairRequestsView
+--
+--
+returnRepairRequestUnconfirmed(repairRequestUid : int) : void
+returnRepairRequestConfirmed(repairRequestUid : int) : void
+returnRepairRequestCompleted(repairRequestUid : int) : void
+editData() : void
+showError(msg : String) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>492</x>
+      <y>492</y>
+      <w>264</w>
+      <h>312</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;240.0</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,263 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: RequestRepairActivity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.RequestRepair</a> ]
+</div>
+
+<h1>Coverage Summary for Class: RequestRepairActivity (com.example.quickrepair.view.RequestRepair)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RequestRepairActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 43)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">RequestRepairActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 48)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.RequestRepair;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import androidx.appcompat.app.AppCompatActivity;
+<i>4</i>&nbsp;import androidx.lifecycle.ViewModelProvider;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import android.content.Intent;
+<i>7</i>&nbsp;import android.os.Bundle;
+<i>8</i>&nbsp;import android.view.View;
+<i>9</i>&nbsp;import android.widget.ArrayAdapter;
+<i>10</i>&nbsp;import android.widget.Button;
+<i>11</i>&nbsp;import android.widget.EditText;
+<i>12</i>&nbsp;import android.widget.ListView;
+<i>13</i>&nbsp;import android.widget.NumberPicker;
+<i>14</i>&nbsp;import android.widget.TextView;
+<i>15</i>&nbsp;import android.widget.Toast;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;import com.example.quickrepair.R;
+<i>18</i>&nbsp;import com.example.quickrepair.dao.RepairRequestDAO;
+<i>19</i>&nbsp;import com.example.quickrepair.domain.RepairRequest;
+<i>20</i>&nbsp;import com.example.quickrepair.memorydao.RepairRequestDAOMemory;
+<i>21</i>&nbsp;import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;import java.util.List;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
+<i>26</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.DAY_EXTRA;
+<i>27</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.JOBTYPE_ID_EXTRA;
+<i>28</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.MONTH_EXTRA;
+<i>29</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
+<i>30</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.YEAR_EXTRA;
+<i>31</i>&nbsp;
+<b class="nc"><i>32</i>&nbsp;public class RequestRepairActivity extends AppCompatActivity implements RequestRepairView</b>
+<i>33</i>&nbsp;{
+<i>34</i>&nbsp;    RequestRepairViewModel viewModel;
+<i>35</i>&nbsp;    RequestRepairPresenter presenter;
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    //Parameters of the activity to be passed on startup
+<i>38</i>&nbsp;    int year;
+<i>39</i>&nbsp;    int month;
+<i>40</i>&nbsp;    int dayOfMonth;
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    int loggedInCustomerId;
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    int technicianId;
+<i>45</i>&nbsp;    int jobTypeId;
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    ListView timesList;
+<i>48</i>&nbsp;    EditText addressText;
+<i>49</i>&nbsp;    EditText commentsText;
+<i>50</i>&nbsp;    NumberPicker hourNumber;
+<i>51</i>&nbsp;    NumberPicker minuteNumber;
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    Button confirmButton;
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;    @Override
+<i>56</i>&nbsp;    protected void onCreate(Bundle savedInstanceState)
+<i>57</i>&nbsp;    {
+<b class="nc"><i>58</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>59</i>&nbsp;        setContentView(R.layout.activity_request_repair);</b>
+<b class="nc"><i>60</i>&nbsp;        viewModel = new ViewModelProvider(this).get(RequestRepairViewModel.class);</b>
+<b class="nc"><i>61</i>&nbsp;        presenter = viewModel.getPresenter();</b>
+<b class="nc"><i>62</i>&nbsp;        presenter.setView(this);</b>
+<i>63</i>&nbsp;        //Reading parameters from the intent that created the activity
+<i>64</i>&nbsp;
+<b class="nc"><i>65</i>&nbsp;        Intent intent = getIntent();</b>
+<b class="nc"><i>66</i>&nbsp;        year = intent.getIntExtra(YEAR_EXTRA , 0);</b>
+<b class="nc"><i>67</i>&nbsp;        month = intent.getIntExtra(MONTH_EXTRA , 0);</b>
+<b class="nc"><i>68</i>&nbsp;        dayOfMonth =  intent.getIntExtra(DAY_EXTRA , 0);</b>
+<b class="nc"><i>69</i>&nbsp;        loggedInCustomerId =  intent.getIntExtra(CUSTOMER_ID_EXTRA , 0);</b>
+<b class="nc"><i>70</i>&nbsp;        technicianId = intent.getIntExtra(TECHNICIAN_ID_EXTRA , 0);</b>
+<b class="nc"><i>71</i>&nbsp;        jobTypeId = intent.getIntExtra(JOBTYPE_ID_EXTRA , 0);</b>
+<i>72</i>&nbsp;
+<b class="nc"><i>73</i>&nbsp;        presenter.setDate(year, month, dayOfMonth);</b>
+<b class="nc"><i>74</i>&nbsp;        presenter.setLoggedInUser(loggedInCustomerId);</b>
+<b class="nc"><i>75</i>&nbsp;        presenter.setJobTypeId(jobTypeId);</b>
+<b class="nc"><i>76</i>&nbsp;        presenter.setTechnicianId(technicianId);</b>
+<i>77</i>&nbsp;
+<b class="nc"><i>78</i>&nbsp;        timesList = findViewById(R.id.times_list);</b>
+<b class="nc"><i>79</i>&nbsp;        addressText = findViewById(R.id.address);</b>
+<b class="nc"><i>80</i>&nbsp;        commentsText = findViewById(R.id.comments);</b>
+<b class="nc"><i>81</i>&nbsp;        hourNumber = findViewById(R.id.hour);</b>
+<b class="nc"><i>82</i>&nbsp;        minuteNumber = findViewById(R.id.minutes);</b>
+<b class="nc"><i>83</i>&nbsp;        hourNumber.setMaxValue(23);</b>
+<b class="nc"><i>84</i>&nbsp;        hourNumber.setMinValue(0);</b>
+<b class="nc"><i>85</i>&nbsp;        minuteNumber.setMaxValue(59);</b>
+<b class="nc"><i>86</i>&nbsp;        minuteNumber.setMinValue(0);</b>
+<i>87</i>&nbsp;
+<b class="nc"><i>88</i>&nbsp;        confirmButton = findViewById(R.id.confirm_button);</b>
+<b class="nc"><i>89</i>&nbsp;        confirmButton.setOnClickListener(new View.OnClickListener()</b>
+<b class="nc"><i>90</i>&nbsp;        {</b>
+<i>91</i>&nbsp;            @Override
+<i>92</i>&nbsp;            public void onClick(View v)
+<i>93</i>&nbsp;            {
+<b class="nc"><i>94</i>&nbsp;                presenter.setComments(commentsText.getText().toString());</b>
+<b class="nc"><i>95</i>&nbsp;                presenter.setTime(hourNumber.getValue(), minuteNumber.getValue());</b>
+<b class="nc"><i>96</i>&nbsp;                presenter.setAddress(addressText.getText().toString());</b>
+<b class="nc"><i>97</i>&nbsp;                presenter.requestRepair();</b>
+<i>98</i>&nbsp;            }
+<i>99</i>&nbsp;        });
+<i>100</i>&nbsp;
+<b class="nc"><i>101</i>&nbsp;        presenter.onStart();</b>
+<i>102</i>&nbsp;
+<i>103</i>&nbsp;    }
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;    @Override
+<i>106</i>&nbsp;    public void setTechnicianPhoneNumber(String text)
+<i>107</i>&nbsp;    {
+<b class="nc"><i>108</i>&nbsp;        ((TextView) findViewById(R.id.phone_number)).setText(text);</b>
+<i>109</i>&nbsp;    }
+<i>110</i>&nbsp;
+<i>111</i>&nbsp;    @Override
+<i>112</i>&nbsp;    public void setTechnicianName(String text)
+<i>113</i>&nbsp;    {
+<b class="nc"><i>114</i>&nbsp;        ((TextView) findViewById(R.id.technician_name)).setText(text);</b>
+<i>115</i>&nbsp;    }
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;    @Override
+<i>118</i>&nbsp;    public void setJobTypeName(String text)
+<i>119</i>&nbsp;    {
+<b class="nc"><i>120</i>&nbsp;        ((TextView) findViewById(R.id.job_type_name)).setText(text);</b>
+<i>121</i>&nbsp;    }
+<i>122</i>&nbsp;
+<i>123</i>&nbsp;    @Override
+<i>124</i>&nbsp;    public void showTimesAvailable(List&lt;String&gt; availableHours)
+<i>125</i>&nbsp;    {
+<b class="nc"><i>126</i>&nbsp;        ArrayAdapter&lt;String&gt; listAdapter = new ArrayAdapter&lt;&gt;(this, R.layout.support_simple_spinner_dropdown_item, availableHours);</b>
+<b class="nc"><i>127</i>&nbsp;        timesList.setAdapter(listAdapter);</b>
+<i>128</i>&nbsp;    }
+<i>129</i>&nbsp;
+<i>130</i>&nbsp;    @Override
+<i>131</i>&nbsp;    public void showError(String error)
+<i>132</i>&nbsp;    {
+<b class="nc"><i>133</i>&nbsp;        Toast.makeText(this, error, Toast.LENGTH_LONG).show();</b>
+<i>134</i>&nbsp;    }
+<i>135</i>&nbsp;
+<i>136</i>&nbsp;    public void submit()
+<i>137</i>&nbsp;    {
+<b class="nc"><i>138</i>&nbsp;        Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);</b>
+<b class="nc"><i>139</i>&nbsp;        intent.putExtra(CUSTOMER_ID_EXTRA, getIntent().getIntExtra(CUSTOMER_ID_EXTRA, 0));</b>
+<b class="nc"><i>140</i>&nbsp;        startActivity(intent);</b>
+<i>141</i>&nbsp;
+<b class="nc"><i>142</i>&nbsp;        finish();</b>
+<i>143</i>&nbsp;    }
+<i>144</i>&nbsp;
+<i>145</i>&nbsp;    @Override
+<i>146</i>&nbsp;    public void onBackPressed()
+<i>147</i>&nbsp;    {
+<b class="nc"><i>148</i>&nbsp;        Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);</b>
+<b class="nc"><i>149</i>&nbsp;        intent.putExtra(CUSTOMER_ID_EXTRA, getIntent().getIntExtra(CUSTOMER_ID_EXTRA, 0));</b>
+<b class="nc"><i>150</i>&nbsp;        startActivity(intent);</b>
+<i>151</i>&nbsp;
+<b class="nc"><i>152</i>&nbsp;        finish();</b>
+<i>153</i>&nbsp;    }
+<i>154</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SearchTechniciansView</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.SearchTechnicians</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SearchTechniciansView (com.example.quickrepair.view.SearchTechnicians)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">SearchTechniciansView</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.SearchTechnicians;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.util.List;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;public interface SearchTechniciansView {
+<i>6</i>&nbsp;    /**
+<i>7</i>&nbsp;     *  ????? ??? spinner ??? ????? ???????? ?? ??????????????
+<i>8</i>&nbsp;     * @param b enabled if true
+<i>9</i>&nbsp;     */
+<i>10</i>&nbsp;    public void setJobTypeSpinnerEnabled(boolean b);
+<i>11</i>&nbsp;    /**
+<i>12</i>&nbsp;     *  ??????? ??? ?????? ??????
+<i>13</i>&nbsp;     * @param errrorMessage the error message to show
+<i>14</i>&nbsp;     */
+<i>15</i>&nbsp;    public void showErrorMessage(String errrorMessage);
+<i>16</i>&nbsp;    /**
+<i>17</i>&nbsp;     *  ?????? ??? ??????????? ??? ??????? ?? ??????????? ???? spinner
+<i>18</i>&nbsp;     * @param specialtyIds  list of specialty ids
+<i>19</i>&nbsp;     * @param specialtyNames  list of specialty names
+<i>20</i>&nbsp;     */
+<i>21</i>&nbsp;    public void setSpecialtiesSource(List&lt;Integer&gt; specialtyIds , List&lt;String&gt; specialtyNames);
+<i>22</i>&nbsp;    /**
+<i>23</i>&nbsp;     *  ?????? ???? ?????? ???????? ??? ??????? ?? ??????????? ???? spinner
+<i>24</i>&nbsp;     * @param jobTypeIds  list of job type ids
+<i>25</i>&nbsp;     * @param jobTypeIds  list of job type names
+<i>26</i>&nbsp;     */
+<i>27</i>&nbsp;    public void setJobTypesSource(List&lt;Integer&gt; jobTypeIds , List&lt;String&gt; jobTypeNames);
+<i>28</i>&nbsp;    /**
+<i>29</i>&nbsp;     *  ?????? ??? ????? ??? ???????? ??? ??? ????? ?????? ?? ???????? ? ???????
+<i>30</i>&nbsp;     * @param areas list of areas
+<i>31</i>&nbsp;     */
+<i>32</i>&nbsp;    public void setAreasSource(List&lt;String&gt; areas);
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    /**
+<i>35</i>&nbsp;     *  ??????? ??? ????? ?? ?????????
+<i>36</i>&nbsp;     *  @param technicianIds  list of technician ids
+<i>37</i>&nbsp;     *  @param technicianNames  list of technician names
+<i>38</i>&nbsp;     *  @param averageRatings list of technician ratings
+<i>39</i>&nbsp;     *  @param averageRatings list of technician prices
+<i>40</i>&nbsp;     */
+<i>41</i>&nbsp;    public void populateTechnicianList(List&lt;Integer&gt; technicianIds ,  List&lt;String&gt; technicianNames
+<i>42</i>&nbsp;                                       , List&lt;Double&gt; averageRatings , List&lt;Double&gt; prices);
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    /**
+<i>45</i>&nbsp;     * ????????? ???? ????????? ?????? ?????????? ????????
+<i>46</i>&nbsp;     * @param technicianId the technician id
+<i>47</i>&nbsp;     * @param jobTypeId the job type id
+<i>48</i>&nbsp;     * @param year the year
+<i>49</i>&nbsp;     * @param month the month
+<i>50</i>&nbsp;     * @param dayOfMonth the day of the month
+<i>51</i>&nbsp;     */
+<i>52</i>&nbsp;    public void navigateToRequestRepair(int technicianId , int jobTypeId , int year , int month , int dayOfMonth);
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    /**
+<i>55</i>&nbsp;     * ???????? ??? ?????? ???? ????? ??? login.
+<i>56</i>&nbsp;     * @param technicianId the technician id
+<i>57</i>&nbsp;     * @param jobTypeId the job type id
+<i>58</i>&nbsp;     * @param year the year
+<i>59</i>&nbsp;     * @param month the month
+<i>60</i>&nbsp;     * @param dayOfMonth the day of the month
+<i>61</i>&nbsp;     */
+<i>62</i>&nbsp;    public void navigateToLogin(int technicianId, int jobTypeId, int year, int month, int dayOfMonth);
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

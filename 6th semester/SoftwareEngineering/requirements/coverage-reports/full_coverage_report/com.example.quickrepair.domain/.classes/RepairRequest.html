@@ -1,0 +1,478 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: RepairRequest</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: RepairRequest (com.example.quickrepair.domain)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RepairRequest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (31/ 31)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (87/ 87)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">RepairRequest$Status</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/ 5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (33/ 33)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (92/ 92)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import java.util.GregorianCalendar;
+<i>5</i>&nbsp;import java.util.Objects;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;public class RepairRequest implements Comparable&lt;RepairRequest&gt;
+<i>8</i>&nbsp;{
+<b class="fc"><i>9</i>&nbsp;    public enum Status</b>
+<i>10</i>&nbsp;    {
+<b class="fc"><i>11</i>&nbsp;        REJECTED,</b>
+<b class="fc"><i>12</i>&nbsp;        CONFIRMED,</b>
+<b class="fc"><i>13</i>&nbsp;        UNCONFIRMED,</b>
+<b class="fc"><i>14</i>&nbsp;        COMPLETED</b>
+<i>15</i>&nbsp;    }
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    private int uid;
+<i>18</i>&nbsp;    private Customer customer;
+<i>19</i>&nbsp;    private Job job;
+<i>20</i>&nbsp;    private GregorianCalendar creationDate;
+<i>21</i>&nbsp;    private GregorianCalendar conductionDate;
+<i>22</i>&nbsp;    private Address address;
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    private Status status;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    private String commentsFromCustomer;
+<i>27</i>&nbsp;    private int estimatedDuration;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    private Repair repair;
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    //constructors
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    /**
+<i>34</i>&nbsp;     * Default constructor.
+<i>35</i>&nbsp;     */
+<i>36</i>&nbsp;    public RepairRequest()
+<b class="fc"><i>37</i>&nbsp;    {</b>
+<b class="fc"><i>38</i>&nbsp;        status = Status.UNCONFIRMED;</b>
+<b class="fc"><i>39</i>&nbsp;    }</b>
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    /*
+<i>42</i>&nbsp;     * Constructor when the Repair Request initialize from Costumer
+<i>43</i>&nbsp;     */
+<i>44</i>&nbsp;    public RepairRequest(Customer customer, Job job, GregorianCalendar creationDate, GregorianCalendar conductionDate, Address address, String commentsFromCustomer)
+<b class="fc"><i>45</i>&nbsp;    {</b>
+<b class="fc"><i>46</i>&nbsp;        setCustomer(customer);</b>
+<b class="fc"><i>47</i>&nbsp;        setJob(job);</b>
+<b class="fc"><i>48</i>&nbsp;        setCreationDate(creationDate);</b>
+<b class="fc"><i>49</i>&nbsp;        setConductionDate(conductionDate);</b>
+<b class="fc"><i>50</i>&nbsp;        setAddress(address);</b>
+<b class="fc"><i>51</i>&nbsp;        setCommentsFromCustomer(commentsFromCustomer);</b>
+<b class="fc"><i>52</i>&nbsp;        status = Status.UNCONFIRMED;</b>
+<b class="fc"><i>53</i>&nbsp;    }</b>
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;    /**
+<i>56</i>&nbsp;     * set conduction date
+<i>57</i>&nbsp;     * @param conductionDate conduction date
+<i>58</i>&nbsp;     */
+<i>59</i>&nbsp;    public void setConductionDate(GregorianCalendar conductionDate)
+<i>60</i>&nbsp;    {
+<b class="fc"><i>61</i>&nbsp;        if (conductionDate == null)</b>
+<i>62</i>&nbsp;        {
+<b class="fc"><i>63</i>&nbsp;            throw new IllegalArgumentException(&quot;Null conductionDate&quot;);</b>
+<i>64</i>&nbsp;        }
+<i>65</i>&nbsp;
+<b class="fc"><i>66</i>&nbsp;        this.conductionDate = conductionDate;</b>
+<b class="fc"><i>67</i>&nbsp;    }</b>
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;    /**
+<i>70</i>&nbsp;     *  set creation date
+<i>71</i>&nbsp;     * @param creationDate creation date
+<i>72</i>&nbsp;     */
+<i>73</i>&nbsp;    public void setCreationDate(GregorianCalendar creationDate)
+<i>74</i>&nbsp;    {
+<b class="fc"><i>75</i>&nbsp;        if (creationDate == null)</b>
+<i>76</i>&nbsp;        {
+<b class="fc"><i>77</i>&nbsp;            throw new IllegalArgumentException(&quot;Null creationDate&quot;);</b>
+<i>78</i>&nbsp;        }
+<i>79</i>&nbsp;
+<b class="fc"><i>80</i>&nbsp;        this.creationDate = creationDate;</b>
+<b class="fc"><i>81</i>&nbsp;    }</b>
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;    /**
+<i>84</i>&nbsp;     * set address
+<i>85</i>&nbsp;     * @param address repairRequest&#39;s address
+<i>86</i>&nbsp;     */
+<i>87</i>&nbsp;    public void setAddress(Address address)
+<i>88</i>&nbsp;    {
+<b class="fc"><i>89</i>&nbsp;        if (address == null)</b>
+<i>90</i>&nbsp;        {
+<b class="fc"><i>91</i>&nbsp;            throw new IllegalArgumentException(&quot;Null address&quot;);</b>
+<i>92</i>&nbsp;        }
+<i>93</i>&nbsp;
+<b class="fc"><i>94</i>&nbsp;        this.address = address;</b>
+<b class="fc"><i>95</i>&nbsp;    }</b>
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;    /**
+<i>98</i>&nbsp;     * set customer
+<i>99</i>&nbsp;     * @param customer repair request&#39;s Customer
+<i>100</i>&nbsp;     */
+<i>101</i>&nbsp;    public void setCustomer(Customer customer)
+<i>102</i>&nbsp;    {
+<b class="fc"><i>103</i>&nbsp;        if (customer == null)</b>
+<i>104</i>&nbsp;        {
+<b class="fc"><i>105</i>&nbsp;            throw new IllegalArgumentException(&quot;Null customer&quot;);</b>
+<i>106</i>&nbsp;        }
+<i>107</i>&nbsp;
+<b class="fc"><i>108</i>&nbsp;        this.customer = customer;</b>
+<b class="fc"><i>109</i>&nbsp;    }</b>
+<i>110</i>&nbsp;
+<i>111</i>&nbsp;    /**
+<i>112</i>&nbsp;     * set repair
+<i>113</i>&nbsp;     * @param repair Repair for this RepairRequest
+<i>114</i>&nbsp;     */
+<i>115</i>&nbsp;    public void setRepair(Repair repair)
+<i>116</i>&nbsp;    {
+<b class="fc"><i>117</i>&nbsp;        if (repair == null)</b>
+<i>118</i>&nbsp;        {
+<b class="fc"><i>119</i>&nbsp;            throw new IllegalArgumentException(&quot;Null repair&quot;);</b>
+<i>120</i>&nbsp;        }
+<i>121</i>&nbsp;
+<b class="fc"><i>122</i>&nbsp;        this.repair = repair;</b>
+<b class="fc"><i>123</i>&nbsp;    }</b>
+<i>124</i>&nbsp;
+<i>125</i>&nbsp;    /**
+<i>126</i>&nbsp;     * set job
+<i>127</i>&nbsp;     * @param job Job for this RepairRequest
+<i>128</i>&nbsp;     */
+<i>129</i>&nbsp;    public void setJob(Job job)
+<i>130</i>&nbsp;    {
+<b class="fc"><i>131</i>&nbsp;        if (job == null)</b>
+<i>132</i>&nbsp;        {
+<b class="fc"><i>133</i>&nbsp;            throw new IllegalArgumentException(&quot;Null job&quot;);</b>
+<i>134</i>&nbsp;        }
+<i>135</i>&nbsp;
+<b class="fc"><i>136</i>&nbsp;        this.job = job;</b>
+<b class="fc"><i>137</i>&nbsp;    }</b>
+<i>138</i>&nbsp;
+<i>139</i>&nbsp;    /**
+<i>140</i>&nbsp;     * set comments from customer
+<i>141</i>&nbsp;     * @param commentsFromCustomer Customer&#39;s comments
+<i>142</i>&nbsp;     */
+<i>143</i>&nbsp;    public void setCommentsFromCustomer(String commentsFromCustomer)
+<i>144</i>&nbsp;    {
+<b class="fc"><i>145</i>&nbsp;        if (commentsFromCustomer == null) throw new NullPointerException(&quot;Null commentsFromCustomer&quot;);</b>
+<i>146</i>&nbsp;
+<b class="fc"><i>147</i>&nbsp;        this.commentsFromCustomer = commentsFromCustomer;</b>
+<b class="fc"><i>148</i>&nbsp;    }</b>
+<i>149</i>&nbsp;
+<i>150</i>&nbsp;    /**
+<i>151</i>&nbsp;     * set estimated duration
+<i>152</i>&nbsp;     * @param estimatedDuration estimated duration for repair
+<i>153</i>&nbsp;     */
+<i>154</i>&nbsp;    public void setEstimatedDuration(int estimatedDuration)
+<i>155</i>&nbsp;    {
+<b class="fc"><i>156</i>&nbsp;        if (estimatedDuration &lt;= 0) throw new NumberFormatException(&quot;Duration can not be negative or zero.&quot;);</b>
+<i>157</i>&nbsp;
+<b class="fc"><i>158</i>&nbsp;        this.estimatedDuration = estimatedDuration;</b>
+<b class="fc"><i>159</i>&nbsp;    }</b>
+<i>160</i>&nbsp;
+<i>161</i>&nbsp;    /**
+<i>162</i>&nbsp;     * Get the repair request status.
+<i>163</i>&nbsp;     *
+<i>164</i>&nbsp;     * @return The repair request status.
+<i>165</i>&nbsp;     */
+<i>166</i>&nbsp;    public Status getStatus()
+<i>167</i>&nbsp;    {
+<b class="fc"><i>168</i>&nbsp;        return status;</b>
+<i>169</i>&nbsp;    }
+<i>170</i>&nbsp;
+<i>171</i>&nbsp;    /**
+<i>172</i>&nbsp;     * Get the repair request UID.
+<i>173</i>&nbsp;     *
+<i>174</i>&nbsp;     * @return The repair request UID.
+<i>175</i>&nbsp;     */
+<i>176</i>&nbsp;    public int getUid()
+<i>177</i>&nbsp;    {
+<b class="fc"><i>178</i>&nbsp;        return uid;</b>
+<i>179</i>&nbsp;    }
+<i>180</i>&nbsp;
+<i>181</i>&nbsp;    /**
+<i>182</i>&nbsp;     * Set the repair request UID.
+<i>183</i>&nbsp;     *
+<i>184</i>&nbsp;     * @param uid The repair request UID.
+<i>185</i>&nbsp;     */
+<i>186</i>&nbsp;    public void setUid(int uid)
+<i>187</i>&nbsp;    {
+<b class="fc"><i>188</i>&nbsp;        this.uid = uid;</b>
+<b class="fc"><i>189</i>&nbsp;    }</b>
+<i>190</i>&nbsp;
+<i>191</i>&nbsp;    /**
+<i>192</i>&nbsp;     * get creation date
+<i>193</i>&nbsp;     * @return creationDate
+<i>194</i>&nbsp;     */
+<i>195</i>&nbsp;    public GregorianCalendar getCreationDate()
+<i>196</i>&nbsp;    {
+<b class="fc"><i>197</i>&nbsp;        return (GregorianCalendar) creationDate.clone();</b>
+<i>198</i>&nbsp;    }
+<i>199</i>&nbsp;
+<i>200</i>&nbsp;    /**
+<i>201</i>&nbsp;     * get conduction date
+<i>202</i>&nbsp;     * @return conductionDate
+<i>203</i>&nbsp;     */
+<i>204</i>&nbsp;    public GregorianCalendar getConductionDate()
+<i>205</i>&nbsp;    {
+<b class="fc"><i>206</i>&nbsp;        return (GregorianCalendar) conductionDate.clone();</b>
+<i>207</i>&nbsp;    }
+<i>208</i>&nbsp;
+<i>209</i>&nbsp;    /**
+<i>210</i>&nbsp;     * get address
+<i>211</i>&nbsp;     * @return address
+<i>212</i>&nbsp;     */
+<i>213</i>&nbsp;    public Address getAddress()
+<i>214</i>&nbsp;    {
+<b class="fc"><i>215</i>&nbsp;        return address;</b>
+<i>216</i>&nbsp;    }
+<i>217</i>&nbsp;
+<i>218</i>&nbsp;    /**
+<i>219</i>&nbsp;     * return repair
+<i>220</i>&nbsp;     * @return Repair
+<i>221</i>&nbsp;     */
+<i>222</i>&nbsp;    public Repair getRepair()
+<i>223</i>&nbsp;    {
+<b class="fc"><i>224</i>&nbsp;        return repair;</b>
+<i>225</i>&nbsp;    }
+<i>226</i>&nbsp;
+<i>227</i>&nbsp;    /**
+<i>228</i>&nbsp;     * return customer
+<i>229</i>&nbsp;     * @return Customer
+<i>230</i>&nbsp;     */
+<i>231</i>&nbsp;    public Customer getCustomer()
+<i>232</i>&nbsp;    {
+<b class="fc"><i>233</i>&nbsp;        return customer;</b>
+<i>234</i>&nbsp;    }
+<i>235</i>&nbsp;
+<i>236</i>&nbsp;    /**
+<i>237</i>&nbsp;     * return comments from customer
+<i>238</i>&nbsp;     * @return Customer&#39;s comments
+<i>239</i>&nbsp;     */
+<i>240</i>&nbsp;    public String getCommentsFromCustomer()
+<i>241</i>&nbsp;    {
+<b class="fc"><i>242</i>&nbsp;        return commentsFromCustomer;</b>
+<i>243</i>&nbsp;    }
+<i>244</i>&nbsp;
+<i>245</i>&nbsp;    /**
+<i>246</i>&nbsp;     * get duration
+<i>247</i>&nbsp;     * @return estimatedDuration
+<i>248</i>&nbsp;     */
+<i>249</i>&nbsp;    public int getEstimatedDuration()
+<i>250</i>&nbsp;    {
+<b class="fc"><i>251</i>&nbsp;        return estimatedDuration;</b>
+<i>252</i>&nbsp;    }
+<i>253</i>&nbsp;
+<i>254</i>&nbsp;    /**
+<i>255</i>&nbsp;     * return job
+<i>256</i>&nbsp;     * @return Job
+<i>257</i>&nbsp;     */
+<i>258</i>&nbsp;    public Job getJob()
+<i>259</i>&nbsp;    {
+<b class="fc"><i>260</i>&nbsp;        return job;</b>
+<i>261</i>&nbsp;    }
+<i>262</i>&nbsp;
+<i>263</i>&nbsp;    /**
+<i>264</i>&nbsp;     * check if a repair request is confirmed
+<i>265</i>&nbsp;     * @return true if a repair request is confirmed, else false
+<i>266</i>&nbsp;     */
+<i>267</i>&nbsp;    public boolean isConfirmed()
+<i>268</i>&nbsp;    {
+<b class="fc"><i>269</i>&nbsp;        return this.status == Status.CONFIRMED || this.status == Status.COMPLETED;</b>
+<i>270</i>&nbsp;    }
+<i>271</i>&nbsp;
+<i>272</i>&nbsp;    /**
+<i>273</i>&nbsp;     * check if a repair request is completed
+<i>274</i>&nbsp;     * @return true if a repair request is completed, else false
+<i>275</i>&nbsp;     */
+<i>276</i>&nbsp;    public boolean isCompleted()
+<i>277</i>&nbsp;    {
+<b class="fc"><i>278</i>&nbsp;        return this.status == Status.COMPLETED;</b>
+<i>279</i>&nbsp;    }
+<i>280</i>&nbsp;
+<i>281</i>&nbsp;    /**
+<i>282</i>&nbsp;     * check if a repair request is unconfirmed
+<i>283</i>&nbsp;     * @return true if a repair request is unconfirmed, else false
+<i>284</i>&nbsp;     */
+<i>285</i>&nbsp;    public boolean isUnconfirmed()
+<i>286</i>&nbsp;    {
+<b class="fc"><i>287</i>&nbsp;        return this.status == Status.UNCONFIRMED;</b>
+<i>288</i>&nbsp;    }
+<i>289</i>&nbsp;
+<i>290</i>&nbsp;    /**
+<i>291</i>&nbsp;     * check if a repair request is rejected
+<i>292</i>&nbsp;     * @return true if a repair request is rejected, else false
+<i>293</i>&nbsp;     */
+<i>294</i>&nbsp;    public boolean isRejected()
+<i>295</i>&nbsp;    {
+<b class="fc"><i>296</i>&nbsp;        return this.status == Status.REJECTED;</b>
+<i>297</i>&nbsp;    }
+<i>298</i>&nbsp;
+<i>299</i>&nbsp;    /**
+<i>300</i>&nbsp;     * Technician can confirm a repair request and add estimated duration
+<i>301</i>&nbsp;     * @param estimatedDuration how long will last this repair request
+<i>302</i>&nbsp;     */
+<i>303</i>&nbsp;    public void confirm(int estimatedDuration)
+<i>304</i>&nbsp;    {
+<b class="fc"><i>305</i>&nbsp;        if (this.status == Status.CONFIRMED)</b>
+<b class="fc"><i>306</i>&nbsp;            throw new IllegalStateException(&quot;Repair request is already confirmed.&quot;);</b>
+<i>307</i>&nbsp;
+<b class="fc"><i>308</i>&nbsp;        this.status = Status.CONFIRMED;</b>
+<b class="fc"><i>309</i>&nbsp;        setEstimatedDuration(estimatedDuration);</b>
+<b class="fc"><i>310</i>&nbsp;    }</b>
+<i>311</i>&nbsp;
+<i>312</i>&nbsp;    /**
+<i>313</i>&nbsp;     * Technician can reject a repair request
+<i>314</i>&nbsp;     */
+<i>315</i>&nbsp;    public void reject()
+<i>316</i>&nbsp;    {
+<b class="fc"><i>317</i>&nbsp;        if (this.status == Status.REJECTED)</b>
+<b class="fc"><i>318</i>&nbsp;            throw new IllegalStateException(&quot;Repair request is already rejected.&quot;);</b>
+<i>319</i>&nbsp;
+<b class="fc"><i>320</i>&nbsp;        this.status = Status.REJECTED;</b>
+<b class="fc"><i>321</i>&nbsp;    }</b>
+<i>322</i>&nbsp;
+<i>323</i>&nbsp;    /**
+<i>324</i>&nbsp;     * set RepairRequest as completed and create Repair for this RepairRequest
+<i>325</i>&nbsp;     * @param quantity Repair&#39;s quantity
+<i>326</i>&nbsp;     * @return  Repair for this RepairRequest
+<i>327</i>&nbsp;     */
+<i>328</i>&nbsp;    public Repair complete(double quantity)
+<i>329</i>&nbsp;    {
+<b class="fc"><i>330</i>&nbsp;        if (this.status == Status.UNCONFIRMED)</b>
+<b class="fc"><i>331</i>&nbsp;            throw new IllegalStateException(&quot;Repair request is not confirmed.&quot;);</b>
+<i>332</i>&nbsp;
+<b class="fc"><i>333</i>&nbsp;        if (isCompleted()) throw new IllegalStateException(&quot;Repair request is already completed.&quot;);</b>
+<b class="fc"><i>334</i>&nbsp;        this.status = Status.COMPLETED;</b>
+<b class="fc"><i>335</i>&nbsp;        Repair repair = new Repair(this, quantity);</b>
+<b class="fc"><i>336</i>&nbsp;        setRepair(repair);</b>
+<i>337</i>&nbsp;
+<b class="fc"><i>338</i>&nbsp;        return repair;</b>
+<i>339</i>&nbsp;    }
+<i>340</i>&nbsp;
+<i>341</i>&nbsp;    @Override
+<i>342</i>&nbsp;    public int compareTo(RepairRequest o)
+<i>343</i>&nbsp;    {
+<b class="fc"><i>344</i>&nbsp;        return conductionDate.compareTo(o.conductionDate);</b>
+<i>345</i>&nbsp;    }
+<i>346</i>&nbsp;
+<i>347</i>&nbsp;    @Override
+<i>348</i>&nbsp;    public boolean equals(Object o)
+<i>349</i>&nbsp;    {
+<b class="fc"><i>350</i>&nbsp;        if (this == o) return true;</b>
+<b class="fc"><i>351</i>&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="fc"><i>352</i>&nbsp;        RepairRequest that = (RepairRequest) o;</b>
+<b class="fc"><i>353</i>&nbsp;        return estimatedDuration == that.estimatedDuration &amp;&amp;</b>
+<b class="fc"><i>354</i>&nbsp;                Objects.equals(customer, that.customer) &amp;&amp;</b>
+<b class="fc"><i>355</i>&nbsp;                Objects.equals(job, that.job) &amp;&amp;</b>
+<b class="fc"><i>356</i>&nbsp;                Objects.equals(creationDate, that.creationDate) &amp;&amp;</b>
+<b class="fc"><i>357</i>&nbsp;                Objects.equals(conductionDate, that.conductionDate) &amp;&amp;</b>
+<b class="fc"><i>358</i>&nbsp;                Objects.equals(address, that.address) &amp;&amp;</b>
+<i>359</i>&nbsp;                status == that.status &amp;&amp;
+<b class="fc"><i>360</i>&nbsp;                Objects.equals(commentsFromCustomer, that.commentsFromCustomer) &amp;&amp;</b>
+<b class="fc"><i>361</i>&nbsp;                Objects.equals(repair, that.repair);</b>
+<i>362</i>&nbsp;    }
+<i>363</i>&nbsp;
+<i>364</i>&nbsp;    @Override
+<i>365</i>&nbsp;    public int hashCode()
+<i>366</i>&nbsp;    {
+<b class="fc"><i>367</i>&nbsp;        return Objects.hash(creationDate, conductionDate, address, status, commentsFromCustomer, estimatedDuration);</b>
+<i>368</i>&nbsp;    }
+<i>369</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+// format = TeacherID TeacherName Hours/day hours/week lessonId(s)
+00 anthropistikos 3 15 01 07 23 29
+01 mathimatikos 5 25 02 13 24
+02 viologos 6 22 05 16 27
+03 germanikos 2 10 08 19 30
+//exei computer science kai geography
+04 dieuthinthis 1 5 06 09 17 20 28 31
+05 kallitexnis 3 15 10 21 32
+06 physikos 4 20 3 25
+07 agglikos 5 25 0 22
+08 xhmikos 4 20 4 26
+09 proffesorJ 2 10 09
+10 proffesorK 2 10 10 90 50
+11 proffesorL 3 15 11
+12 proffesorM 3 15 12
+13 proffesorN 3 15 13
+14 proffesorO 3 15 14
+15 proffesorP 2 10 15
+16 proffesorQ 5 25 16
+17 proffesorR 5 25 17
+18 proffesorS 5 25 18
+19 proffesorT 2 10 19
+20 proffesorU 5 25 20
+//extra bros
+21 anthropistikos2 3 15 01 07 23 29
+22 mathimatikos2 5 25 02 13 24
+23 viologos2 6 22 05 16 27
+24 germanikos2 2 10 08 19 30
+//exei computer science kai geography
+25 dieuthinthis2 1 5 06 09 17 20 28 31
+26 kallitexnis2 3 15 10 21 32
+27 physikos2 4 20 3 25
+28 agglikos2 5 25 0 22
+29 xhmikos2 4 20 4 26
+//extra  extra bros
+30 anthropistikos3 3 15 01 07 23 29
+31 mathimatikos3 5 25 02 13 24
+32 viologos3 6 22 05 16 27
+33 germanikos3 2 10 08 19 30
+//exei computer science kai geography
+34 dieuthinthis3 1 5 06 09 17 20 28 31
+35 kallitexnis3 3 15 10 21 32
+36 physikos3 4 20 3 25
+37 agglikos3 5 25 0 22
+38 xhmikos3 4 20 4 26
+// stuck at 123 heuristic value
+39 anthropistikos4 3 15 01 07 23 29
+40 mathimatikos4 5 25 02 13 24
+41 viologos4 6 22 05 16 27
+42 germanikos4 2 10 08 19 30
+//exei computer science kai geography
+43 dieuthinthis4 1 5 06 09 17 20 28 31
+44 kallitexnis4 3 15 10 21 32
+45 physikos4 4 20 3 25
+46 agglikos4 5 25 0 22
+47 xhmikos4 4 20 4 26
+//EVEN EVEN MORE BROS
+48 anthropistikos5 3 15 01 07 23 29
+49 mathimatikos5 5 25 02 13 24
+50 viologos5 6 22 05 16 27
+51 germanikos5 2 10 08 19 30
+//exei computer science kai geography
+52 dieuthinthis5 1 5 06 09 17 20 28 31
+53 kallitexnis5 3 15 10 21 32
+54 physikos5 4 20 3 25
+55 agglikos5 5 25 0 22
+56 xhmikos5 4 20 4 26
+// stuck at 123 heuristic value
+57 anthropistikos6 3 15 01 07 23 29
+58 mathimatikos6 5 25 02 13 24
+59 viologos6 6 22 05 16 27
+60 germanikos6 2 10 08 19 30
+//exei computer science kai geography
+61 dieuthinthis6 1 5 06 09 17 20 28 31
+62 kallitexnis6 3 15 10 21 32
+63 physikos6 4 20 3 25
+64 agglikos6 5 25 0 22
+65 xhmikos6 4 20 4 26
+//EVEN EVEN EVEN MORE BROS
+66 anthropistikos7 3 15 01 07 23 29
+67 mathimatikos7 5 25 02 13 24
+68 viologos7 6 22 05 16 27
+69 germanikos7 2 10 08 19 30
+//exei computer science kai geography
+70 dieuthinthis7 1 5 06 09 17 20 28 31
+71 kallitexnis7 3 15 10 21 32
+72 physikos7 4 20 3 25
+73 agglikos7 5 25 0 22
+74 xhmikos7 4 20 4 26
+// stuck at 123 heuristic value
+75 anthropistikos8 3 15 01 07 23 29
+76 mathimatikos8 5 25 02 13 24
+77 viologos8 6 22 05 16 27
+78 germanikos8 2 10 08 19 30
+//exei computer science kai geography
+79 dieuthinthis8 1 5 06 09 17 20 28 31
+80 kallitexnis8 3 15 10 21 32
+81 physikos8 4 20 3 25
+82 agglikos8 5 25 0 22
+83 xhmikos8 4 20 4 26

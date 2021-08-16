@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text/>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>980</x>
+      <y>370</y>
+      <w>360</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>RegisterCustomerPresenter
+--
++ register(info...: String)
++ setUpDataSource()
++ setCustomer(id: Integer)
++ setTechnicianDAO(technicianDAO: TechnicianDAO)
++ setCustomerDAO(customerDAO: CustomerDAO)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1460</x>
+      <y>350</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+TechnicianDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1060</x>
+      <y>700</y>
+      <w>290</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>template=V: BaseView
+&lt;&lt;Abstract&gt;&gt;
+BasePresenter
+--
+# view: V
+--
++ setView(view: V)
++ clearView()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1170</x>
+      <y>600</y>
+      <w>240</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;bind&gt;&gt; V:: RegisterCustomerView</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1460</x>
+      <y>450</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+CustomerDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1330</x>
+      <y>360</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+has &gt;</panel_attributes>
+    <additional_attributes>130.0;10.0;40.0;10.0;40.0;50.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1330</x>
+      <y>430</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+has &gt;</panel_attributes>
+    <additional_attributes>130.0;40.0;40.0;40.0;40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>0</y>
+      <w>290</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>template=P: BasePresenter
+&lt;&lt;Abstract&gt;&gt;
+BaseViewModel
+--
+# presenter: P
+--
++ getPresenter(): P
+/# createPresenter(): P/
+# onCleared()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>400</y>
+      <w>360</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>RegisterCustomerViewModel
+--
+# createPresenter(): P</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>130</y>
+      <w>270</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;bind&gt;&gt; P:: RegisterCustomerPresenter</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>400</y>
+      <w>190</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+has &gt;</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>540</y>
+      <w>360</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>RegisterCustomerActivity
+--
+# createPresenter(): P
++ setName(name: String)
++ setSurname(surname: String)
++ setPhoneNumber(phoneNumber: String)
++ setBankAccountNumber(accountNumber: String)
++ setEmail(email: String)
++ setusername(username: String)
++ setPassword(password: String)
++ getName(): String
++ getSurname(): String
++ getPhoneNumber(): String
++ getBankAccountNumber(): String
++ getEmail(): String
++ getPassword(): String
++ getUsername(): String
++ onSuccessfulRegister(id: Integer)
++ onBackPressed()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>190</x>
+      <y>620</y>
+      <w>270</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;bind&gt;&gt; P::RegisterCustomerPresenter</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>710</y>
+      <w>420</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>template=VM: BaseViewModel
+&lt;&lt;Abstract&gt;&gt;
+BaseActivity
+--
+# viewModel: VM
+--
++ showErrorMessage(title: String, message: String)
+/# getViewModel(): VM/
+# onCreate(savedInstanceState: Bundle)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>600</y>
+      <w>360</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>BaseActivity&lt;RegisterCustomerViewModel&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>600</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>830</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>900</y>
+      <w>360</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>RegisterCustomerView
+--
+/+ setName(name: String)/
+/+ setSurname(surname: String)/
+/+ setPhoneNumber(phoneNumber: String)/
+/+ setBankAccountNumber(accountNumber: String)/
+/+ setEmail(email: String)/
+/+ setusername(username: String)/
+/+ setPassword(password: String)/
+/+ getName(): String/
+/+ getSurname(): String/
+/+ getPhoneNumber(): String/
+/+ getBankAccountNumber(): String/
+/+ getEmail(): String/
+/+ getPassword(): String/
+/+ getUsername(): String/
+/+ onSuccessfulRegister(id: Integer)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>1270</y>
+      <w>420</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+BaseView
+--
+/+ showErrorMessage(title: String, message: String)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>1170</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>440</y>
+      <w>70</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>260</y>
+      <w>360</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>BaseViewModel&lt;RegisterCustomerPresenter&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>280</y>
+      <w>30</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>580</y>
+      <w>360</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>BasePresenter&lt;RegisterCustomerView&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1170</x>
+      <y>480</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1070</x>
+      <y>230</y>
+      <w>210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Customer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1170</x>
+      <y>250</y>
+      <w>70</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>190</x>
+      <y>840</y>
+      <w>270</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>250.0;460.0;10.0;460.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>460</y>
+      <w>180</w>
+      <h>540</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+&lt; has</panel_attributes>
+    <additional_attributes>10.0;510.0;120.0;510.0;120.0;10.0;160.0;10.0</additional_attributes>
+  </element>
+</diagram>

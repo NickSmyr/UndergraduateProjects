@@ -1,0 +1,5 @@
+#!/bin/bash
+for filename in ./*.r; do
+	echo "Running $filename"
+    R < "$filename" --no-save | tail -n 1
+done

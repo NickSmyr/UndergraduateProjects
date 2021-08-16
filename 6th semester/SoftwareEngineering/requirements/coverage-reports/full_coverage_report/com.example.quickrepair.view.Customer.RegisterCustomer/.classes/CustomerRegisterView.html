@@ -1,0 +1,158 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CustomerRegisterView</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.Customer.RegisterCustomer</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CustomerRegisterView (com.example.quickrepair.view.Customer.RegisterCustomer)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">CustomerRegisterView</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.Customer.RegisterCustomer;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.quickrepair.view.Base.BaseView;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;public interface CustomerRegisterView extends BaseView
+<i>6</i>&nbsp;{
+<i>7</i>&nbsp;    /**
+<i>8</i>&nbsp;     * Set the name of the user trying to register or edit.
+<i>9</i>&nbsp;     *
+<i>10</i>&nbsp;     * @param name The name of the customer.
+<i>11</i>&nbsp;     */
+<i>12</i>&nbsp;    void setName(String name);
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    /**
+<i>15</i>&nbsp;     * Set the surname of the user trying to register or edit.
+<i>16</i>&nbsp;     *
+<i>17</i>&nbsp;     * @param surname The surname of the customer.
+<i>18</i>&nbsp;     */
+<i>19</i>&nbsp;    void setSurname(String surname);
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    /**
+<i>22</i>&nbsp;     * Set the phone number of the user trying to register or edit.
+<i>23</i>&nbsp;     *
+<i>24</i>&nbsp;     * @param phoneNumber The phone number of the customer.
+<i>25</i>&nbsp;     */
+<i>26</i>&nbsp;    void setPhoneNumber(String phoneNumber);
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    /**
+<i>29</i>&nbsp;     * Set the bank account number of the user trying to register or edit.
+<i>30</i>&nbsp;     *
+<i>31</i>&nbsp;     * @param accountNumber The bank account number of the customer.
+<i>32</i>&nbsp;     */
+<i>33</i>&nbsp;    void setBankAccountNumber(String accountNumber);
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    /**
+<i>36</i>&nbsp;     * Set the email of the user trying to register or edit.
+<i>37</i>&nbsp;     *
+<i>38</i>&nbsp;     * @param email The email of the customer.
+<i>39</i>&nbsp;     */
+<i>40</i>&nbsp;    void setEmail(String email);
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    /**
+<i>43</i>&nbsp;     * Set the username of the user trying to register or edit.
+<i>44</i>&nbsp;     *
+<i>45</i>&nbsp;     * @param username The username of the customer.
+<i>46</i>&nbsp;     */
+<i>47</i>&nbsp;    void setUsername(String username);
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    /**
+<i>50</i>&nbsp;     * Set the password of the user trying to register or edit.
+<i>51</i>&nbsp;     *
+<i>52</i>&nbsp;     * @param password The password of the customer.
+<i>53</i>&nbsp;     */
+<i>54</i>&nbsp;    void setPassword(String password);
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;    /**
+<i>57</i>&nbsp;     * Get the name of the customer trying to register or edit.
+<i>58</i>&nbsp;     *
+<i>59</i>&nbsp;     * @return The name of the customer trying to register or edit.
+<i>60</i>&nbsp;     */
+<i>61</i>&nbsp;    String getName();
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;    /**
+<i>64</i>&nbsp;     * Get the surname of the customer trying to register or edit.
+<i>65</i>&nbsp;     *
+<i>66</i>&nbsp;     * @return The surname of the customer trying to register or edit.
+<i>67</i>&nbsp;     */
+<i>68</i>&nbsp;    String getSurname();
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;    /**
+<i>71</i>&nbsp;     * Get the phone number of the customer trying to register or edit.
+<i>72</i>&nbsp;     *
+<i>73</i>&nbsp;     * @return The phone number of the customer trying to register or edit.
+<i>74</i>&nbsp;     */
+<i>75</i>&nbsp;    String getPhoneNumber();
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;    /**
+<i>78</i>&nbsp;     * Get the bank account number of the customer trying to register or edit.
+<i>79</i>&nbsp;     *
+<i>80</i>&nbsp;     * @return The bank account number of the customer trying to register or edit.
+<i>81</i>&nbsp;     */
+<i>82</i>&nbsp;    String getBankAccountNumber();
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    /**
+<i>85</i>&nbsp;     * Get the email of the customer trying to register or edit.
+<i>86</i>&nbsp;     *
+<i>87</i>&nbsp;     * @return The email of the customer trying to register or edit.
+<i>88</i>&nbsp;     */
+<i>89</i>&nbsp;    String getEmail();
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;    /**
+<i>92</i>&nbsp;     * Get the username of the customer trying to register or edit.
+<i>93</i>&nbsp;     *
+<i>94</i>&nbsp;     * @return The username of the customer trying to register or edit.
+<i>95</i>&nbsp;     */
+<i>96</i>&nbsp;    String getUsername();
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;    /**
+<i>99</i>&nbsp;     * Get the password of the customer trying to register or edit.
+<i>100</i>&nbsp;     *
+<i>101</i>&nbsp;     * @return The password of the customer trying to register or edit.
+<i>102</i>&nbsp;     */
+<i>103</i>&nbsp;    String getPassword();
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;    /**
+<i>106</i>&nbsp;     * Navigate a valid customer to the customer home page.
+<i>107</i>&nbsp;     *
+<i>108</i>&nbsp;     * @param id The customer&#39;s id.
+<i>109</i>&nbsp;     */
+<i>110</i>&nbsp;    void onSuccessfulRegister(Integer id);
+<i>111</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:33</div>
+</div>
+</body>
+</html>

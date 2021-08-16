@@ -1,0 +1,88 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: JobTypeDAO</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: JobTypeDAO (com.example.quickrepair.dao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">JobTypeDAO</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.quickrepair.domain.Job;
+<i>4</i>&nbsp;import com.example.quickrepair.domain.JobType;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.List;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;public interface JobTypeDAO {
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;    /**
+<i>11</i>&nbsp;     * Delete a JobType
+<i>12</i>&nbsp;     * @param entity JobType
+<i>13</i>&nbsp;     */
+<i>14</i>&nbsp;    void delete(JobType entity);
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    /**
+<i>17</i>&nbsp;     * Find all JobTypes
+<i>18</i>&nbsp;     * @return JobTypes
+<i>19</i>&nbsp;     */
+<i>20</i>&nbsp;    List&lt;JobType&gt; findAll();
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    /**
+<i>23</i>&nbsp;     * Save a JobType
+<i>24</i>&nbsp;     * @param entity JobType
+<i>25</i>&nbsp;     */
+<i>26</i>&nbsp;    void save(JobType entity);
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    /**
+<i>29</i>&nbsp;     * Find the JobType with the given id
+<i>30</i>&nbsp;     * @param jobTypeID JobType&#39;s id
+<i>31</i>&nbsp;     * @return JobType or null
+<i>32</i>&nbsp;     */
+<i>33</i>&nbsp;    JobType find(int jobTypeID);
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    /**
+<i>37</i>&nbsp;     * Return the next id for a JobType.
+<i>38</i>&nbsp;     * @return jobType&#39;s id
+<i>39</i>&nbsp;     */
+<i>40</i>&nbsp;    int nextId();
+<i>41</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

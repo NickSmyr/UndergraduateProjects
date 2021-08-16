@@ -1,0 +1,271 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: LoginActivity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.User.LoginUser</a> ]
+</div>
+
+<h1>Coverage Summary for Class: LoginActivity (com.example.quickrepair.view.User.LoginUser)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">LoginActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 35)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">LoginActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 37)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.User.LoginUser;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import androidx.lifecycle.ViewModelProvider;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import android.app.AlertDialog;
+<i>6</i>&nbsp;import android.content.Intent;
+<i>7</i>&nbsp;import android.os.Bundle;
+<i>8</i>&nbsp;import android.view.View;
+<i>9</i>&nbsp;import android.widget.EditText;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import com.example.quickrepair.R;
+<i>12</i>&nbsp;import com.example.quickrepair.view.Base.BaseActivity;
+<i>13</i>&nbsp;import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
+<i>14</i>&nbsp;import com.example.quickrepair.view.HomePage.HomePageActivity;
+<i>15</i>&nbsp;import com.example.quickrepair.view.Technician.RepairRequests.TechnicianRepairRequestsActivity;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
+<i>18</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.REDIRECT_TO_SEARCH_EXTRA;
+<i>19</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.RESULT_DENIED;
+<i>20</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.RESULT_INVALID;
+<i>21</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
+<i>22</i>&nbsp;
+<b class="nc"><i>23</i>&nbsp;public class LoginActivity extends BaseActivity&lt;LoginViewModel&gt; implements LoginView</b>
+<i>24</i>&nbsp;{
+<i>25</i>&nbsp;    /**
+<i>26</i>&nbsp;     * Create and initialize the activity.
+<i>27</i>&nbsp;     *
+<i>28</i>&nbsp;     * @param savedInstanceState The activity&#39;s saved instance.
+<i>29</i>&nbsp;     */
+<i>30</i>&nbsp;    @Override
+<i>31</i>&nbsp;    protected void onCreate(Bundle savedInstanceState)
+<i>32</i>&nbsp;    {
+<b class="nc"><i>33</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>34</i>&nbsp;        setContentView(R.layout.activity_login);</b>
+<i>35</i>&nbsp;
+<b class="nc"><i>36</i>&nbsp;        final LoginPresenter presenter = viewModel.getPresenter();</b>
+<b class="nc"><i>37</i>&nbsp;        presenter.setView(this);</b>
+<i>38</i>&nbsp;
+<b class="nc"><i>39</i>&nbsp;        findViewById(R.id.LoginButton).setOnClickListener(new View.OnClickListener()</b>
+<b class="nc"><i>40</i>&nbsp;        {</b>
+<i>41</i>&nbsp;            @Override
+<i>42</i>&nbsp;            public void onClick(View v)
+<i>43</i>&nbsp;            {
+<b class="nc"><i>44</i>&nbsp;                presenter.login(getUsername(), getPassword());</b>
+<i>45</i>&nbsp;            }
+<i>46</i>&nbsp;        });
+<i>47</i>&nbsp;    }
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    /**
+<i>50</i>&nbsp;     * Get the username of the user trying to log in.
+<i>51</i>&nbsp;     *
+<i>52</i>&nbsp;     * @return The username of the user trying to log in.
+<i>53</i>&nbsp;     */
+<i>54</i>&nbsp;    @Override
+<i>55</i>&nbsp;    public String getUsername()
+<i>56</i>&nbsp;    {
+<b class="nc"><i>57</i>&nbsp;        return ((EditText) findViewById(R.id.Username)).getText().toString().trim();</b>
+<i>58</i>&nbsp;    }
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;    /**
+<i>61</i>&nbsp;     * Get the password of the user trying to log in.
+<i>62</i>&nbsp;     *
+<i>63</i>&nbsp;     * @return The password of the user trying to log in.
+<i>64</i>&nbsp;     */
+<i>65</i>&nbsp;    @Override
+<i>66</i>&nbsp;    public String getPassword()
+<i>67</i>&nbsp;    {
+<b class="nc"><i>68</i>&nbsp;        return ((EditText) findViewById(R.id.Password)).getText().toString().trim();</b>
+<i>69</i>&nbsp;    }
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;    /**
+<i>72</i>&nbsp;     * Display a message in the event of an error.
+<i>73</i>&nbsp;     *
+<i>74</i>&nbsp;     * @param title The title of the error.
+<i>75</i>&nbsp;     * @param message The message of the error.
+<i>76</i>&nbsp;     */
+<i>77</i>&nbsp;    @Override
+<i>78</i>&nbsp;    public void showErrorMessage(String title, String message)
+<i>79</i>&nbsp;    {
+<b class="nc"><i>80</i>&nbsp;        if (getIntent().getBooleanExtra(REDIRECT_TO_SEARCH_EXTRA, false))</b>
+<i>81</i>&nbsp;        {
+<b class="nc"><i>82</i>&nbsp;            Intent intent = new Intent();</b>
+<b class="nc"><i>83</i>&nbsp;            setResult(RESULT_INVALID, intent);</b>
+<b class="nc"><i>84</i>&nbsp;            finish();</b>
+<b class="nc"><i>85</i>&nbsp;        }</b>
+<i>86</i>&nbsp;        else
+<i>87</i>&nbsp;        {
+<b class="nc"><i>88</i>&nbsp;            new AlertDialog.Builder(this).setCancelable(true).setTitle(title).setMessage(message).setPositiveButton(R.string.ok, null).create().show();</b>
+<i>89</i>&nbsp;        }
+<i>90</i>&nbsp;    }
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;    /**
+<i>93</i>&nbsp;     * Get the viewModel associated with this activity.
+<i>94</i>&nbsp;     *
+<i>95</i>&nbsp;     * @return The viewModel.
+<i>96</i>&nbsp;     */
+<i>97</i>&nbsp;    @Override
+<i>98</i>&nbsp;    protected LoginViewModel getViewModel()
+<i>99</i>&nbsp;    {
+<b class="nc"><i>100</i>&nbsp;        return new ViewModelProvider(this).get(LoginViewModel.class);</b>
+<i>101</i>&nbsp;    }
+<i>102</i>&nbsp;
+<i>103</i>&nbsp;    /**
+<i>104</i>&nbsp;     * Navigate a valid customer to the customer home page.
+<i>105</i>&nbsp;     *
+<i>106</i>&nbsp;     * @param id The customer&#39;s id.
+<i>107</i>&nbsp;     */
+<i>108</i>&nbsp;    @Override
+<i>109</i>&nbsp;    public void OnLoginCustomerSuccess(Integer id)
+<i>110</i>&nbsp;    {
+<b class="nc"><i>111</i>&nbsp;        if (getIntent().getBooleanExtra(REDIRECT_TO_SEARCH_EXTRA, false))</b>
+<i>112</i>&nbsp;        {
+<b class="nc"><i>113</i>&nbsp;            Intent intent = new Intent();</b>
+<b class="nc"><i>114</i>&nbsp;            intent.putExtra(CUSTOMER_ID_EXTRA, id);</b>
+<b class="nc"><i>115</i>&nbsp;            setResult(RESULT_OK, intent);</b>
+<b class="nc"><i>116</i>&nbsp;        }</b>
+<i>117</i>&nbsp;        else
+<i>118</i>&nbsp;        {
+<b class="nc"><i>119</i>&nbsp;            Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);</b>
+<b class="nc"><i>120</i>&nbsp;            intent.putExtra(CUSTOMER_ID_EXTRA, id);</b>
+<b class="nc"><i>121</i>&nbsp;            startActivity(intent);</b>
+<i>122</i>&nbsp;        }
+<i>123</i>&nbsp;
+<b class="nc"><i>124</i>&nbsp;        finish();</b>
+<i>125</i>&nbsp;    }
+<i>126</i>&nbsp;
+<i>127</i>&nbsp;    /**
+<i>128</i>&nbsp;     * Navigate a valid technician to the technician home page.
+<i>129</i>&nbsp;     *
+<i>130</i>&nbsp;     * @param id The technician&#39;s id.
+<i>131</i>&nbsp;     */
+<i>132</i>&nbsp;    @Override
+<i>133</i>&nbsp;    public void OnLoginTechnicianSuccess(Integer id)
+<i>134</i>&nbsp;    {
+<i>135</i>&nbsp;
+<b class="nc"><i>136</i>&nbsp;        if (getIntent().getBooleanExtra(REDIRECT_TO_SEARCH_EXTRA, false))</b>
+<i>137</i>&nbsp;        {
+<b class="nc"><i>138</i>&nbsp;            Intent intent = new Intent();</b>
+<b class="nc"><i>139</i>&nbsp;            setResult(RESULT_DENIED, intent);</b>
+<b class="nc"><i>140</i>&nbsp;        }</b>
+<i>141</i>&nbsp;        else
+<i>142</i>&nbsp;        {
+<b class="nc"><i>143</i>&nbsp;            Intent intent = new Intent(this, TechnicianRepairRequestsActivity.class);</b>
+<b class="nc"><i>144</i>&nbsp;            intent.putExtra(TECHNICIAN_ID_EXTRA, id);</b>
+<b class="nc"><i>145</i>&nbsp;            startActivity(intent);</b>
+<i>146</i>&nbsp;        }
+<i>147</i>&nbsp;
+<b class="nc"><i>148</i>&nbsp;        finish();</b>
+<i>149</i>&nbsp;    }
+<i>150</i>&nbsp;
+<i>151</i>&nbsp;    /**
+<i>152</i>&nbsp;     * Handle on back button press event.
+<i>153</i>&nbsp;     */
+<i>154</i>&nbsp;    @Override
+<i>155</i>&nbsp;    public void onBackPressed()
+<i>156</i>&nbsp;    {
+<b class="nc"><i>157</i>&nbsp;        Intent intent = new Intent(this, HomePageActivity.class);</b>
+<b class="nc"><i>158</i>&nbsp;        startActivity(intent);</b>
+<i>159</i>&nbsp;
+<b class="nc"><i>160</i>&nbsp;        finish();</b>
+<i>161</i>&nbsp;    }
+<i>162</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

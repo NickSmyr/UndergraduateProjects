@@ -1,0 +1,305 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: HomePageActivity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.HomePage</a> ]
+</div>
+
+<h1>Coverage Summary for Class: HomePageActivity (com.example.quickrepair.view.HomePage)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HomePageActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 29)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">HomePageActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">HomePageActivity$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">HomePageActivity$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">HomePageActivity$4</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 37)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.HomePage;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.content.Intent;
+<i>4</i>&nbsp;import android.os.Bundle;
+<i>5</i>&nbsp;import android.view.View;
+<i>6</i>&nbsp;import android.widget.Button;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import androidx.appcompat.app.AppCompatActivity;
+<i>9</i>&nbsp;import androidx.lifecycle.ViewModelProvider;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import com.example.quickrepair.R;
+<i>12</i>&nbsp;import com.example.quickrepair.memorydao.MemoryInitializer;
+<i>13</i>&nbsp;import com.example.quickrepair.view.Customer.RegisterCustomer.CustomerRegisterActivity;
+<i>14</i>&nbsp;import com.example.quickrepair.view.SearchTechnicians.SearchTechniciansActivity;
+<i>15</i>&nbsp;import com.example.quickrepair.view.Technician.RegisterTechnician.TechnicianRegisterActivity;
+<i>16</i>&nbsp;import com.example.quickrepair.view.User.LoginUser.LoginActivity;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.INITIALIZED_EXTRA;
+<i>19</i>&nbsp;
+<b class="nc"><i>20</i>&nbsp;public class HomePageActivity extends AppCompatActivity implements HomePageView</b>
+<i>21</i>&nbsp;{
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    private HomePageViewModel viewModel;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    @Override
+<i>26</i>&nbsp;    protected void onCreate(Bundle savedInstanceState)
+<i>27</i>&nbsp;    {
+<b class="nc"><i>28</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>29</i>&nbsp;        setContentView(R.layout.home_page);</b>
+<i>30</i>&nbsp;
+<b class="nc"><i>31</i>&nbsp;        boolean initialized = getIntent().getBooleanExtra(INITIALIZED_EXTRA, false);</b>
+<i>32</i>&nbsp;
+<b class="nc"><i>33</i>&nbsp;        if (!initialized)</b>
+<i>34</i>&nbsp;        {
+<b class="nc"><i>35</i>&nbsp;            new MemoryInitializer().prepareData();</b>
+<i>36</i>&nbsp;        }
+<i>37</i>&nbsp;
+<b class="nc"><i>38</i>&nbsp;        viewModel = new ViewModelProvider(this).get(HomePageViewModel.class);</b>
+<b class="nc"><i>39</i>&nbsp;        final HomePagePresenter presenter = viewModel.getPresenter();</b>
+<b class="nc"><i>40</i>&nbsp;        presenter.setView(this);</b>
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;        //Buttons
+<b class="nc"><i>43</i>&nbsp;        Button search = findViewById(R.id.search);</b>
+<b class="nc"><i>44</i>&nbsp;        Button logInPage = findViewById(R.id.login);</b>
+<b class="nc"><i>45</i>&nbsp;        Button registerTechnicianPage = findViewById(R.id.registerTechnician);</b>
+<b class="nc"><i>46</i>&nbsp;        Button registerCustomerPage = findViewById(R.id.registerCustomer);</b>
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;        //Button&#39;s listeners
+<b class="nc"><i>49</i>&nbsp;        search.setOnClickListener(new View.OnClickListener()</b>
+<b class="nc"><i>50</i>&nbsp;        {</b>
+<i>51</i>&nbsp;            @Override
+<i>52</i>&nbsp;            public void onClick(View v)
+<i>53</i>&nbsp;            {
+<b class="nc"><i>54</i>&nbsp;                presenter.onSearchSelected();</b>
+<i>55</i>&nbsp;            }
+<i>56</i>&nbsp;        });
+<i>57</i>&nbsp;
+<b class="nc"><i>58</i>&nbsp;        logInPage.setOnClickListener(new View.OnClickListener()</b>
+<b class="nc"><i>59</i>&nbsp;        {</b>
+<i>60</i>&nbsp;            @Override
+<i>61</i>&nbsp;            public void onClick(View v)
+<i>62</i>&nbsp;            {
+<b class="nc"><i>63</i>&nbsp;                presenter.onLogInSelected();</b>
+<i>64</i>&nbsp;            }
+<i>65</i>&nbsp;        });
+<i>66</i>&nbsp;
+<b class="nc"><i>67</i>&nbsp;        registerTechnicianPage.setOnClickListener(new View.OnClickListener()</b>
+<b class="nc"><i>68</i>&nbsp;        {</b>
+<i>69</i>&nbsp;            @Override
+<i>70</i>&nbsp;            public void onClick(View v)
+<i>71</i>&nbsp;            {
+<b class="nc"><i>72</i>&nbsp;                presenter.onRegisterAsTechnicianSelected();</b>
+<i>73</i>&nbsp;            }
+<i>74</i>&nbsp;        });
+<i>75</i>&nbsp;
+<b class="nc"><i>76</i>&nbsp;        registerCustomerPage.setOnClickListener(new View.OnClickListener()</b>
+<b class="nc"><i>77</i>&nbsp;        {</b>
+<i>78</i>&nbsp;            @Override
+<i>79</i>&nbsp;            public void onClick(View v)
+<i>80</i>&nbsp;            {
+<b class="nc"><i>81</i>&nbsp;                presenter.onRegisterAsCustomerSelected();</b>
+<i>82</i>&nbsp;            }
+<i>83</i>&nbsp;        });
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;    }
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;    /**
+<i>88</i>&nbsp;     * ???? ???????????????? click ??? ?????? ??? login , ? ??????? ??????????? ??? ?????????
+<i>89</i>&nbsp;     * activity
+<i>90</i>&nbsp;     */
+<i>91</i>&nbsp;    @Override
+<i>92</i>&nbsp;    public void login()
+<i>93</i>&nbsp;    {
+<b class="nc"><i>94</i>&nbsp;        Intent intent = new Intent(this, LoginActivity.class);</b>
+<b class="nc"><i>95</i>&nbsp;        startActivity(intent);</b>
+<i>96</i>&nbsp;
+<b class="nc"><i>97</i>&nbsp;        finish();</b>
+<i>98</i>&nbsp;    }
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;    /**
+<i>101</i>&nbsp;     * ???? ???????????????? click ??? ?????? ??? signup , ? ??????? ??????????? ??? ?????????
+<i>102</i>&nbsp;     * activity
+<i>103</i>&nbsp;     */
+<i>104</i>&nbsp;    @Override
+<i>105</i>&nbsp;    public void registerAsTechnician()
+<i>106</i>&nbsp;    {
+<b class="nc"><i>107</i>&nbsp;        Intent intent = new Intent(this, TechnicianRegisterActivity.class);</b>
+<b class="nc"><i>108</i>&nbsp;        startActivity(intent);</b>
+<i>109</i>&nbsp;
+<b class="nc"><i>110</i>&nbsp;        finish();</b>
+<i>111</i>&nbsp;    }
+<i>112</i>&nbsp;
+<i>113</i>&nbsp;    /**
+<i>114</i>&nbsp;     * ???? ???????????????? click ??? ?????? ??? signup , ? ??????? ??????????? ??? ?????????
+<i>115</i>&nbsp;     * activity
+<i>116</i>&nbsp;     */
+<i>117</i>&nbsp;    @Override
+<i>118</i>&nbsp;    public void registerAsCustomer()
+<i>119</i>&nbsp;    {
+<b class="nc"><i>120</i>&nbsp;        Intent intent = new Intent(this, CustomerRegisterActivity.class);</b>
+<b class="nc"><i>121</i>&nbsp;        startActivity(intent);</b>
+<i>122</i>&nbsp;
+<b class="nc"><i>123</i>&nbsp;        finish();</b>
+<i>124</i>&nbsp;    }
+<i>125</i>&nbsp;
+<i>126</i>&nbsp;    /**
+<i>127</i>&nbsp;     * ???? ???????????????? click ??? ?????? ??? ????????? ???????? ????????????? ??? ?????????
+<i>128</i>&nbsp;     * activity
+<i>129</i>&nbsp;     */
+<i>130</i>&nbsp;    @Override
+<i>131</i>&nbsp;    public void searchTechnicians()
+<i>132</i>&nbsp;    {
+<b class="nc"><i>133</i>&nbsp;        Intent intent = new Intent(this, SearchTechniciansActivity.class);</b>
+<b class="nc"><i>134</i>&nbsp;        startActivity(intent);</b>
+<i>135</i>&nbsp;
+<b class="nc"><i>136</i>&nbsp;        finish();</b>
+<i>137</i>&nbsp;    }
+<i>138</i>&nbsp;
+<i>139</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

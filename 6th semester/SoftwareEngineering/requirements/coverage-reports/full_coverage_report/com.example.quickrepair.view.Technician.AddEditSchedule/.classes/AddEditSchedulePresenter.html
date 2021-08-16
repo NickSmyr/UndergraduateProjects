@@ -1,0 +1,148 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: AddEditSchedulePresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.Technician.AddEditSchedule</a> ]
+</div>
+
+<h1>Coverage Summary for Class: AddEditSchedulePresenter (com.example.quickrepair.view.Technician.AddEditSchedule)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AddEditSchedulePresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/ 14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.Technician.AddEditSchedule;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.quickrepair.dao.TechnicianDAO;
+<i>4</i>&nbsp;import com.example.quickrepair.domain.Schedule;
+<i>5</i>&nbsp;import com.example.quickrepair.domain.Technician;
+<i>6</i>&nbsp;import com.example.quickrepair.view.Base.BasePresenter;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import java.util.Calendar;
+<i>9</i>&nbsp;
+<b class="fc"><i>10</i>&nbsp;public class AddEditSchedulePresenter extends BasePresenter&lt;AddEditScheduleView&gt;</b>
+<i>11</i>&nbsp;{
+<i>12</i>&nbsp;    private TechnicianDAO technicianDAO;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    private Technician technician;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    /**
+<i>17</i>&nbsp;     * Set the technician DAO for the presenter.
+<i>18</i>&nbsp;     *
+<i>19</i>&nbsp;     * @param technicianDAO The technician DAO.
+<i>20</i>&nbsp;     */
+<i>21</i>&nbsp;    public void setTechnicianDAO(TechnicianDAO technicianDAO)
+<i>22</i>&nbsp;    {
+<b class="fc"><i>23</i>&nbsp;        this.technicianDAO = technicianDAO;</b>
+<b class="fc"><i>24</i>&nbsp;    }</b>
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    /**
+<i>27</i>&nbsp;     * Load the technician in case of edit.
+<i>28</i>&nbsp;     *
+<i>29</i>&nbsp;     * @param id The technician&#39;s id.
+<i>30</i>&nbsp;     */
+<i>31</i>&nbsp;    public void setTechnician(int id)
+<i>32</i>&nbsp;    {
+<b class="fc"><i>33</i>&nbsp;        technician = technicianDAO.find(id);</b>
+<b class="fc"><i>34</i>&nbsp;    }</b>
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    /**
+<i>37</i>&nbsp;     * Initialize the view.
+<i>38</i>&nbsp;     */
+<i>39</i>&nbsp;    public void setUpDataSource()
+<i>40</i>&nbsp;    {
+<b class="fc"><i>41</i>&nbsp;        for (int i = 0; i &lt; 7; ++i)</b>
+<i>42</i>&nbsp;        {
+<b class="fc"><i>43</i>&nbsp;            Schedule.ScheduleEntry entry = technician.getSchedule(Calendar.SUNDAY + i);</b>
+<i>44</i>&nbsp;
+<b class="fc"><i>45</i>&nbsp;            view.setDay(i, entry.getStartingHour(), entry.getEndingHour());</b>
+<i>46</i>&nbsp;        }
+<b class="fc"><i>47</i>&nbsp;    }</b>
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    /**
+<i>50</i>&nbsp;     * Apply the new schedule to the technician.
+<i>51</i>&nbsp;     *
+<i>52</i>&nbsp;     * @param schedule The new schedule of the technician.
+<i>53</i>&nbsp;     */
+<i>54</i>&nbsp;    void submit(Integer[][] schedule)
+<i>55</i>&nbsp;    {
+<i>56</i>&nbsp;        try
+<i>57</i>&nbsp;        {
+<b class="fc"><i>58</i>&nbsp;            technician.setSchedule(schedule);</b>
+<i>59</i>&nbsp;        }
+<b class="fc"><i>60</i>&nbsp;        catch (IllegalArgumentException | NullPointerException e)</b>
+<i>61</i>&nbsp;        {
+<b class="fc"><i>62</i>&nbsp;            view.showErrorMessage(&quot;Invalid value&quot;, e.getMessage());</b>
+<b class="fc"><i>63</i>&nbsp;        }</b>
+<b class="fc"><i>64</i>&nbsp;    }</b>
+<i>65</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

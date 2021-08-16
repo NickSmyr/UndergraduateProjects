@@ -1,0 +1,6 @@
+SMYRNIOUDIS NIKOLAOS - 3170148
+CHOULIARAS DIMITRIOS - 3170180
+Endpoint: dbaces.cdtrwbaiw3pe.us-east-1.rds.amazonaws.com
+Username: examiner
+Password: 1111
+Database: FirstDB

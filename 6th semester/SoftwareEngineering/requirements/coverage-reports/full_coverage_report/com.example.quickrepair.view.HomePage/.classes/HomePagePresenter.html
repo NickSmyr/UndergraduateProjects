@@ -1,0 +1,134 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: HomePagePresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.HomePage</a> ]
+</div>
+
+<h1>Coverage Summary for Class: HomePagePresenter (com.example.quickrepair.view.HomePage)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HomePagePresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    28.6%
+  </span>
+  <span class="absValue">
+    (2/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    23.1%
+  </span>
+  <span class="absValue">
+    (3/ 13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.HomePage;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;public class HomePagePresenter {
+<i>4</i>&nbsp;    private HomePageView view;
+<i>5</i>&nbsp;
+<b class="fc"><i>6</i>&nbsp;    public HomePagePresenter(){}</b>
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;    /**
+<i>9</i>&nbsp;     * set View
+<i>10</i>&nbsp;     * @param view The view
+<i>11</i>&nbsp;     */
+<i>12</i>&nbsp;    public void setView(HomePageView view) {
+<b class="fc"><i>13</i>&nbsp;        this.view = view;</b>
+<b class="fc"><i>14</i>&nbsp;    }</b>
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    /**
+<i>17</i>&nbsp;     * Responds to the user selecting search for a technician
+<i>18</i>&nbsp;     */
+<i>19</i>&nbsp;    public void onSearchSelected(){
+<b class="nc"><i>20</i>&nbsp;        view.searchTechnicians();</b>
+<b class="nc"><i>21</i>&nbsp;    }</b>
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    /**
+<i>24</i>&nbsp;     * Responds to the user selecting Log In
+<i>25</i>&nbsp;     */
+<i>26</i>&nbsp;    public void onLogInSelected(){
+<b class="nc"><i>27</i>&nbsp;        view.login();</b>
+<b class="nc"><i>28</i>&nbsp;    }</b>
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    /**
+<i>31</i>&nbsp;     * Responds to the user selecting register as technician
+<i>32</i>&nbsp;     */
+<i>33</i>&nbsp;    public void onRegisterAsTechnicianSelected(){
+<b class="nc"><i>34</i>&nbsp;        view.registerAsTechnician();</b>
+<b class="nc"><i>35</i>&nbsp;    }</b>
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    /**
+<i>38</i>&nbsp;     * Responds to the user selecting register as customer
+<i>39</i>&nbsp;     */
+<i>40</i>&nbsp;    public void onRegisterAsCustomerSelected(){
+<b class="nc"><i>41</i>&nbsp;        view.registerAsCustomer();</b>
+<b class="nc"><i>42</i>&nbsp;    }</b>
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    /**
+<i>45</i>&nbsp;     * clear view
+<i>46</i>&nbsp;     */
+<i>47</i>&nbsp;    public void clearView(){
+<b class="nc"><i>48</i>&nbsp;        this.view = null;</b>
+<b class="nc"><i>49</i>&nbsp;    }</b>
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

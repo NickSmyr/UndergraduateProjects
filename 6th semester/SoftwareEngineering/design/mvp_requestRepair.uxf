@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>7</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>1309</x>
+      <y>378</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+TechnicianDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>420</x>
+      <y>623</y>
+      <w>140</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>RequestRepairActivity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1190</x>
+      <y>385</y>
+      <w>133</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;50.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1190</x>
+      <y>413</y>
+      <w>133</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>1309</x>
+      <y>427</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+CustomerDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1190</x>
+      <y>413</y>
+      <w>133</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>1309</x>
+      <y>490</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+JobTypeDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>1309</x>
+      <y>532</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+RepairRequestDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1190</x>
+      <y>413</y>
+      <w>133</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>553</x>
+      <y>413</y>
+      <w>189</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;310.0;250.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>413</y>
+      <w>469</w>
+      <h>301</h>
+    </coordinates>
+    <panel_attributes>RequestRepairPresenter
+--
+selectedTechnician : int
+selectedJobType : int 
+loggedInUser : int
+year : int
+month : int 
+day : int
+selectedComments : String
+selectedAddress : Address
+hourOfDay : int
+minutes : int
+--
++setView(view : RequestRepairView) : void
++setTechnicianId(technicianId : int) : void
++setJobTypeId(jobTypeId : int) : void
++setLoggedInUser(loggedInUser : int) : void
++setDate(year : int , month : int , day : int) : void
++setComments(comments : String) : void
++setAddress(address : String): void
++setTime(hour : int , minutes : int) : void
++onStart() : void
++requestRepair() : void
+#getJobFromJobType(technician : Technician, jobType : JobType) : Job
+#timeInRange(hour : int , minutes :int , start : GregorianCalendar , end : GregorianCalendar) : boolean
+#timeInRange(hour : int , minutes : int , technician : Technician , year : int , month : int , day : int) : boolean
+#createListFromHourRanges(technician : Technician) : List&lt;String&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>672</x>
+      <y>322</y>
+      <w>70</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+
+&lt; has</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>63</x>
+      <y>315</y>
+      <w>616</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+RequestRepairView
+--
+--
+setTechnicianPhoneNumber(phoneNumber : String) : void
+setTechnicianName(name : String) : void
+setJobTypeName(name : String) : void
+showTimesAvailable( times : List&lt;String&gt; ) : void
+showError(error : String) : void
+exit() : void
+showInfo(info : String) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>455</y>
+      <w>154</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;240.0</additional_attributes>
+  </element>
+</diagram>

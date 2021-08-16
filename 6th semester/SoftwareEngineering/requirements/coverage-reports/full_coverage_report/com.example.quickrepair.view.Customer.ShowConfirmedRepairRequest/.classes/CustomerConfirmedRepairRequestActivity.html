@@ -1,0 +1,184 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CustomerConfirmedRepairRequestActivity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.Customer.ShowConfirmedRepairRequest</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CustomerConfirmedRepairRequestActivity (com.example.quickrepair.view.Customer.ShowConfirmedRepairRequest)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CustomerConfirmedRepairRequestActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 27)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.Customer.ShowConfirmedRepairRequest;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.content.Intent;
+<i>4</i>&nbsp;import android.os.Bundle;
+<i>5</i>&nbsp;import android.widget.TextView;
+<i>6</i>&nbsp;import android.widget.Toast;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import androidx.appcompat.app.AppCompatActivity;
+<i>9</i>&nbsp;import androidx.lifecycle.ViewModelProvider;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import com.example.quickrepair.R;
+<i>12</i>&nbsp;import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
+<i>15</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.REPAIR_REQUEST_ID_EXTRA;
+<i>16</i>&nbsp;
+<b class="nc"><i>17</i>&nbsp;public class CustomerConfirmedRepairRequestActivity extends AppCompatActivity implements CustomerConfirmedRepairRequestView</b>
+<i>18</i>&nbsp;{
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    CustomerConfirmedRepairRequestViewModel customerConfirmedRepairRequestViewModel;
+<i>21</i>&nbsp;    CustomerConfirmedRepairRequestPresenter presenter;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    private static int repairRequestID;
+<i>24</i>&nbsp;    private static int customerID;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    protected void onCreate(Bundle savedInstanceState)
+<i>27</i>&nbsp;    {
+<b class="nc"><i>28</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>29</i>&nbsp;        setContentView(R.layout.customer_confirmed_repair_request);</b>
+<i>30</i>&nbsp;
+<b class="nc"><i>31</i>&nbsp;        Intent intent = getIntent();</b>
+<b class="nc"><i>32</i>&nbsp;        repairRequestID = intent.getIntExtra(REPAIR_REQUEST_ID_EXTRA, 0);</b>
+<b class="nc"><i>33</i>&nbsp;        customerID = intent.getIntExtra(CUSTOMER_ID_EXTRA, 0);</b>
+<i>34</i>&nbsp;
+<b class="nc"><i>35</i>&nbsp;        customerConfirmedRepairRequestViewModel = new ViewModelProvider(this).get(CustomerConfirmedRepairRequestViewModel.class);</b>
+<i>36</i>&nbsp;
+<b class="nc"><i>37</i>&nbsp;        presenter = customerConfirmedRepairRequestViewModel.getPresenter();</b>
+<b class="nc"><i>38</i>&nbsp;        presenter.setView(this);</b>
+<i>39</i>&nbsp;
+<b class="nc"><i>40</i>&nbsp;        presenter.searchRepairRequestData(repairRequestID);</b>
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    @Override
+<i>45</i>&nbsp;    public void showError(String message)
+<i>46</i>&nbsp;    {
+<b class="nc"><i>47</i>&nbsp;        Toast.makeText(this, message, Toast.LENGTH_LONG).show();</b>
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    @Override
+<i>52</i>&nbsp;    public void setJob(String job)
+<i>53</i>&nbsp;    {
+<b class="nc"><i>54</i>&nbsp;        TextView jobTextView = findViewById(R.id.job);</b>
+<b class="nc"><i>55</i>&nbsp;        jobTextView.setText(job);</b>
+<i>56</i>&nbsp;    }
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;    @Override
+<i>59</i>&nbsp;    public void setTechnicianName(String technicianName)
+<i>60</i>&nbsp;    {
+<b class="nc"><i>61</i>&nbsp;        TextView technicianTextView = findViewById(R.id.technician);</b>
+<b class="nc"><i>62</i>&nbsp;        technicianTextView.setText(technicianName);</b>
+<i>63</i>&nbsp;    }
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;    @Override
+<i>66</i>&nbsp;    public void setAddress(String address)
+<i>67</i>&nbsp;    {
+<b class="nc"><i>68</i>&nbsp;        TextView addressTextView = findViewById(R.id.address);</b>
+<b class="nc"><i>69</i>&nbsp;        addressTextView.setText(address);</b>
+<i>70</i>&nbsp;    }
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    @Override
+<i>73</i>&nbsp;    public void setComments(String comments)
+<i>74</i>&nbsp;    {
+<b class="nc"><i>75</i>&nbsp;        TextView commentsTextView = findViewById(R.id.comments);</b>
+<b class="nc"><i>76</i>&nbsp;        commentsTextView.setText(comments);</b>
+<i>77</i>&nbsp;    }
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;    @Override
+<i>80</i>&nbsp;    public void setConductionDate(String conductionDate)
+<i>81</i>&nbsp;    {
+<b class="nc"><i>82</i>&nbsp;        TextView conductionDateTextView = findViewById(R.id.conduction_date);</b>
+<b class="nc"><i>83</i>&nbsp;        conductionDateTextView.setText(conductionDate);</b>
+<i>84</i>&nbsp;    }
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;    @Override
+<i>87</i>&nbsp;    public void setEstimatedDuration(String estimatedDuration)
+<i>88</i>&nbsp;    {
+<b class="nc"><i>89</i>&nbsp;        TextView estimatedDurationTextView = findViewById(R.id.estimated_duration);</b>
+<b class="nc"><i>90</i>&nbsp;        estimatedDurationTextView.setText(estimatedDuration);</b>
+<i>91</i>&nbsp;    }
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;    @Override
+<i>94</i>&nbsp;    public void onBackPressed()
+<i>95</i>&nbsp;    {
+<b class="nc"><i>96</i>&nbsp;        Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);</b>
+<b class="nc"><i>97</i>&nbsp;        intent.putExtra(CUSTOMER_ID_EXTRA, customerID);</b>
+<b class="nc"><i>98</i>&nbsp;        this.startActivity(intent);</b>
+<b class="nc"><i>99</i>&nbsp;        finish();</b>
+<i>100</i>&nbsp;    }
+<i>101</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,239 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Payment</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Payment (com.example.quickrepair.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Payment</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/ 14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (33/ 33)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.util.Calendar;
+<i>4</i>&nbsp;import java.util.Objects;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public class Payment
+<i>7</i>&nbsp;{
+<i>8</i>&nbsp;    private int uid;
+<i>9</i>&nbsp;    private double cost;
+<i>10</i>&nbsp;    private Repair repair;
+<i>11</i>&nbsp;    private Calendar date;
+<i>12</i>&nbsp;    private PaymentType paymentType;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    /**
+<i>15</i>&nbsp;     * Empty Constructor
+<i>16</i>&nbsp;     */
+<i>17</i>&nbsp;    public Payment()
+<b class="fc"><i>18</i>&nbsp;    {</b>
+<b class="fc"><i>19</i>&nbsp;    }</b>
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    /**
+<i>22</i>&nbsp;     * Payment&#39;s Constructor
+<i>23</i>&nbsp;     *
+<i>24</i>&nbsp;     * @param date        payment&#39;s date
+<i>25</i>&nbsp;     * @param paymentType payment&#39;s type
+<i>26</i>&nbsp;     */
+<i>27</i>&nbsp;    public Payment(Repair repair, Calendar date, PaymentType paymentType)
+<b class="fc"><i>28</i>&nbsp;    {</b>
+<b class="fc"><i>29</i>&nbsp;        setRepair(repair);</b>
+<b class="fc"><i>30</i>&nbsp;        setDate(date);</b>
+<b class="fc"><i>31</i>&nbsp;        setPaymentType(paymentType);</b>
+<b class="fc"><i>32</i>&nbsp;    }</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    /**
+<i>35</i>&nbsp;     * return payment&#39;s date
+<i>36</i>&nbsp;     */
+<i>37</i>&nbsp;    public Calendar getDate()
+<i>38</i>&nbsp;    {
+<b class="fc"><i>39</i>&nbsp;        return date;</b>
+<i>40</i>&nbsp;    }
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    /**
+<i>43</i>&nbsp;     * set payment&#39;s date
+<i>44</i>&nbsp;     *
+<i>45</i>&nbsp;     * @param date payment&#39;s date
+<i>46</i>&nbsp;     */
+<i>47</i>&nbsp;    public void setDate(Calendar date)
+<i>48</i>&nbsp;    {
+<b class="fc"><i>49</i>&nbsp;        if (date != null)</b>
+<i>50</i>&nbsp;        {
+<b class="fc"><i>51</i>&nbsp;            this.date = date;</b>
+<i>52</i>&nbsp;        }
+<i>53</i>&nbsp;        else
+<i>54</i>&nbsp;        {
+<b class="fc"><i>55</i>&nbsp;            throw new NullPointerException(&quot;null date&quot;);</b>
+<i>56</i>&nbsp;        }
+<b class="fc"><i>57</i>&nbsp;    }</b>
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    /**
+<i>60</i>&nbsp;     * Gte the type of the payment.
+<i>61</i>&nbsp;     *
+<i>62</i>&nbsp;     * @return The type of payment
+<i>63</i>&nbsp;     */
+<i>64</i>&nbsp;    public PaymentType getPaymentType()
+<i>65</i>&nbsp;    {
+<b class="fc"><i>66</i>&nbsp;        return paymentType;</b>
+<i>67</i>&nbsp;    }
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;    /**
+<i>70</i>&nbsp;     * set Payment&#39;s type
+<i>71</i>&nbsp;     *
+<i>72</i>&nbsp;     * @param paymentType payment&#39;s type
+<i>73</i>&nbsp;     */
+<i>74</i>&nbsp;    public void setPaymentType(PaymentType paymentType)
+<i>75</i>&nbsp;    {
+<b class="fc"><i>76</i>&nbsp;        if (paymentType == null)</b>
+<i>77</i>&nbsp;        {
+<b class="fc"><i>78</i>&nbsp;            throw new NullPointerException(&quot;null paymentType&quot;);</b>
+<i>79</i>&nbsp;        }
+<b class="fc"><i>80</i>&nbsp;        this.paymentType = paymentType;</b>
+<i>81</i>&nbsp;
+<b class="fc"><i>82</i>&nbsp;    }</b>
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    /**
+<i>85</i>&nbsp;     * Get the payment UID.
+<i>86</i>&nbsp;     *
+<i>87</i>&nbsp;     * @return The payment UID.
+<i>88</i>&nbsp;     */
+<i>89</i>&nbsp;    public int getUid()
+<i>90</i>&nbsp;    {
+<b class="fc"><i>91</i>&nbsp;        return uid;</b>
+<i>92</i>&nbsp;    }
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;    /**
+<i>95</i>&nbsp;     * Set the payment UID.
+<i>96</i>&nbsp;     *
+<i>97</i>&nbsp;     * @param uid The payment UID.
+<i>98</i>&nbsp;     */
+<i>99</i>&nbsp;    public void setUid(int uid)
+<i>100</i>&nbsp;    {
+<b class="fc"><i>101</i>&nbsp;        this.uid = uid;</b>
+<b class="fc"><i>102</i>&nbsp;    }</b>
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;    /**
+<i>105</i>&nbsp;     * Get the repair associated with the payment.
+<i>106</i>&nbsp;     *
+<i>107</i>&nbsp;     * @return The repair associated with the payment.
+<i>108</i>&nbsp;     */
+<i>109</i>&nbsp;    public Repair getRepair()
+<i>110</i>&nbsp;    {
+<b class="fc"><i>111</i>&nbsp;        return repair;</b>
+<i>112</i>&nbsp;    }
+<i>113</i>&nbsp;
+<i>114</i>&nbsp;    /**
+<i>115</i>&nbsp;     * Set the repair associated with the payment.
+<i>116</i>&nbsp;     *
+<i>117</i>&nbsp;     * @param repair The repair associated with the payment.
+<i>118</i>&nbsp;     */
+<i>119</i>&nbsp;    public void setRepair(Repair repair)
+<i>120</i>&nbsp;    {
+<b class="fc"><i>121</i>&nbsp;        if (repair == null) throw new NullPointerException(&quot;The repair can not be null.&quot;);</b>
+<i>122</i>&nbsp;
+<b class="fc"><i>123</i>&nbsp;        this.repair = repair;</b>
+<b class="fc"><i>124</i>&nbsp;    }</b>
+<i>125</i>&nbsp;
+<i>126</i>&nbsp;    /**
+<i>127</i>&nbsp;     * get payment&#39;s cost
+<i>128</i>&nbsp;     * @return payment&#39;s cost
+<i>129</i>&nbsp;     */
+<i>130</i>&nbsp;    public double getCost()
+<i>131</i>&nbsp;    {
+<b class="fc"><i>132</i>&nbsp;        return cost;</b>
+<i>133</i>&nbsp;    }
+<i>134</i>&nbsp;
+<i>135</i>&nbsp;    public void setCost(double cost)
+<i>136</i>&nbsp;    {
+<b class="fc"><i>137</i>&nbsp;        if (cost &lt;= 0) throw new IllegalArgumentException();</b>
+<i>138</i>&nbsp;
+<b class="fc"><i>139</i>&nbsp;        this.cost = cost;</b>
+<b class="fc"><i>140</i>&nbsp;    }</b>
+<i>141</i>&nbsp;
+<i>142</i>&nbsp;    @Override
+<i>143</i>&nbsp;    public boolean equals(Object o)
+<i>144</i>&nbsp;    {
+<b class="fc"><i>145</i>&nbsp;        if (this == o) return true;</b>
+<b class="fc"><i>146</i>&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="fc"><i>147</i>&nbsp;        Payment payment = (Payment) o;</b>
+<b class="fc"><i>148</i>&nbsp;        return Objects.equals(repair, payment.repair) &amp;&amp; Objects.equals(date, payment.date) &amp;&amp; paymentType == payment.paymentType;</b>
+<i>149</i>&nbsp;    }
+<i>150</i>&nbsp;
+<i>151</i>&nbsp;    @Override
+<i>152</i>&nbsp;    public int hashCode()
+<i>153</i>&nbsp;    {
+<b class="fc"><i>154</i>&nbsp;        return Objects.hash(repair, date, paymentType);</b>
+<i>155</i>&nbsp;    }
+<i>156</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

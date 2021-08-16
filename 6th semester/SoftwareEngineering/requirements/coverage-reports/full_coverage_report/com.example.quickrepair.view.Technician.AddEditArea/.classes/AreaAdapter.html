@@ -1,0 +1,168 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: AreaAdapter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.Technician.AddEditArea</a> ]
+</div>
+
+<h1>Coverage Summary for Class: AreaAdapter (com.example.quickrepair.view.Technician.AddEditArea)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AreaAdapter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 8)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AreaAdapter$ViewHolder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 11)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.Technician.AddEditArea;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.view.LayoutInflater;
+<i>4</i>&nbsp;import android.view.ViewGroup;
+<i>5</i>&nbsp;import android.widget.TextView;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import androidx.annotation.NonNull;
+<i>8</i>&nbsp;import androidx.recyclerview.widget.RecyclerView;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;import com.example.quickrepair.R;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;import java.util.List;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;public class AreaAdapter extends RecyclerView.Adapter&lt;AreaAdapter.ViewHolder&gt;
+<i>15</i>&nbsp;{
+<i>16</i>&nbsp;    private List&lt;String&gt; areas;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    AreaAdapter(List&lt;String&gt; areas)
+<b class="nc"><i>19</i>&nbsp;    {</b>
+<b class="nc"><i>20</i>&nbsp;        this.areas = areas;</b>
+<i>21</i>&nbsp;    }
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    @NonNull
+<i>24</i>&nbsp;    @Override
+<i>25</i>&nbsp;    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+<i>26</i>&nbsp;    {
+<b class="nc"><i>27</i>&nbsp;        ViewGroup v = (ViewGroup) LayoutInflater.from(parent.getContext())</b>
+<b class="nc"><i>28</i>&nbsp;                .inflate(R.layout.item_area, parent, false);</b>
+<b class="nc"><i>29</i>&nbsp;        return new ViewHolder(v);</b>
+<i>30</i>&nbsp;    }
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    @Override
+<i>33</i>&nbsp;    public void onBindViewHolder(@NonNull ViewHolder holder, int position)
+<i>34</i>&nbsp;    {
+<b class="nc"><i>35</i>&nbsp;        final String area = areas.get(position);</b>
+<i>36</i>&nbsp;
+<b class="nc"><i>37</i>&nbsp;        holder.area.setText(area);</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    @Override
+<i>41</i>&nbsp;    public int getItemCount()
+<i>42</i>&nbsp;    {
+<b class="nc"><i>43</i>&nbsp;        return areas == null ? 0 : areas.size();</b>
+<i>44</i>&nbsp;    }
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;    public static class ViewHolder extends RecyclerView.ViewHolder
+<i>47</i>&nbsp;    {
+<i>48</i>&nbsp;        ViewGroup listItem;
+<i>49</i>&nbsp;        public TextView area;
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;        ViewHolder(ViewGroup viewGroup)
+<i>52</i>&nbsp;        {
+<b class="nc"><i>53</i>&nbsp;            super(viewGroup);</b>
+<i>54</i>&nbsp;
+<b class="nc"><i>55</i>&nbsp;            listItem = viewGroup;</b>
+<b class="nc"><i>56</i>&nbsp;            area = listItem.findViewById(R.id.AreaTextView);</b>
+<i>57</i>&nbsp;        }
+<i>58</i>&nbsp;    }
+<i>59</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

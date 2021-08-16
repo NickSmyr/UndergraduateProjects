@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>2150</x>
+      <y>450</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+repairRequestDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>570</x>
+      <y>800</y>
+      <w>290</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>TechnicianUnconfirmedRepairRequestActivity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2050</x>
+      <y>460</y>
+      <w>120</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;50.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>850</x>
+      <y>500</y>
+      <w>290</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;310.0;270.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1120</x>
+      <y>500</y>
+      <w>940</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>CustomerCompletedRepairRequestPresenter
+--
+repairRequest : RepairRequest
+--
++setView(view : CustomerRepairRequestsView) : void
++clearView() : void
++setRepairRequestDAO(repairRequestDAO: repairRequestDAO) : void+payAndEvaluate(title : String, comments : String, rate : String) : void
++searchRepairRequestData(repairRequestId : int) : void
++setReject() : void 
++setConfirm(estimatedDuration: String) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>360</y>
+      <w>120</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+
+&lt; has</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>370</y>
+      <w>870</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+TechnicianUnconfirmedRepairRequestView
+--
+--
+setJob(job : String) : void
+setTechnicianName(technicianName : String) : void
+setAddress(address : String) : void
+setComments(comments : String) : void
+setConductionDate(conductionDate : String) : void
+setButtonListeners() : void
+reject() : void
+confirm() : void
+showError(msg : String) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>560</y>
+      <w>220</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;240.0</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,89 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: RequestRepairView</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.RequestRepair</a> ]
+</div>
+
+<h1>Coverage Summary for Class: RequestRepairView (com.example.quickrepair.view.RequestRepair)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">RequestRepairView</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.RequestRepair;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.util.List;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;public interface RequestRepairView
+<i>6</i>&nbsp;{
+<i>7</i>&nbsp;    /**
+<i>8</i>&nbsp;     * Display the technicians phone number
+<i>9</i>&nbsp;     * @param text the phone number to display
+<i>10</i>&nbsp;     */
+<i>11</i>&nbsp;    void setTechnicianPhoneNumber(String text);
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;    /**
+<i>14</i>&nbsp;     * Display the technicians name
+<i>15</i>&nbsp;     * @param text the name to display
+<i>16</i>&nbsp;     */
+<i>17</i>&nbsp;    void setTechnicianName(String text);
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    /**
+<i>20</i>&nbsp;     * Displays the job type name
+<i>21</i>&nbsp;     * @param text the job type name to display
+<i>22</i>&nbsp;     */
+<i>23</i>&nbsp;    void setJobTypeName(String text);
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    /**
+<i>26</i>&nbsp;     * Fills a list with the time ranges that the technician is available
+<i>27</i>&nbsp;     * @param availableHours A list of strings each string representing an hour range
+<i>28</i>&nbsp;     */
+<i>29</i>&nbsp;    void showTimesAvailable(List&lt;String&gt; availableHours);
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    /**
+<i>32</i>&nbsp;     * Shows an error message
+<i>33</i>&nbsp;     * @param error  the error message
+<i>34</i>&nbsp;     */
+<i>35</i>&nbsp;    void showError(String error);
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    /**
+<i>38</i>&nbsp;     * Return to the customer home page.
+<i>39</i>&nbsp;     */
+<i>40</i>&nbsp;    void submit();
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

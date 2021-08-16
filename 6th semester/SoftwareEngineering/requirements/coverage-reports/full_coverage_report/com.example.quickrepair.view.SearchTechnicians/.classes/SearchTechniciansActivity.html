@@ -1,0 +1,498 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SearchTechniciansActivity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.SearchTechnicians</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SearchTechniciansActivity (com.example.quickrepair.view.SearchTechnicians)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SearchTechniciansActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 98)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SearchTechniciansActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">SearchTechniciansActivity$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 9)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">SearchTechniciansActivity$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">SearchTechniciansActivity$SpinnerEntry</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 21)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 117)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.SearchTechnicians;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import androidx.appcompat.app.AppCompatActivity;
+<i>4</i>&nbsp;import androidx.lifecycle.ViewModelProvider;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import android.app.AlertDialog;
+<i>7</i>&nbsp;import android.content.Intent;
+<i>8</i>&nbsp;import android.content.SharedPreferences;
+<i>9</i>&nbsp;import android.os.Bundle;
+<i>10</i>&nbsp;import android.util.Log;
+<i>11</i>&nbsp;import android.view.View;
+<i>12</i>&nbsp;import android.widget.AdapterView;
+<i>13</i>&nbsp;import android.widget.ArrayAdapter;
+<i>14</i>&nbsp;import android.widget.Button;
+<i>15</i>&nbsp;import android.widget.EditText;
+<i>16</i>&nbsp;import android.widget.ListView;
+<i>17</i>&nbsp;import android.widget.Spinner;
+<i>18</i>&nbsp;import android.widget.Toast;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;import com.example.quickrepair.QuickRepairApplication;
+<i>21</i>&nbsp;import com.example.quickrepair.R;
+<i>22</i>&nbsp;import com.example.quickrepair.view.Customer.RegisterCustomer.CustomerRegisterActivity;
+<i>23</i>&nbsp;import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
+<i>24</i>&nbsp;import com.example.quickrepair.view.HomePage.HomePageActivity;
+<i>25</i>&nbsp;import com.example.quickrepair.view.RequestRepair.RequestRepairActivity;
+<i>26</i>&nbsp;import com.example.quickrepair.view.User.LoginUser.LoginActivity;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;import java.net.URISyntaxException;
+<i>29</i>&nbsp;import java.util.ArrayList;
+<i>30</i>&nbsp;import java.util.List;
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
+<i>33</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.DAY_EXTRA;
+<i>34</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.JOBTYPE_ID_EXTRA;
+<i>35</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.MONTH_EXTRA;
+<i>36</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.REDIRECT_TO_SEARCH_EXTRA;
+<i>37</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.REQUEST_CODE_LOGIN;
+<i>38</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.RESULT_DENIED;
+<i>39</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.RESULT_INVALID;
+<i>40</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.TECHNICIAN_ID_EXTRA;
+<i>41</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.YEAR_EXTRA;
+<i>42</i>&nbsp;
+<b class="nc"><i>43</i>&nbsp;public class SearchTechniciansActivity extends AppCompatActivity implements SearchTechniciansView</b>
+<i>44</i>&nbsp;{
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;    SearchTechniciansViewModel viewModel;
+<i>47</i>&nbsp;    SearchTechniciansPresenter presenter;
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    Spinner specialtySpinner;
+<i>50</i>&nbsp;    Spinner jobTypeSpinner;
+<i>51</i>&nbsp;    Spinner areaSpinner;
+<i>52</i>&nbsp;    EditText maxpriceText;
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    ArrayAdapter&lt;SpinnerEntry&gt; specialtyAdapter;
+<i>55</i>&nbsp;    ArrayAdapter&lt;SpinnerEntry&gt; jobTypeAdapter;
+<i>56</i>&nbsp;    ArrayAdapter&lt;String&gt; areaAdapter;
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;    EditText yearText;
+<i>59</i>&nbsp;    EditText monthText;
+<i>60</i>&nbsp;    EditText dayText;
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;    TechnicianAdapter technicianAdapter;
+<i>63</i>&nbsp;    ListView techniciansList;
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;    int loggedInUserId;
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    @Override
+<i>68</i>&nbsp;    protected void onCreate(Bundle savedInstanceState)
+<i>69</i>&nbsp;    {
+<b class="nc"><i>70</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>71</i>&nbsp;        setContentView(R.layout.activity_search_technicians);</b>
+<b class="nc"><i>72</i>&nbsp;        Intent intent = getIntent();</b>
+<b class="nc"><i>73</i>&nbsp;        loggedInUserId = intent.getIntExtra(CUSTOMER_ID_EXTRA, 0);</b>
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;
+<b class="nc"><i>76</i>&nbsp;        viewModel = new ViewModelProvider(this).get(SearchTechniciansViewModel.class);</b>
+<b class="nc"><i>77</i>&nbsp;        presenter = viewModel.getPresenter();</b>
+<b class="nc"><i>78</i>&nbsp;        presenter.setView(this);</b>
+<i>79</i>&nbsp;
+<b class="nc"><i>80</i>&nbsp;        presenter.setLoggedInUser(loggedInUserId);</b>
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;        //Setting spinner adapters
+<b class="nc"><i>84</i>&nbsp;        specialtySpinner = findViewById(R.id.specialty_spinner);</b>
+<b class="nc"><i>85</i>&nbsp;        jobTypeSpinner = findViewById(R.id.job_type_spinner);</b>
+<b class="nc"><i>86</i>&nbsp;        areaSpinner = findViewById(R.id.area_spinner);</b>
+<i>87</i>&nbsp;
+<b class="nc"><i>88</i>&nbsp;        specialtyAdapter = new ArrayAdapter&lt;&gt;(this, R.layout.support_simple_spinner_dropdown_item);</b>
+<b class="nc"><i>89</i>&nbsp;        jobTypeAdapter = new ArrayAdapter&lt;&gt;(this, R.layout.support_simple_spinner_dropdown_item);</b>
+<b class="nc"><i>90</i>&nbsp;        areaAdapter = new ArrayAdapter&lt;&gt;(this, R.layout.support_simple_spinner_dropdown_item);</b>
+<i>91</i>&nbsp;
+<b class="nc"><i>92</i>&nbsp;        maxpriceText = findViewById(R.id.max_price_text);</b>
+<b class="nc"><i>93</i>&nbsp;        yearText = findViewById(R.id.year);</b>
+<b class="nc"><i>94</i>&nbsp;        monthText = findViewById(R.id.month);</b>
+<b class="nc"><i>95</i>&nbsp;        dayText = findViewById(R.id.day);</b>
+<i>96</i>&nbsp;
+<b class="nc"><i>97</i>&nbsp;        specialtySpinner.setAdapter(specialtyAdapter);</b>
+<b class="nc"><i>98</i>&nbsp;        jobTypeSpinner.setAdapter(jobTypeAdapter);</b>
+<b class="nc"><i>99</i>&nbsp;        areaSpinner.setAdapter(areaAdapter);</b>
+<i>100</i>&nbsp;
+<b class="nc"><i>101</i>&nbsp;        specialtySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()</b>
+<b class="nc"><i>102</i>&nbsp;        {</b>
+<i>103</i>&nbsp;            @Override
+<i>104</i>&nbsp;            public void onItemSelected(AdapterView&lt;?&gt; parent, View view, int position, long id)
+<i>105</i>&nbsp;            {
+<b class="nc"><i>106</i>&nbsp;                SpinnerEntry entry = (SpinnerEntry) parent.getAdapter().getItem(position);</b>
+<b class="nc"><i>107</i>&nbsp;                presenter.selectSpecialty(entry.getId());</b>
+<i>108</i>&nbsp;            }
+<i>109</i>&nbsp;
+<i>110</i>&nbsp;            @Override
+<i>111</i>&nbsp;            public void onNothingSelected(AdapterView&lt;?&gt; parent)
+<i>112</i>&nbsp;            {
+<i>113</i>&nbsp;
+<i>114</i>&nbsp;            }
+<i>115</i>&nbsp;        });
+<i>116</i>&nbsp;        //Setting technicianListAdapters
+<b class="nc"><i>117</i>&nbsp;        techniciansList = findViewById(R.id.technician_list);</b>
+<b class="nc"><i>118</i>&nbsp;        technicianAdapter = new TechnicianAdapter(this, R.layout.search_technicians_technician_list_layout);</b>
+<b class="nc"><i>119</i>&nbsp;        techniciansList.setAdapter(technicianAdapter);</b>
+<i>120</i>&nbsp;
+<b class="nc"><i>121</i>&nbsp;        Button b = findViewById(R.id.search_button);</b>
+<b class="nc"><i>122</i>&nbsp;        b.setOnClickListener(new View.OnClickListener()</b>
+<b class="nc"><i>123</i>&nbsp;        {</b>
+<i>124</i>&nbsp;            @Override
+<i>125</i>&nbsp;            public void onClick(View v)
+<i>126</i>&nbsp;            {
+<b class="nc"><i>127</i>&nbsp;                SpinnerEntry entry = (SpinnerEntry) jobTypeSpinner.getSelectedItem();</b>
+<b class="nc"><i>128</i>&nbsp;                int selectedJobTypeId = entry.getId();</b>
+<b class="nc"><i>129</i>&nbsp;                String selectedMaxPrice = maxpriceText.getText().toString();</b>
+<b class="nc"><i>130</i>&nbsp;                String selectedArea = (String) areaSpinner.getSelectedItem();</b>
+<i>131</i>&nbsp;
+<b class="nc"><i>132</i>&nbsp;                String month = monthText.getText().toString();</b>
+<b class="nc"><i>133</i>&nbsp;                String year = yearText.getText().toString();</b>
+<b class="nc"><i>134</i>&nbsp;                String day = dayText.getText().toString();</b>
+<i>135</i>&nbsp;
+<b class="nc"><i>136</i>&nbsp;                presenter.search(selectedJobTypeId, selectedMaxPrice, selectedArea, year, month, day);</b>
+<i>137</i>&nbsp;            }
+<i>138</i>&nbsp;        });
+<i>139</i>&nbsp;
+<b class="nc"><i>140</i>&nbsp;        techniciansList.setOnItemClickListener(new AdapterView.OnItemClickListener()</b>
+<b class="nc"><i>141</i>&nbsp;        {</b>
+<i>142</i>&nbsp;            @Override
+<i>143</i>&nbsp;            public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id)
+<i>144</i>&nbsp;            {
+<b class="nc"><i>145</i>&nbsp;                presenter.onTechnicianClick((int) id);</b>
+<i>146</i>&nbsp;            }
+<i>147</i>&nbsp;        });
+<i>148</i>&nbsp;
+<b class="nc"><i>149</i>&nbsp;        presenter.onStart();</b>
+<i>150</i>&nbsp;    }
+<i>151</i>&nbsp;
+<i>152</i>&nbsp;    @Override
+<i>153</i>&nbsp;    public void setJobTypeSpinnerEnabled(boolean b)
+<i>154</i>&nbsp;    {
+<b class="nc"><i>155</i>&nbsp;        findViewById(R.id.job_type_spinner).setEnabled(b);</b>
+<i>156</i>&nbsp;    }
+<i>157</i>&nbsp;
+<i>158</i>&nbsp;    @Override
+<i>159</i>&nbsp;    public void showErrorMessage(String errorMessage)
+<i>160</i>&nbsp;    {
+<b class="nc"><i>161</i>&nbsp;        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();</b>
+<i>162</i>&nbsp;    }
+<i>163</i>&nbsp;
+<i>164</i>&nbsp;    @Override
+<i>165</i>&nbsp;    public void setSpecialtiesSource(List&lt;Integer&gt; specialtyIds, List&lt;String&gt; specialtyNames)
+<i>166</i>&nbsp;    {
+<b class="nc"><i>167</i>&nbsp;        List&lt;SpinnerEntry&gt; list = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>168</i>&nbsp;        for (int i = 0; i &lt; specialtyIds.size(); i++)</b>
+<i>169</i>&nbsp;        {
+<b class="nc"><i>170</i>&nbsp;            list.add(new SpinnerEntry(specialtyIds.get(i), specialtyNames.get(i)));</b>
+<i>171</i>&nbsp;        }
+<b class="nc"><i>172</i>&nbsp;        specialtyAdapter = new ArrayAdapter&lt;&gt;(this</b>
+<i>173</i>&nbsp;                , R.layout.support_simple_spinner_dropdown_item, list);
+<b class="nc"><i>174</i>&nbsp;        specialtySpinner.setAdapter(specialtyAdapter);</b>
+<i>175</i>&nbsp;
+<i>176</i>&nbsp;    }
+<i>177</i>&nbsp;
+<i>178</i>&nbsp;    @Override
+<i>179</i>&nbsp;    public void setJobTypesSource(List&lt;Integer&gt; jobTypeIds, List&lt;String&gt; jobTypeNames)
+<i>180</i>&nbsp;    {
+<b class="nc"><i>181</i>&nbsp;        List&lt;SpinnerEntry&gt; list = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>182</i>&nbsp;        for (int i = 0; i &lt; jobTypeIds.size(); i++)</b>
+<i>183</i>&nbsp;        {
+<b class="nc"><i>184</i>&nbsp;            list.add(new SpinnerEntry(jobTypeIds.get(i), jobTypeNames.get(i)));</b>
+<i>185</i>&nbsp;        }
+<b class="nc"><i>186</i>&nbsp;        jobTypeAdapter = new ArrayAdapter&lt;&gt;(this</b>
+<i>187</i>&nbsp;                , R.layout.support_simple_spinner_dropdown_item, list);
+<b class="nc"><i>188</i>&nbsp;        jobTypeSpinner.setAdapter(jobTypeAdapter);</b>
+<i>189</i>&nbsp;    }
+<i>190</i>&nbsp;
+<i>191</i>&nbsp;    @Override
+<i>192</i>&nbsp;    public void setAreasSource(List&lt;String&gt; areas)
+<i>193</i>&nbsp;    {
+<b class="nc"><i>194</i>&nbsp;        areaAdapter = new ArrayAdapter&lt;&gt;(this,</b>
+<i>195</i>&nbsp;                R.layout.support_simple_spinner_dropdown_item, areas);
+<b class="nc"><i>196</i>&nbsp;        areaSpinner.setAdapter(areaAdapter);</b>
+<i>197</i>&nbsp;    }
+<i>198</i>&nbsp;
+<i>199</i>&nbsp;    @Override
+<i>200</i>&nbsp;    public void populateTechnicianList(List&lt;Integer&gt; technicianIds, List&lt;String&gt; technicianNames, List&lt;Double&gt; averageRatings, List&lt;Double&gt; prices)
+<i>201</i>&nbsp;    {
+<b class="nc"><i>202</i>&nbsp;        TechnicianAdapter technicianAdapter = new TechnicianAdapter(this, 2);</b>
+<b class="nc"><i>203</i>&nbsp;        technicianAdapter.setSource(technicianIds, technicianNames, averageRatings, prices);</b>
+<b class="nc"><i>204</i>&nbsp;        techniciansList.setAdapter(technicianAdapter);</b>
+<i>205</i>&nbsp;    }
+<i>206</i>&nbsp;
+<i>207</i>&nbsp;    @Override
+<i>208</i>&nbsp;    public void navigateToRequestRepair(int technicianId, int jobTypeId, int year, int month, int dayOfMonth)
+<i>209</i>&nbsp;    {
+<b class="nc"><i>210</i>&nbsp;        Intent intent = new Intent(this, RequestRepairActivity.class);</b>
+<b class="nc"><i>211</i>&nbsp;        intent.putExtra(TECHNICIAN_ID_EXTRA, technicianId);</b>
+<b class="nc"><i>212</i>&nbsp;        intent.putExtra(JOBTYPE_ID_EXTRA, jobTypeId);</b>
+<b class="nc"><i>213</i>&nbsp;        intent.putExtra(YEAR_EXTRA, year);</b>
+<b class="nc"><i>214</i>&nbsp;        intent.putExtra(MONTH_EXTRA, month);</b>
+<b class="nc"><i>215</i>&nbsp;        intent.putExtra(DAY_EXTRA, dayOfMonth);</b>
+<b class="nc"><i>216</i>&nbsp;        intent.putExtra(CUSTOMER_ID_EXTRA, loggedInUserId);</b>
+<b class="nc"><i>217</i>&nbsp;        startActivity(intent);</b>
+<i>218</i>&nbsp;
+<b class="nc"><i>219</i>&nbsp;        finish();</b>
+<i>220</i>&nbsp;    }
+<i>221</i>&nbsp;
+<i>222</i>&nbsp;    /**
+<i>223</i>&nbsp;     * Starts the login activity , expects a result on onActivityResult
+<i>224</i>&nbsp;     */
+<i>225</i>&nbsp;    @Override
+<i>226</i>&nbsp;    public void navigateToLogin(int technicianId, int jobTypeId, int year, int month, int dayOfMonth)
+<i>227</i>&nbsp;    {
+<b class="nc"><i>228</i>&nbsp;        Intent intent = new Intent(this, LoginActivity.class);</b>
+<b class="nc"><i>229</i>&nbsp;        intent.putExtra(REDIRECT_TO_SEARCH_EXTRA, true);</b>
+<i>230</i>&nbsp;
+<b class="nc"><i>231</i>&nbsp;        Intent repairIntent = new Intent(this, RequestRepairActivity.class);</b>
+<b class="nc"><i>232</i>&nbsp;        repairIntent.putExtra(TECHNICIAN_ID_EXTRA, technicianId);</b>
+<b class="nc"><i>233</i>&nbsp;        repairIntent.putExtra(JOBTYPE_ID_EXTRA, jobTypeId);</b>
+<b class="nc"><i>234</i>&nbsp;        repairIntent.putExtra(YEAR_EXTRA, year);</b>
+<b class="nc"><i>235</i>&nbsp;        repairIntent.putExtra(MONTH_EXTRA, month);</b>
+<b class="nc"><i>236</i>&nbsp;        repairIntent.putExtra(DAY_EXTRA, dayOfMonth);</b>
+<i>237</i>&nbsp;
+<b class="nc"><i>238</i>&nbsp;        SharedPreferences settings = getSharedPreferences(&quot;PREFERENCES&quot;, 0);</b>
+<b class="nc"><i>239</i>&nbsp;        SharedPreferences.Editor editor = settings.edit();</b>
+<b class="nc"><i>240</i>&nbsp;        String uriString = repairIntent.toUri(0);</b>
+<i>241</i>&nbsp;
+<b class="nc"><i>242</i>&nbsp;        editor.putString(&quot;Repair&quot;, uriString);</b>
+<b class="nc"><i>243</i>&nbsp;        editor.apply();</b>
+<i>244</i>&nbsp;
+<b class="nc"><i>245</i>&nbsp;        startActivityForResult(intent, REQUEST_CODE_LOGIN);</b>
+<i>246</i>&nbsp;    }
+<i>247</i>&nbsp;
+<i>248</i>&nbsp;    /**
+<i>249</i>&nbsp;     * Called when we get a result from the login activity
+<i>250</i>&nbsp;     */
+<i>251</i>&nbsp;    @Override
+<i>252</i>&nbsp;    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+<i>253</i>&nbsp;    {
+<b class="nc"><i>254</i>&nbsp;        super.onActivityResult(requestCode, resultCode, data);</b>
+<i>255</i>&nbsp;
+<b class="nc"><i>256</i>&nbsp;        if (requestCode == REQUEST_CODE_LOGIN)</b>
+<i>257</i>&nbsp;        {
+<b class="nc"><i>258</i>&nbsp;            if (resultCode == RESULT_OK)</b>
+<i>259</i>&nbsp;            {
+<b class="nc"><i>260</i>&nbsp;                loggedInUserId = data.getIntExtra(CUSTOMER_ID_EXTRA, 0);</b>
+<b class="nc"><i>261</i>&nbsp;                presenter.setLoggedInUser(loggedInUserId);</b>
+<i>262</i>&nbsp;
+<b class="nc"><i>263</i>&nbsp;                SharedPreferences settings = getSharedPreferences(&quot;PREFERENCES&quot;, 0);</b>
+<b class="nc"><i>264</i>&nbsp;                String uri = settings.getString(&quot;Repair&quot;, null);</b>
+<i>265</i>&nbsp;
+<b class="nc"><i>266</i>&nbsp;                Intent intent = null;</b>
+<i>267</i>&nbsp;                try
+<i>268</i>&nbsp;                {
+<b class="nc"><i>269</i>&nbsp;                    intent = Intent.parseUri(uri, 0);</b>
+<i>270</i>&nbsp;                }
+<b class="nc"><i>271</i>&nbsp;                catch (URISyntaxException e)</b>
+<i>272</i>&nbsp;                {
+<b class="nc"><i>273</i>&nbsp;                    e.printStackTrace();</b>
+<b class="nc"><i>274</i>&nbsp;                }</b>
+<i>275</i>&nbsp;
+<b class="nc"><i>276</i>&nbsp;                intent.putExtra(CUSTOMER_ID_EXTRA, loggedInUserId);</b>
+<b class="nc"><i>277</i>&nbsp;                startActivity(intent);</b>
+<i>278</i>&nbsp;
+<b class="nc"><i>279</i>&nbsp;                finish();</b>
+<b class="nc"><i>280</i>&nbsp;            }</b>
+<b class="nc"><i>281</i>&nbsp;            else if (resultCode == RESULT_INVALID)</b>
+<i>282</i>&nbsp;            {
+<b class="nc"><i>283</i>&nbsp;                showErrorMessage(&quot;Invalid customer credentials.&quot;);</b>
+<i>284</i>&nbsp;            }
+<b class="nc"><i>285</i>&nbsp;            else if (resultCode == RESULT_DENIED)</b>
+<i>286</i>&nbsp;            {
+<b class="nc"><i>287</i>&nbsp;                showErrorMessage(&quot;Only customer accounts have access to the requested page.&quot;);</b>
+<i>288</i>&nbsp;            }
+<i>289</i>&nbsp;        }
+<i>290</i>&nbsp;    }
+<i>291</i>&nbsp;
+<i>292</i>&nbsp;    @Override
+<i>293</i>&nbsp;    public void onBackPressed()
+<i>294</i>&nbsp;    {
+<b class="nc"><i>295</i>&nbsp;        if (loggedInUserId == 0)</b>
+<i>296</i>&nbsp;        {
+<b class="nc"><i>297</i>&nbsp;            Intent intent = new Intent(this, HomePageActivity.class);</b>
+<b class="nc"><i>298</i>&nbsp;            startActivity(intent);</b>
+<b class="nc"><i>299</i>&nbsp;        }</b>
+<i>300</i>&nbsp;        else
+<i>301</i>&nbsp;        {
+<b class="nc"><i>302</i>&nbsp;            Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);</b>
+<b class="nc"><i>303</i>&nbsp;            intent.putExtra(CUSTOMER_ID_EXTRA, loggedInUserId);</b>
+<b class="nc"><i>304</i>&nbsp;            startActivity(intent);</b>
+<i>305</i>&nbsp;        }
+<i>306</i>&nbsp;
+<b class="nc"><i>307</i>&nbsp;        finish();</b>
+<i>308</i>&nbsp;    }
+<i>309</i>&nbsp;
+<i>310</i>&nbsp;    private class SpinnerEntry
+<i>311</i>&nbsp;    {
+<i>312</i>&nbsp;        int id;
+<i>313</i>&nbsp;        String value;
+<i>314</i>&nbsp;
+<i>315</i>&nbsp;        public SpinnerEntry(int id, String value)
+<b class="nc"><i>316</i>&nbsp;        {</b>
+<b class="nc"><i>317</i>&nbsp;            this.id = id;</b>
+<b class="nc"><i>318</i>&nbsp;            this.value = value;</b>
+<i>319</i>&nbsp;        }
+<i>320</i>&nbsp;
+<i>321</i>&nbsp;        @Override
+<i>322</i>&nbsp;        public String toString()
+<i>323</i>&nbsp;        {
+<b class="nc"><i>324</i>&nbsp;            return value;</b>
+<i>325</i>&nbsp;        }
+<i>326</i>&nbsp;
+<i>327</i>&nbsp;        public int getId()
+<i>328</i>&nbsp;        {
+<b class="nc"><i>329</i>&nbsp;            return id;</b>
+<i>330</i>&nbsp;        }
+<i>331</i>&nbsp;    }
+<i>332</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+public class Requirements implements Serializable{
+	public boolean applyTo(Map<String,String> row){
+	}
+}

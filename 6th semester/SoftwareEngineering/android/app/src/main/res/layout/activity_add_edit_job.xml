@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".view.Technician.AddEditJob.AddEditJobActivity">
+
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/JobTypesSpinner"/>
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/JobTypesSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/PriceInput"
+            android:hint="@string/price"
+            android:layout_width="wrap_content"
+            android:minWidth="200dp"
+            />
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/AddJobButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/JobTypesSpinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/add"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:id="@+id/JobList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/PriceInput"/>
+
+    <Button
+        android:id="@+id/FinalizeRegisterButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/finish"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

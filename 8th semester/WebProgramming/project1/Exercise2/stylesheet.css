@@ -1,0 +1,74 @@
+body {
+    background-color: rgb(240, 239, 221);
+}
+
+* {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+}
+h2 {
+    font-size: xx-large;
+}
+section {
+    border: 2px solid black;
+}
+
+header p{
+    font-size: xx-large;
+}
+main  a:hover {
+    font-size: larger;
+}
+
+em {
+    font-size: large;
+    font-weight: bolder;
+}
+header a {
+    color: black;
+    font-size: x-large;
+}
+
+main  a:active {
+    color:yellowgreen;
+}
+main  a:visited {
+    text-decoration: line-through;
+    color: purple;
+}
+
+ul {
+    list-style-type: none;
+}
+
+footer {
+    background-color: black;
+}
+footer p{
+    color: white;
+    font-weight: bolder;
+    align-content: center;
+}
+
+.date{
+    margin: auto;
+    width: 50%;
+    align-content: center;
+    color: rebeccapurple;
+    text-shadow: 2px 2px #ff0000;
+}
+.scfield{
+    text-shadow: 2px 2px #000000;
+    font-style: italic;
+    text-decoration: solid;
+    display: inline;
+}
+#myname{
+    font-size: xx-large;
+    display: inline;
+}
+p::first-letter{
+    float: left;
+    font-size: xx-large;
+}

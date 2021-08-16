@@ -1,0 +1,86 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SpecialtyDAO</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SpecialtyDAO (com.example.quickrepair.dao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">SpecialtyDAO</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.quickrepair.domain.Specialty;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.util.List;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;public interface SpecialtyDAO {
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;    /**
+<i>10</i>&nbsp;     * Delete an Specialty
+<i>11</i>&nbsp;     * @param entity Specialty
+<i>12</i>&nbsp;     */
+<i>13</i>&nbsp;    void delete(Specialty entity);
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    /**
+<i>16</i>&nbsp;     * Find all Specialties
+<i>17</i>&nbsp;     * @return Specialties
+<i>18</i>&nbsp;     */
+<i>19</i>&nbsp;    List&lt;Specialty&gt; findAll();
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    /**
+<i>22</i>&nbsp;     * Save a Specialty
+<i>23</i>&nbsp;     * @param entity Specialty
+<i>24</i>&nbsp;     */
+<i>25</i>&nbsp;    void save(Specialty entity);
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    /**
+<i>28</i>&nbsp;     * Find the Specialty with the given id
+<i>29</i>&nbsp;     * @param specialtyID Specialty&#39;s id
+<i>30</i>&nbsp;     * @return Specialty or null
+<i>31</i>&nbsp;     */
+<i>32</i>&nbsp;    Specialty find(int specialtyID);
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    /**
+<i>35</i>&nbsp;     * Return the next id for a Specialty.
+<i>36</i>&nbsp;     * @return Specialty&#39;s id
+<i>37</i>&nbsp;     */
+<i>38</i>&nbsp;    int nextId();
+<i>39</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

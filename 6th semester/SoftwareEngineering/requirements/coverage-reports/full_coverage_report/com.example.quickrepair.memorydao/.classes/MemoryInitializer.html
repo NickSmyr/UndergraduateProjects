@@ -1,0 +1,242 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: MemoryInitializer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.memorydao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: MemoryInitializer (com.example.quickrepair.memorydao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MemoryInitializer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/ 12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    89.7%
+  </span>
+  <span class="absValue">
+    (35/ 39)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.memorydao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.quickrepair.dao.AreaDAO;
+<i>4</i>&nbsp;import com.example.quickrepair.dao.CustomerDAO;
+<i>5</i>&nbsp;import com.example.quickrepair.dao.EvaluationDAO;
+<i>6</i>&nbsp;import com.example.quickrepair.dao.Initializer;
+<i>7</i>&nbsp;import com.example.quickrepair.dao.JobDAO;
+<i>8</i>&nbsp;import com.example.quickrepair.dao.JobTypeDAO;
+<i>9</i>&nbsp;import com.example.quickrepair.dao.PaymentDAO;
+<i>10</i>&nbsp;import com.example.quickrepair.dao.RepairDAO;
+<i>11</i>&nbsp;import com.example.quickrepair.dao.RepairRequestDAO;
+<i>12</i>&nbsp;import com.example.quickrepair.dao.SpecialtyDAO;
+<i>13</i>&nbsp;import com.example.quickrepair.dao.TechnicianDAO;
+<i>14</i>&nbsp;import com.example.quickrepair.domain.Customer;
+<i>15</i>&nbsp;import com.example.quickrepair.domain.Evaluation;
+<i>16</i>&nbsp;import com.example.quickrepair.domain.Job;
+<i>17</i>&nbsp;import com.example.quickrepair.domain.JobType;
+<i>18</i>&nbsp;import com.example.quickrepair.domain.Payment;
+<i>19</i>&nbsp;import com.example.quickrepair.domain.Repair;
+<i>20</i>&nbsp;import com.example.quickrepair.domain.RepairRequest;
+<i>21</i>&nbsp;import com.example.quickrepair.domain.Specialty;
+<i>22</i>&nbsp;import com.example.quickrepair.domain.Technician;
+<i>23</i>&nbsp;
+<b class="fc"><i>24</i>&nbsp;public class MemoryInitializer extends Initializer {</b>
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    /**
+<i>27</i>&nbsp;     * Delete data
+<i>28</i>&nbsp;     */
+<i>29</i>&nbsp;    @Override
+<i>30</i>&nbsp;    protected void eraseData() {
+<b class="fc"><i>31</i>&nbsp;        for(Customer customer : getCustomerDAO().findAll()) {</b>
+<b class="fc"><i>32</i>&nbsp;            getCustomerDAO().delete(customer);</b>
+<b class="fc"><i>33</i>&nbsp;        }</b>
+<b class="fc"><i>34</i>&nbsp;        for(Evaluation evaluation : getEvaluationDAO().findAll()) {</b>
+<b class="nc"><i>35</i>&nbsp;            getEvaluationDAO().delete(evaluation);</b>
+<b class="nc"><i>36</i>&nbsp;        }</b>
+<b class="fc"><i>37</i>&nbsp;        for(Job job : getJobDAO().findAll()) {</b>
+<b class="fc"><i>38</i>&nbsp;            getJobDAO().delete(job);</b>
+<b class="fc"><i>39</i>&nbsp;        }</b>
+<b class="fc"><i>40</i>&nbsp;        for(JobType jobType : getJobTypeDAO().findAll()) {</b>
+<b class="fc"><i>41</i>&nbsp;            getJobTypeDAO().delete(jobType);</b>
+<b class="fc"><i>42</i>&nbsp;        }</b>
+<b class="fc"><i>43</i>&nbsp;        for(Payment payment : getPaymentDAO().findAll()) {</b>
+<b class="nc"><i>44</i>&nbsp;            getPaymentDAO().delete(payment);</b>
+<b class="nc"><i>45</i>&nbsp;        }</b>
+<b class="fc"><i>46</i>&nbsp;        for(Repair repair : getRepairDAO().findAll()) {</b>
+<b class="fc"><i>47</i>&nbsp;            getRepairDAO().delete(repair);</b>
+<b class="fc"><i>48</i>&nbsp;        }</b>
+<b class="fc"><i>49</i>&nbsp;        for(RepairRequest repairRequest : getRepairRequestDAO().findAll()) {</b>
+<b class="fc"><i>50</i>&nbsp;            getRepairRequestDAO().delete(repairRequest);</b>
+<b class="fc"><i>51</i>&nbsp;        }</b>
+<b class="fc"><i>52</i>&nbsp;        for(Specialty specialty : getSpecialtyDAO().findAll()) {</b>
+<b class="fc"><i>53</i>&nbsp;            getSpecialtyDAO().delete(specialty);</b>
+<b class="fc"><i>54</i>&nbsp;        }</b>
+<b class="fc"><i>55</i>&nbsp;        for(Technician technician : getTechnicianDAO().findAll()) {</b>
+<b class="fc"><i>56</i>&nbsp;            getTechnicianDAO().delete(technician);</b>
+<b class="fc"><i>57</i>&nbsp;        }</b>
+<b class="fc"><i>58</i>&nbsp;    }</b>
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;    /**
+<i>61</i>&nbsp;     * Return Technicians&#39; DAO
+<i>62</i>&nbsp;     *
+<i>63</i>&nbsp;     * @return Technicians&#39; DAO
+<i>64</i>&nbsp;     */
+<i>65</i>&nbsp;    @Override
+<i>66</i>&nbsp;    public TechnicianDAO getTechnicianDAO() {
+<b class="fc"><i>67</i>&nbsp;        return new TechnicianDAOMemory();</b>
+<i>68</i>&nbsp;    }
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;    /**
+<i>71</i>&nbsp;     * Return Specialties&#39; DAO
+<i>72</i>&nbsp;     *
+<i>73</i>&nbsp;     * @return Specialties&#39; DAO
+<i>74</i>&nbsp;     */
+<i>75</i>&nbsp;    @Override
+<i>76</i>&nbsp;    public SpecialtyDAO getSpecialtyDAO() {
+<b class="fc"><i>77</i>&nbsp;        return new SpecialtyDAOMemory();</b>
+<i>78</i>&nbsp;    }
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;    /**
+<i>81</i>&nbsp;     * Return Repair Requests&#39; DAO
+<i>82</i>&nbsp;     *
+<i>83</i>&nbsp;     * @return Repair Requests&#39; DAO
+<i>84</i>&nbsp;     */
+<i>85</i>&nbsp;    @Override
+<i>86</i>&nbsp;    public RepairRequestDAO getRepairRequestDAO() {
+<b class="fc"><i>87</i>&nbsp;        return new RepairRequestDAOMemory();</b>
+<i>88</i>&nbsp;    }
+<i>89</i>&nbsp;
+<i>90</i>&nbsp;    /**
+<i>91</i>&nbsp;     * Return Repairs&#39; DAO
+<i>92</i>&nbsp;     *
+<i>93</i>&nbsp;     * @return Repairs&#39; DAO
+<i>94</i>&nbsp;     */
+<i>95</i>&nbsp;    @Override
+<i>96</i>&nbsp;    public RepairDAO getRepairDAO() {
+<b class="fc"><i>97</i>&nbsp;        return new RepairDAOMemory();</b>
+<i>98</i>&nbsp;    }
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;    /**
+<i>101</i>&nbsp;     * Return Payments&#39; DAO
+<i>102</i>&nbsp;     *
+<i>103</i>&nbsp;     * @return Payments&#39; DAO
+<i>104</i>&nbsp;     */
+<i>105</i>&nbsp;    @Override
+<i>106</i>&nbsp;    public PaymentDAO getPaymentDAO() {
+<b class="fc"><i>107</i>&nbsp;        return new PaymentDAOMemory();</b>
+<i>108</i>&nbsp;    }
+<i>109</i>&nbsp;
+<i>110</i>&nbsp;    /**
+<i>111</i>&nbsp;     * Reutrn JobTypes&#39; DAO
+<i>112</i>&nbsp;     *
+<i>113</i>&nbsp;     * @return JobTypes&#39; DAO
+<i>114</i>&nbsp;     */
+<i>115</i>&nbsp;    @Override
+<i>116</i>&nbsp;    public JobTypeDAO getJobTypeDAO() {
+<b class="fc"><i>117</i>&nbsp;        return new JobTypeDAOMemory();</b>
+<i>118</i>&nbsp;    }
+<i>119</i>&nbsp;
+<i>120</i>&nbsp;    /**
+<i>121</i>&nbsp;     * Reutrn Jobs&#39; DAO
+<i>122</i>&nbsp;     *
+<i>123</i>&nbsp;     * @return Jobs&#39; DAO
+<i>124</i>&nbsp;     */
+<i>125</i>&nbsp;    @Override
+<i>126</i>&nbsp;    public JobDAO getJobDAO() {
+<b class="fc"><i>127</i>&nbsp;        return new JobDAOMemory();</b>
+<i>128</i>&nbsp;    }
+<i>129</i>&nbsp;
+<i>130</i>&nbsp;    /**
+<i>131</i>&nbsp;     * Return Evaluations&#39; DAO
+<i>132</i>&nbsp;     *
+<i>133</i>&nbsp;     * @return Evaluations&#39; DAO
+<i>134</i>&nbsp;     */
+<i>135</i>&nbsp;    @Override
+<i>136</i>&nbsp;    public EvaluationDAO getEvaluationDAO() {
+<b class="fc"><i>137</i>&nbsp;        return new EvaluationDAOMemory();</b>
+<i>138</i>&nbsp;    }
+<i>139</i>&nbsp;
+<i>140</i>&nbsp;    /**
+<i>141</i>&nbsp;     * Return Customers&#39; DAO
+<i>142</i>&nbsp;     *
+<i>143</i>&nbsp;     * @return Customers&#39; DAO
+<i>144</i>&nbsp;     */
+<i>145</i>&nbsp;    @Override
+<i>146</i>&nbsp;    public CustomerDAO getCustomerDAO() {
+<b class="fc"><i>147</i>&nbsp;        return new CustomerDAOMemory();</b>
+<i>148</i>&nbsp;    }
+<i>149</i>&nbsp;
+<i>150</i>&nbsp;    /**
+<i>151</i>&nbsp;     * Return Areas&#39; DAO
+<i>152</i>&nbsp;     *
+<i>153</i>&nbsp;     * @return Areas&#39; DAO
+<i>154</i>&nbsp;     */
+<i>155</i>&nbsp;    @Override
+<i>156</i>&nbsp;    public AreaDAO getAreaDAO() {
+<b class="fc"><i>157</i>&nbsp;        return new AreaDAOMemory();</b>
+<i>158</i>&nbsp;    }
+<i>159</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: User</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: User (com.example.quickrepair.domain)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">User</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (17/ 17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (56/ 56)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">User$NotificationMethod</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (19/ 19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (59/ 59)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Build;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.security.MessageDigest;
+<i>8</i>&nbsp;import java.security.NoSuchAlgorithmException;
+<i>9</i>&nbsp;import java.util.Arrays;
+<i>10</i>&nbsp;import java.util.Objects;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;public class User
+<i>13</i>&nbsp;{
+<i>14</i>&nbsp;    private int uid;
+<i>15</i>&nbsp;    private String name;
+<i>16</i>&nbsp;    private String surname;
+<i>17</i>&nbsp;    private String phoneNumber;
+<i>18</i>&nbsp;    private String email;
+<i>19</i>&nbsp;    private String bankAccount;
+<i>20</i>&nbsp;    private String username;
+<i>21</i>&nbsp;    private String password;
+<i>22</i>&nbsp;    private NotificationMethod notificationMethod;
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    public User()
+<b class="fc"><i>25</i>&nbsp;    {</b>
+<b class="fc"><i>26</i>&nbsp;        uid = 0;</b>
+<b class="fc"><i>27</i>&nbsp;    }</b>
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    public User(String name, String surname, String phoneNumber, String email, String bankAccount, String username, String password)
+<i>30</i>&nbsp;    {
+<b class="fc"><i>31</i>&nbsp;        this();</b>
+<b class="fc"><i>32</i>&nbsp;        setUserInfo(name, surname, phoneNumber, email, bankAccount, username);</b>
+<b class="fc"><i>33</i>&nbsp;        setPassword(password);</b>
+<b class="fc"><i>34</i>&nbsp;    }</b>
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    /**
+<i>37</i>&nbsp;     * Sets the user&#39;s personal info performing the necessary checks
+<i>38</i>&nbsp;     *
+<i>39</i>&nbsp;     * @throws IllegalArgumentException if the input info is not correct
+<i>40</i>&nbsp;     */
+<i>41</i>&nbsp;    public void setUserInfo(String name, String surname, String phoneNumber, String email, String bankAccount, String username)
+<i>42</i>&nbsp;    {
+<b class="fc"><i>43</i>&nbsp;        if (name == null) throw new NullPointerException(&quot;Name can not be null.&quot;);</b>
+<b class="fc"><i>44</i>&nbsp;        if (name.isEmpty()) throw new IllegalArgumentException(&quot;Name can not empty.&quot;);</b>
+<i>45</i>&nbsp;
+<b class="fc"><i>46</i>&nbsp;        if (surname == null) throw new NullPointerException(&quot;Surname can not be null.&quot;);</b>
+<b class="fc"><i>47</i>&nbsp;        if (surname.isEmpty()) throw new IllegalArgumentException(&quot;Surname can not empty.&quot;);</b>
+<i>48</i>&nbsp;
+<b class="fc"><i>49</i>&nbsp;        if (phoneNumber == null) throw new NullPointerException(&quot;Phone number can not be null.&quot;);</b>
+<b class="fc"><i>50</i>&nbsp;        if (!phoneNumber.matches(&quot;\\d{10}&quot;)) throw new IllegalArgumentException(&quot;Wrong phone number format. Must have exactly ten digits.&quot;);</b>
+<i>51</i>&nbsp;
+<b class="fc"><i>52</i>&nbsp;        if (email == null) throw new NullPointerException(&quot;Email can not be null.&quot;);</b>
+<b class="fc"><i>53</i>&nbsp;        if (!email.matches(&quot;((\\w|\\d|\\.)+\\@(\\w|\\d)+\\.\\w+)&quot;))throw new IllegalArgumentException(&quot;Wrong email address format.&quot;);</b>
+<i>54</i>&nbsp;
+<b class="fc"><i>55</i>&nbsp;        if (bankAccount == null) throw new NullPointerException(&quot;Bank number can not be null.&quot;);</b>
+<b class="fc"><i>56</i>&nbsp;        if (bankAccount.length() != 22) throw new IllegalArgumentException(&quot;Wrong bank account format. Must have length 22.&quot;);</b>
+<i>57</i>&nbsp;
+<b class="fc"><i>58</i>&nbsp;        if (username == null) throw new NullPointerException(&quot;Username can not be null.&quot;);</b>
+<b class="fc"><i>59</i>&nbsp;        if (username.isEmpty()) throw new IllegalArgumentException(&quot;Username can not be empty.&quot;);</b>
+<i>60</i>&nbsp;
+<b class="fc"><i>61</i>&nbsp;        this.name = name;</b>
+<b class="fc"><i>62</i>&nbsp;        this.surname = surname;</b>
+<b class="fc"><i>63</i>&nbsp;        this.phoneNumber = phoneNumber;</b>
+<b class="fc"><i>64</i>&nbsp;        this.email = email;</b>
+<b class="fc"><i>65</i>&nbsp;        this.bankAccount = bankAccount;</b>
+<b class="fc"><i>66</i>&nbsp;        this.username = username;</b>
+<b class="fc"><i>67</i>&nbsp;    }</b>
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;    public void setPassword(String password)
+<i>70</i>&nbsp;    {
+<b class="fc"><i>71</i>&nbsp;        if (password == null) throw new NullPointerException(&quot;Password can not be null.&quot;);</b>
+<i>72</i>&nbsp;
+<b class="fc"><i>73</i>&nbsp;        if (password.isEmpty()) throw new IllegalArgumentException(&quot;Username can not be empty.&quot;);</b>
+<i>74</i>&nbsp;
+<b class="fc"><i>75</i>&nbsp;        this.password = password;</b>
+<b class="fc"><i>76</i>&nbsp;    }</b>
+<i>77</i>&nbsp;
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;    public String getName()
+<i>80</i>&nbsp;    {
+<b class="fc"><i>81</i>&nbsp;        return name;</b>
+<i>82</i>&nbsp;    }
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    public String getSurname()
+<i>85</i>&nbsp;    {
+<b class="fc"><i>86</i>&nbsp;        return surname;</b>
+<i>87</i>&nbsp;    }
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;    public String getPhoneNumber()
+<i>90</i>&nbsp;    {
+<b class="fc"><i>91</i>&nbsp;        return phoneNumber;</b>
+<i>92</i>&nbsp;    }
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;    public String getEmail()
+<i>95</i>&nbsp;    {
+<b class="fc"><i>96</i>&nbsp;        return email;</b>
+<i>97</i>&nbsp;    }
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;    public String getBankAccount()
+<i>100</i>&nbsp;    {
+<b class="fc"><i>101</i>&nbsp;        return bankAccount;</b>
+<i>102</i>&nbsp;    }
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;    public String getUsername()
+<i>105</i>&nbsp;    {
+<b class="fc"><i>106</i>&nbsp;        return username;</b>
+<i>107</i>&nbsp;    }
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;    public String getPassword()
+<i>110</i>&nbsp;    {
+<b class="fc"><i>111</i>&nbsp;        return password;</b>
+<i>112</i>&nbsp;    }
+<i>113</i>&nbsp;
+<i>114</i>&nbsp;    public int getUid()
+<i>115</i>&nbsp;    {
+<b class="fc"><i>116</i>&nbsp;        return uid;</b>
+<i>117</i>&nbsp;    }
+<i>118</i>&nbsp;
+<i>119</i>&nbsp;    public void setUid(int uid)
+<i>120</i>&nbsp;    {
+<b class="fc"><i>121</i>&nbsp;        this.uid = uid;</b>
+<b class="fc"><i>122</i>&nbsp;    }</b>
+<i>123</i>&nbsp;
+<i>124</i>&nbsp;    @Override
+<i>125</i>&nbsp;    public boolean equals(Object o)
+<i>126</i>&nbsp;    {
+<b class="fc"><i>127</i>&nbsp;        if (this == o) return true;</b>
+<b class="fc"><i>128</i>&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="fc"><i>129</i>&nbsp;        User user = (User) o;</b>
+<b class="fc"><i>130</i>&nbsp;        return Objects.equals(name, user.name) &amp;&amp;</b>
+<b class="fc"><i>131</i>&nbsp;                Objects.equals(surname, user.surname) &amp;&amp;</b>
+<b class="fc"><i>132</i>&nbsp;                Objects.equals(phoneNumber, user.phoneNumber) &amp;&amp;</b>
+<b class="fc"><i>133</i>&nbsp;                Objects.equals(email, user.email) &amp;&amp;</b>
+<b class="fc"><i>134</i>&nbsp;                Objects.equals(bankAccount, user.bankAccount) &amp;&amp;</b>
+<b class="fc"><i>135</i>&nbsp;                Objects.equals(username, user.username) &amp;&amp;</b>
+<b class="fc"><i>136</i>&nbsp;                Objects.equals(password, user.password);</b>
+<i>137</i>&nbsp;    }
+<i>138</i>&nbsp;
+<i>139</i>&nbsp;    @Override
+<i>140</i>&nbsp;    public int hashCode()
+<i>141</i>&nbsp;    {
+<b class="fc"><i>142</i>&nbsp;        int result = Objects.hash(name, surname, phoneNumber, email, bankAccount, username);</b>
+<b class="fc"><i>143</i>&nbsp;        result = 31 * result + Objects.hashCode(password);</b>
+<b class="fc"><i>144</i>&nbsp;        return result;</b>
+<i>145</i>&nbsp;    }
+<i>146</i>&nbsp;
+<i>147</i>&nbsp;    public NotificationMethod getNotificationMethod()
+<i>148</i>&nbsp;    {
+<b class="fc"><i>149</i>&nbsp;        return notificationMethod;</b>
+<i>150</i>&nbsp;    }
+<i>151</i>&nbsp;
+<i>152</i>&nbsp;    public void setNotificationMethod(NotificationMethod notificationMethod)
+<i>153</i>&nbsp;    {
+<b class="fc"><i>154</i>&nbsp;        this.notificationMethod = notificationMethod;</b>
+<b class="fc"><i>155</i>&nbsp;    }</b>
+<i>156</i>&nbsp;
+<b class="fc"><i>157</i>&nbsp;    public enum NotificationMethod</b>
+<i>158</i>&nbsp;    {
+<b class="fc"><i>159</i>&nbsp;        EMAIL,</b>
+<i>160</i>&nbsp;
+<b class="fc"><i>161</i>&nbsp;        SMS</b>
+<i>162</i>&nbsp;    }
+<i>163</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

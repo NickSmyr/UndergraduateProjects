@@ -1,0 +1,150 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: EvaluationDAOMemory</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.memorydao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: EvaluationDAOMemory (com.example.quickrepair.memorydao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EvaluationDAOMemory</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    42.9%
+  </span>
+  <span class="absValue">
+    (3/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    35.7%
+  </span>
+  <span class="absValue">
+    (5/ 14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.memorydao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.quickrepair.dao.EvaluationDAO;
+<i>4</i>&nbsp;import com.example.quickrepair.domain.Evaluation;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.ArrayList;
+<i>7</i>&nbsp;import java.util.List;
+<i>8</i>&nbsp;
+<b class="fc"><i>9</i>&nbsp;public class EvaluationDAOMemory implements EvaluationDAO {</b>
+<b class="fc"><i>10</i>&nbsp;    protected static ArrayList&lt;Evaluation&gt; entities = new ArrayList&lt;Evaluation&gt;();</b>
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;    /**
+<i>13</i>&nbsp;     * Delete an Evaluation
+<i>14</i>&nbsp;     *
+<i>15</i>&nbsp;     * @param entity Evaluation
+<i>16</i>&nbsp;     */
+<i>17</i>&nbsp;    @Override
+<i>18</i>&nbsp;    public void delete(Evaluation entity) {
+<b class="nc"><i>19</i>&nbsp;        entities.remove(entity);</b>
+<b class="nc"><i>20</i>&nbsp;    }</b>
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    /**
+<i>23</i>&nbsp;     * Find all Evaluations
+<i>24</i>&nbsp;     *
+<i>25</i>&nbsp;     * @return Evaluations
+<i>26</i>&nbsp;     */
+<i>27</i>&nbsp;    @Override
+<i>28</i>&nbsp;    public List&lt;Evaluation&gt; findAll() {
+<b class="fc"><i>29</i>&nbsp;        ArrayList&lt;Evaluation&gt; result = new ArrayList&lt;Evaluation&gt;();</b>
+<b class="fc"><i>30</i>&nbsp;        result.addAll(entities);</b>
+<b class="fc"><i>31</i>&nbsp;        return result;</b>
+<i>32</i>&nbsp;    }
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    /**
+<i>35</i>&nbsp;     * Save a Evaluation
+<i>36</i>&nbsp;     *
+<i>37</i>&nbsp;     * @param entity Evaluation
+<i>38</i>&nbsp;     */
+<i>39</i>&nbsp;    @Override
+<i>40</i>&nbsp;    public void save(Evaluation entity) {
+<b class="nc"><i>41</i>&nbsp;        entities.add(entity);</b>
+<b class="nc"><i>42</i>&nbsp;    }</b>
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    /**
+<i>45</i>&nbsp;     * Find the Evaluation with the given id
+<i>46</i>&nbsp;     *
+<i>47</i>&nbsp;     * @param evaluationID Evaluation&#39;s id
+<i>48</i>&nbsp;     * @return Evaluation or null
+<i>49</i>&nbsp;     */
+<i>50</i>&nbsp;    @Override
+<i>51</i>&nbsp;    public Evaluation find(int evaluationID) {
+<b class="nc"><i>52</i>&nbsp;        for(Evaluation technician : entities)</b>
+<b class="nc"><i>53</i>&nbsp;            if(technician.getUid() == evaluationID)</b>
+<b class="nc"><i>54</i>&nbsp;                return technician;</b>
+<b class="nc"><i>55</i>&nbsp;        return null;</b>
+<i>56</i>&nbsp;    }
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;    /**
+<i>59</i>&nbsp;     * Return the next id for an Evaluation.
+<i>60</i>&nbsp;     *
+<i>61</i>&nbsp;     * @return Evaluation&#39;s id
+<i>62</i>&nbsp;     */
+<i>63</i>&nbsp;    @Override
+<i>64</i>&nbsp;    public int nextId() {
+<b class="nc"><i>65</i>&nbsp;        return (entities.size() &gt; 0 ? entities.get(entities.size()-1).getUid()+1 : 1);</b>
+<i>66</i>&nbsp;    }
+<i>67</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

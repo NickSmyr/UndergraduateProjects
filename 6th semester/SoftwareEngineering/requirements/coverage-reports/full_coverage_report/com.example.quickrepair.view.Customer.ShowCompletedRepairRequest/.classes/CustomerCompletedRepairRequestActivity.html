@@ -1,0 +1,272 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CustomerCompletedRepairRequestActivity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.Customer.ShowCompletedRepairRequest</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CustomerCompletedRepairRequestActivity (com.example.quickrepair.view.Customer.ShowCompletedRepairRequest)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CustomerCompletedRepairRequestActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 54)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CustomerCompletedRepairRequestActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 8)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 62)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.Customer.ShowCompletedRepairRequest;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.content.Intent;
+<i>4</i>&nbsp;import android.os.Bundle;
+<i>5</i>&nbsp;import android.view.View;
+<i>6</i>&nbsp;import android.widget.Button;
+<i>7</i>&nbsp;import android.widget.EditText;
+<i>8</i>&nbsp;import android.widget.NumberPicker;
+<i>9</i>&nbsp;import android.widget.TextView;
+<i>10</i>&nbsp;import android.widget.Toast;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;import androidx.appcompat.app.AppCompatActivity;
+<i>13</i>&nbsp;import androidx.lifecycle.ViewModelProvider;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;import com.example.quickrepair.R;
+<i>16</i>&nbsp;import com.example.quickrepair.view.Customer.RepairRequests.CustomerRepairRequestsActivity;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.CUSTOMER_ID_EXTRA;
+<i>19</i>&nbsp;import static com.example.quickrepair.QuickRepairApplication.REPAIR_REQUEST_ID_EXTRA;
+<i>20</i>&nbsp;
+<b class="nc"><i>21</i>&nbsp;public class CustomerCompletedRepairRequestActivity extends AppCompatActivity implements CustomerCompletedRepairRequestView{</b>
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    private static int repairRequestID;
+<i>24</i>&nbsp;    private static int customerID;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    private CustomerCompletedRepairRequestViewModel customerCompletedRepairRequestViewModel;
+<i>27</i>&nbsp;    CustomerCompletedRepairRequestPresenter presenter;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc"><i>30</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>31</i>&nbsp;        setContentView(R.layout.customer_completed_repair_request);</b>
+<i>32</i>&nbsp;
+<b class="nc"><i>33</i>&nbsp;        Intent intent = getIntent();</b>
+<b class="nc"><i>34</i>&nbsp;        repairRequestID = intent.getIntExtra(REPAIR_REQUEST_ID_EXTRA, 0);</b>
+<b class="nc"><i>35</i>&nbsp;        customerID = intent.getIntExtra(CUSTOMER_ID_EXTRA, 0);</b>
+<i>36</i>&nbsp;
+<b class="nc"><i>37</i>&nbsp;        customerCompletedRepairRequestViewModel = new ViewModelProvider(this).get(CustomerCompletedRepairRequestViewModel.class);</b>
+<i>38</i>&nbsp;
+<b class="nc"><i>39</i>&nbsp;        presenter = customerCompletedRepairRequestViewModel.getPresenter();</b>
+<b class="nc"><i>40</i>&nbsp;        presenter.setView(this);</b>
+<i>41</i>&nbsp;
+<b class="nc"><i>42</i>&nbsp;        presenter.searchRepairRequestData(repairRequestID);</b>
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    }
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;    @Override
+<i>47</i>&nbsp;    public void showError(String message) {
+<b class="nc"><i>48</i>&nbsp;        Toast.makeText(this, message, Toast.LENGTH_LONG).show();</b>
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    @Override
+<i>52</i>&nbsp;    public void setJob(String job) {
+<b class="nc"><i>53</i>&nbsp;        TextView jobTextView = findViewById(R.id.job);</b>
+<b class="nc"><i>54</i>&nbsp;        jobTextView.setText(job);</b>
+<i>55</i>&nbsp;    }
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;    @Override
+<i>58</i>&nbsp;    public void setTechnicianName(String technicianName) {
+<b class="nc"><i>59</i>&nbsp;        TextView technicianTextView = findViewById(R.id.technician);</b>
+<b class="nc"><i>60</i>&nbsp;        technicianTextView.setText(technicianName);</b>
+<i>61</i>&nbsp;    }
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;    @Override
+<i>64</i>&nbsp;    public void setAddress(String address) {
+<b class="nc"><i>65</i>&nbsp;        TextView addressTextView = findViewById(R.id.address);</b>
+<b class="nc"><i>66</i>&nbsp;        addressTextView.setText(address);</b>
+<i>67</i>&nbsp;    }
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;    @Override
+<i>70</i>&nbsp;    public void setComments(String comments) {
+<b class="nc"><i>71</i>&nbsp;        TextView commentsTextView = findViewById(R.id.comments);</b>
+<b class="nc"><i>72</i>&nbsp;        commentsTextView.setText(comments);</b>
+<i>73</i>&nbsp;    }
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;    @Override
+<i>76</i>&nbsp;    public void setConductionDate(String conductionDate) {
+<b class="nc"><i>77</i>&nbsp;        TextView conductionDateTextView = findViewById(R.id.conduction_date);</b>
+<b class="nc"><i>78</i>&nbsp;        conductionDateTextView.setText(conductionDate);</b>
+<i>79</i>&nbsp;    }
+<i>80</i>&nbsp;
+<i>81</i>&nbsp;    @Override
+<i>82</i>&nbsp;    public void setEstimatedDuration(String estimatedDuration) {
+<b class="nc"><i>83</i>&nbsp;        TextView estimatedDurationTextView = findViewById(R.id.estimated_duration);</b>
+<b class="nc"><i>84</i>&nbsp;        estimatedDurationTextView.setText(estimatedDuration);</b>
+<i>85</i>&nbsp;    }
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;    @Override
+<i>88</i>&nbsp;    public void setCost(String cost) {
+<b class="nc"><i>89</i>&nbsp;        TextView costTextView = findViewById(R.id.cost);</b>
+<b class="nc"><i>90</i>&nbsp;        costTextView.setText(cost);</b>
+<i>91</i>&nbsp;    }
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;    @Override
+<i>94</i>&nbsp;    public void setPayAndEvaluationFields() {
+<i>95</i>&nbsp;
+<b class="nc"><i>96</i>&nbsp;        Button pay = findViewById(R.id.pay_button);</b>
+<b class="nc"><i>97</i>&nbsp;        pay.setVisibility(View.VISIBLE);</b>
+<i>98</i>&nbsp;
+<b class="nc"><i>99</i>&nbsp;        EditText editTextTitle = findViewById(R.id.title);</b>
+<b class="nc"><i>100</i>&nbsp;        EditText editTextEvaluate = findViewById(R.id.evaluate);</b>
+<i>101</i>&nbsp;
+<b class="nc"><i>102</i>&nbsp;        editTextTitle.setVisibility(View.VISIBLE);</b>
+<b class="nc"><i>103</i>&nbsp;        editTextEvaluate.setVisibility(View.VISIBLE);</b>
+<i>104</i>&nbsp;
+<b class="nc"><i>105</i>&nbsp;        NumberPicker rate = findViewById(R.id.rate);</b>
+<b class="nc"><i>106</i>&nbsp;        rate.setVisibility(View.VISIBLE);</b>
+<i>107</i>&nbsp;
+<b class="nc"><i>108</i>&nbsp;        rate.setMaxValue(5);</b>
+<b class="nc"><i>109</i>&nbsp;        rate.setMinValue(1);</b>
+<i>110</i>&nbsp;    }
+<i>111</i>&nbsp;
+<i>112</i>&nbsp;
+<i>113</i>&nbsp;
+<i>114</i>&nbsp;    @Override
+<i>115</i>&nbsp;    public void donePayAndEvaluate() {
+<b class="nc"><i>116</i>&nbsp;        Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);</b>
+<b class="nc"><i>117</i>&nbsp;        intent.putExtra(CUSTOMER_ID_EXTRA, customerID);</b>
+<b class="nc"><i>118</i>&nbsp;        this.startActivity(intent);</b>
+<b class="nc"><i>119</i>&nbsp;        finish();</b>
+<i>120</i>&nbsp;    }
+<i>121</i>&nbsp;
+<i>122</i>&nbsp;    @Override
+<i>123</i>&nbsp;    public void setPayListener() {
+<b class="nc"><i>124</i>&nbsp;        Button buttonConfirm = findViewById(R.id.pay_button);</b>
+<b class="nc"><i>125</i>&nbsp;        buttonConfirm.setOnClickListener(new View.OnClickListener() {</b>
+<i>126</i>&nbsp;            public void onClick(View v) {
+<i>127</i>&nbsp;                // get title, evaluate
+<b class="nc"><i>128</i>&nbsp;                EditText editTextTitle = findViewById(R.id.title);</b>
+<b class="nc"><i>129</i>&nbsp;                EditText editTextEvaluate = findViewById(R.id.evaluate);</b>
+<b class="nc"><i>130</i>&nbsp;                String title = editTextTitle.getText().toString();</b>
+<b class="nc"><i>131</i>&nbsp;                String evaluate = editTextEvaluate.getText().toString();</b>
+<i>132</i>&nbsp;                //get rate
+<b class="nc"><i>133</i>&nbsp;                NumberPicker numberPicker = findViewById(R.id.rate);</b>
+<b class="nc"><i>134</i>&nbsp;                int rate = numberPicker.getValue();</b>
+<b class="nc"><i>135</i>&nbsp;                presenter.payAndEvaluate(title, evaluate, rate);</b>
+<i>136</i>&nbsp;            }
+<i>137</i>&nbsp;        });
+<i>138</i>&nbsp;    }
+<i>139</i>&nbsp;
+<i>140</i>&nbsp;    @Override
+<i>141</i>&nbsp;    public void setEvaluationData(String title, String comments, String rate) {
+<b class="nc"><i>142</i>&nbsp;        TextView evaluationTitleText = findViewById(R.id.evaluation_title);</b>
+<b class="nc"><i>143</i>&nbsp;        TextView evaluationCommentsText = findViewById(R.id.evaluation_comments);</b>
+<b class="nc"><i>144</i>&nbsp;        TextView evaluationRateText = findViewById(R.id.evaluation_rate);</b>
+<i>145</i>&nbsp;
+<i>146</i>&nbsp;        // set text
+<b class="nc"><i>147</i>&nbsp;        evaluationTitleText.setText(title);</b>
+<b class="nc"><i>148</i>&nbsp;        evaluationCommentsText.setText(comments);</b>
+<b class="nc"><i>149</i>&nbsp;        evaluationRateText.setText(rate);</b>
+<i>150</i>&nbsp;        // set visible
+<b class="nc"><i>151</i>&nbsp;        evaluationTitleText.setVisibility(View.VISIBLE);</b>
+<b class="nc"><i>152</i>&nbsp;        evaluationCommentsText.setVisibility(View.VISIBLE);</b>
+<b class="nc"><i>153</i>&nbsp;        evaluationRateText.setVisibility(View.VISIBLE);</b>
+<i>154</i>&nbsp;    }
+<i>155</i>&nbsp;
+<i>156</i>&nbsp;    @Override
+<i>157</i>&nbsp;    public void onBackPressed() {
+<b class="nc"><i>158</i>&nbsp;        Intent intent = new Intent(this, CustomerRepairRequestsActivity.class);</b>
+<b class="nc"><i>159</i>&nbsp;        intent.putExtra(CUSTOMER_ID_EXTRA, customerID);</b>
+<b class="nc"><i>160</i>&nbsp;        this.startActivity(intent);</b>
+<b class="nc"><i>161</i>&nbsp;        finish();</b>
+<i>162</i>&nbsp;    }
+<i>163</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

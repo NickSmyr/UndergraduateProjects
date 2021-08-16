@@ -1,0 +1,93 @@
+section {
+    display: flex;
+    justify-content: space-around;
+}
+
+header ul{
+    display: flex;
+}
+aside {
+    display: flex;
+    flex-direction: column;
+}
+aside > {
+    margin:auto
+}
+header ul li {
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: none;
+    font-size: x-large;
+}
+
+main {
+    display: grid;
+    grid-gap: 50px 100px;
+}
+
+section > * {
+    margin-left: 10px;
+    margin-right: 10px;
+    flex-grow: 1;
+}
+section > h2 {
+    color: rgb(0, 0, 0);
+}
+header > h1 {
+    color: rgb(0, 0, 0);
+    font: bolder;
+    margin: 50px;
+    text-align: center;
+}
+header , footer{
+    background-color: lightsalmon;
+}
+aside {
+    border: 2px orange;
+}
+
+body {
+    background-color :rgb(191, 222, 241);
+    color: rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-rows: 15% 70% 15%;
+    font-family: 'Lexend', sans-serif;
+}
+
+aside {
+    grid-column: 2;
+    grid-row: 2
+}
+main {
+    grid-column: 1;
+    grid-row: 2;
+}
+footer{
+    grid-row: 3;
+    grid-column: 1 / 3;
+}
+header{
+    grid-row:1;
+    grid-column:1 / 3
+
+}
+article > h1{
+    font-size: xx-large;
+    text-align: center;
+}
+footer{
+    text-align: center;
+}
+figure{
+    float: left;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lexend/v2/wlpwgwvFAVdoq2_v-6QU.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }

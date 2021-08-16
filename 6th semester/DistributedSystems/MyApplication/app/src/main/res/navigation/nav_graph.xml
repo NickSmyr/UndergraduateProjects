@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/first_page">
+    <!-- Start Page -->
+    <fragment
+        android:name="com.world.myapplication.FirstPage"
+        android:id="@+id/first_page"
+        tools:layout="@layout/first_page" >
+    </fragment>
+    <!-- Search for an artist fragment -->
+    <fragment
+        android:name="com.world.myapplication.SearchFragment"
+        android:id="@+id/search_fragment"
+        tools:layout="@layout/search_fragment" >
+
+        <action
+            android:id="@+id/search_to_result"
+            app:destination="@id/search_result">
+            <argument
+                android:name="artist"
+                app:argType="string"
+                android:defaultValue="1" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:name="com.world.myapplication.SearchResult"
+        android:id="@+id/search_result"
+        tools:layout="@layout/search_result">
+    <action
+        android:id="@+id/result_to_player"
+        app:destination="@id/player_fragment">
+        <argument
+            android:name="offline"
+            app:argType="boolean"
+            android:defaultValue="true" />
+        <argument
+            android:name="artist_name"
+            app:argType="string"
+            android:defaultValue="1" />
+        <argument
+            android:name="song_name"
+            app:argType="string"
+            android:defaultValue="1" />
+        <argument
+            android:name="image"
+            app:argType="string"
+            android:defaultValue="1" />
+
+    </action>/>
+    </fragment>
+    <fragment
+        android:name="com.world.myapplication.PlayerFragment"
+        android:id="@+id/player_fragment"
+        tools:layout="@layout/player_fragment" />
+    <fragment
+        android:name="com.world.myapplication.SavedSongs"
+        android:id="@+id/saved_songs"
+        tools:layout="@layout/saved_songs">
+        <action
+            android:id="@+id/saved_to_player"
+            app:destination="@id/player_fragment">
+        <argument
+            android:name="offline"
+            app:argType="boolean"
+            android:defaultValue="true" />
+            <argument
+                android:name="path"
+                app:argType="string"
+                android:defaultValue="1" />
+            <argument
+                android:name="artist_name"
+                app:argType="string"
+                android:defaultValue="1" />
+            <argument
+                android:name="song_name"
+                app:argType="string"
+                android:defaultValue="1" />
+            <argument
+                android:name="image"
+                app:argType="string"
+                android:defaultValue="1" />
+        </action>
+    </fragment>
+    <fragment
+        android:name="com.world.myapplication.AboutUsPage"
+        android:id="@+id/about_us"
+        tools:layout="@layout/about_us_page" />
+</navigation>

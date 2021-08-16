@@ -1,0 +1,202 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: AddEditJobPresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.Technician.AddEditJob</a> ]
+</div>
+
+<h1>Coverage Summary for Class: AddEditJobPresenter (com.example.quickrepair.view.Technician.AddEditJob)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AddEditJobPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (38/ 38)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.Technician.AddEditJob;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.quickrepair.dao.TechnicianDAO;
+<i>4</i>&nbsp;import com.example.quickrepair.domain.Job;
+<i>5</i>&nbsp;import com.example.quickrepair.domain.JobType;
+<i>6</i>&nbsp;import com.example.quickrepair.domain.Technician;
+<i>7</i>&nbsp;import com.example.quickrepair.view.Base.BasePresenter;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;import java.text.NumberFormat;
+<i>10</i>&nbsp;import java.text.ParseException;
+<i>11</i>&nbsp;import java.util.ArrayList;
+<i>12</i>&nbsp;import java.util.Objects;
+<i>13</i>&nbsp;
+<b class="fc"><i>14</i>&nbsp;public class AddEditJobPresenter extends BasePresenter&lt;AddEditJobView&gt;</b>
+<i>15</i>&nbsp;{
+<i>16</i>&nbsp;    private TechnicianDAO technicianDAO;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    private Technician technician;
+<i>19</i>&nbsp;    private ArrayList&lt;Job&gt; jobs;
+<i>20</i>&nbsp;    private ArrayList&lt;JobType&gt; jobTypes;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    /**
+<i>23</i>&nbsp;     * Set the technician DAO for the presenter.
+<i>24</i>&nbsp;     *
+<i>25</i>&nbsp;     * @param technicianDAO The technician DAO.
+<i>26</i>&nbsp;     */
+<i>27</i>&nbsp;    public void setTechnicianDAO(TechnicianDAO technicianDAO)
+<i>28</i>&nbsp;    {
+<b class="fc"><i>29</i>&nbsp;        this.technicianDAO = technicianDAO;</b>
+<b class="fc"><i>30</i>&nbsp;    }</b>
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    /**
+<i>33</i>&nbsp;     * Load the technician in case of edit.
+<i>34</i>&nbsp;     *
+<i>35</i>&nbsp;     * @param id The technician&#39;s id.
+<i>36</i>&nbsp;     */
+<i>37</i>&nbsp;    public void setTechnician(Integer id)
+<i>38</i>&nbsp;    {
+<b class="fc"><i>39</i>&nbsp;        technician = technicianDAO.find(id);</b>
+<b class="fc"><i>40</i>&nbsp;        jobTypes = new ArrayList&lt;&gt;(technician.getSpecialty().getJobTypes());</b>
+<b class="fc"><i>41</i>&nbsp;    }</b>
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    /**
+<i>44</i>&nbsp;     * Initialize the view.
+<i>45</i>&nbsp;     */
+<i>46</i>&nbsp;    public void setUpDataSource()
+<i>47</i>&nbsp;    {
+<b class="fc"><i>48</i>&nbsp;        ArrayList&lt;String&gt; jobTypeNames = new ArrayList&lt;&gt;();</b>
+<i>49</i>&nbsp;
+<b class="fc"><i>50</i>&nbsp;        for (JobType jobType : technician.getSpecialty().getJobTypes())</b>
+<i>51</i>&nbsp;        {
+<b class="fc"><i>52</i>&nbsp;            jobTypeNames.add(jobType.getName());</b>
+<b class="fc"><i>53</i>&nbsp;        }</b>
+<b class="fc"><i>54</i>&nbsp;        view.setJobTypeList(jobTypeNames, &quot;???????? ???????&quot;);</b>
+<i>55</i>&nbsp;
+<b class="fc"><i>56</i>&nbsp;        jobs = new ArrayList&lt;&gt;(technician.getJobs());</b>
+<b class="fc"><i>57</i>&nbsp;        view.setJobList(jobs);</b>
+<b class="fc"><i>58</i>&nbsp;    }</b>
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;    /**
+<i>61</i>&nbsp;     * Add a new job to the technician.
+<i>62</i>&nbsp;     *
+<i>63</i>&nbsp;     * @param jobTypeID the job type id.
+<i>64</i>&nbsp;     * @param price The price offer for the job.
+<i>65</i>&nbsp;     */
+<i>66</i>&nbsp;    void addJob(Integer jobTypeID, String price)
+<i>67</i>&nbsp;    {
+<b class="fc"><i>68</i>&nbsp;        if (jobTypeID == 0)</b>
+<i>69</i>&nbsp;        {
+<b class="fc"><i>70</i>&nbsp;            view.showErrorMessage(&quot;No job selected&quot;, &quot;You have to add a valid job.&quot;);</b>
+<b class="fc"><i>71</i>&nbsp;            return;</b>
+<i>72</i>&nbsp;        }
+<i>73</i>&nbsp;
+<i>74</i>&nbsp;        double priceConverted;
+<i>75</i>&nbsp;        try
+<i>76</i>&nbsp;        {
+<b class="fc"><i>77</i>&nbsp;            NumberFormat format = NumberFormat.getInstance();</b>
+<b class="fc"><i>78</i>&nbsp;            priceConverted = Objects.requireNonNull(format.parse(price)).doubleValue();</b>
+<i>79</i>&nbsp;        }
+<b class="fc"><i>80</i>&nbsp;        catch (ParseException e)</b>
+<i>81</i>&nbsp;        {
+<b class="fc"><i>82</i>&nbsp;            view.showErrorMessage(&quot;Invalid price value&quot;, &quot;Please enter a valid price value&quot;);</b>
+<b class="fc"><i>83</i>&nbsp;            return;</b>
+<b class="fc"><i>84</i>&nbsp;        }</b>
+<i>85</i>&nbsp;
+<b class="fc"><i>86</i>&nbsp;        if (priceConverted &lt;= 0)</b>
+<i>87</i>&nbsp;        {
+<b class="fc"><i>88</i>&nbsp;            view.showErrorMessage(&quot;Invalid price value&quot;, &quot;Price can not be zero or negative.&quot;);</b>
+<b class="fc"><i>89</i>&nbsp;            return;</b>
+<i>90</i>&nbsp;        }
+<i>91</i>&nbsp;
+<b class="fc"><i>92</i>&nbsp;        JobType type = jobTypes.get(jobTypeID - 1);</b>
+<i>93</i>&nbsp;        Job job;
+<i>94</i>&nbsp;
+<i>95</i>&nbsp;        try
+<i>96</i>&nbsp;        {
+<b class="fc"><i>97</i>&nbsp;            job = technician.addJob(type, priceConverted);</b>
+<i>98</i>&nbsp;        }
+<b class="fc"><i>99</i>&nbsp;        catch (IllegalArgumentException e)</b>
+<i>100</i>&nbsp;        {
+<b class="fc"><i>101</i>&nbsp;            view.showErrorMessage(&quot;Invalid value.&quot;, e.getMessage());</b>
+<b class="fc"><i>102</i>&nbsp;            return;</b>
+<b class="fc"><i>103</i>&nbsp;        }</b>
+<i>104</i>&nbsp;
+<b class="fc"><i>105</i>&nbsp;        jobs.add(job);</b>
+<b class="fc"><i>106</i>&nbsp;        view.setJobList(jobs);</b>
+<b class="fc"><i>107</i>&nbsp;    }</b>
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;    /**
+<i>110</i>&nbsp;     * Remove a job from the technician.
+<i>111</i>&nbsp;     *
+<i>112</i>&nbsp;     * @param jobPosition the job position in the list of jobs of the technician.
+<i>113</i>&nbsp;     */
+<i>114</i>&nbsp;    void removeJob(int jobPosition)
+<i>115</i>&nbsp;    {
+<b class="fc"><i>116</i>&nbsp;        technician.removeJob(jobs.remove(jobPosition));</b>
+<b class="fc"><i>117</i>&nbsp;        view.setJobList(jobs);</b>
+<b class="fc"><i>118</i>&nbsp;    }</b>
+<i>119</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

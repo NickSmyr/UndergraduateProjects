@@ -1,0 +1,445 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SearchTechniciansPresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.SearchTechnicians</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SearchTechniciansPresenter (com.example.quickrepair.view.SearchTechnicians)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SearchTechniciansPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (16/ 16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    98.5%
+  </span>
+  <span class="absValue">
+    (129/ 131)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.SearchTechnicians;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.util.Log;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import com.example.quickrepair.dao.AreaDAO;
+<i>6</i>&nbsp;import com.example.quickrepair.dao.CustomerDAO;
+<i>7</i>&nbsp;import com.example.quickrepair.dao.EvaluationDAO;
+<i>8</i>&nbsp;import com.example.quickrepair.dao.JobTypeDAO;
+<i>9</i>&nbsp;import com.example.quickrepair.dao.SpecialtyDAO;
+<i>10</i>&nbsp;import com.example.quickrepair.dao.TechnicianDAO;
+<i>11</i>&nbsp;import com.example.quickrepair.domain.Evaluation;
+<i>12</i>&nbsp;import com.example.quickrepair.domain.Job;
+<i>13</i>&nbsp;import com.example.quickrepair.domain.JobType;
+<i>14</i>&nbsp;import com.example.quickrepair.domain.RepairRequest;
+<i>15</i>&nbsp;import com.example.quickrepair.domain.Specialty;
+<i>16</i>&nbsp;import com.example.quickrepair.domain.Technician;
+<i>17</i>&nbsp;import com.example.quickrepair.memorydao.EvaluationDAOMemory;
+<i>18</i>&nbsp;import com.example.quickrepair.memorydao.MemoryInitializer;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;import java.util.ArrayList;
+<i>21</i>&nbsp;import java.util.Calendar;
+<i>22</i>&nbsp;import java.util.GregorianCalendar;
+<i>23</i>&nbsp;import java.util.HashSet;
+<i>24</i>&nbsp;import java.util.List;
+<i>25</i>&nbsp;import java.util.Set;
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;/**
+<i>28</i>&nbsp; * Presenter class that implements the search technicians use case
+<i>29</i>&nbsp; */
+<i>30</i>&nbsp;public class SearchTechniciansPresenter
+<i>31</i>&nbsp;{
+<i>32</i>&nbsp;    private SearchTechniciansView view;
+<i>33</i>&nbsp;    private TechnicianDAO technicianDAO;
+<i>34</i>&nbsp;    private SpecialtyDAO specialtyDAO;
+<i>35</i>&nbsp;    private JobTypeDAO jobTypeDAO;
+<i>36</i>&nbsp;    private AreaDAO areaDAO;
+<b class="fc"><i>37</i>&nbsp;    private int loggedInUser = 0;</b>
+<b class="fc"><i>38</i>&nbsp;    private int selectedSpecialtyId = -1;</b>
+<b class="fc"><i>39</i>&nbsp;    private double selectedMaxPrice = -1;</b>
+<b class="fc"><i>40</i>&nbsp;    private String selectedArea = null;</b>
+<i>41</i>&nbsp;    private GregorianCalendar date;
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    public SearchTechniciansPresenter(TechnicianDAO technicianDAO, SpecialtyDAO specialtyDAO, JobTypeDAO jobTypeDAO, AreaDAO areaDAO)
+<b class="fc"><i>45</i>&nbsp;    {</b>
+<b class="fc"><i>46</i>&nbsp;        this.technicianDAO = technicianDAO;</b>
+<b class="fc"><i>47</i>&nbsp;        this.specialtyDAO = specialtyDAO;</b>
+<b class="fc"><i>48</i>&nbsp;        this.jobTypeDAO = jobTypeDAO;</b>
+<b class="fc"><i>49</i>&nbsp;        this.areaDAO = areaDAO;</b>
+<b class="fc"><i>50</i>&nbsp;    }</b>
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    /**
+<i>53</i>&nbsp;     * Sets the view for this presenter. Should be called immediately after construction
+<i>54</i>&nbsp;     * @param view the view
+<i>55</i>&nbsp;     */
+<i>56</i>&nbsp;    public void setView(SearchTechniciansView view)
+<i>57</i>&nbsp;    {
+<b class="fc"><i>58</i>&nbsp;        this.view = view;</b>
+<b class="fc"><i>59</i>&nbsp;    }</b>
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;    /**
+<i>62</i>&nbsp;     * Sets the user that is currently logged in
+<i>63</i>&nbsp;     *
+<i>64</i>&nbsp;     * @param userId the user Id
+<i>65</i>&nbsp;     */
+<i>66</i>&nbsp;    public void setLoggedInUser(int userId)
+<i>67</i>&nbsp;    {
+<b class="fc"><i>68</i>&nbsp;        loggedInUser = userId;</b>
+<b class="fc"><i>69</i>&nbsp;    }</b>
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;    /**
+<i>72</i>&nbsp;     * Starts the use case by looking through the dao and keeping all the specialties
+<i>73</i>&nbsp;     */
+<i>74</i>&nbsp;    public void onStart()
+<i>75</i>&nbsp;    {
+<b class="fc"><i>76</i>&nbsp;        List&lt;Specialty&gt; specialties = specialtyDAO.findAll();</b>
+<b class="fc"><i>77</i>&nbsp;        List&lt;Integer&gt; specialtyIds = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>78</i>&nbsp;        List&lt;String&gt; specialtyNames = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>79</i>&nbsp;        for (Specialty e : specialties)</b>
+<i>80</i>&nbsp;        {
+<b class="fc"><i>81</i>&nbsp;            specialtyIds.add(e.getUid());</b>
+<b class="fc"><i>82</i>&nbsp;            specialtyNames.add(e.getName());</b>
+<b class="fc"><i>83</i>&nbsp;        }</b>
+<b class="fc"><i>84</i>&nbsp;        view.setSpecialtiesSource(specialtyIds, specialtyNames);</b>
+<b class="fc"><i>85</i>&nbsp;        view.setJobTypeSpinnerEnabled(false);</b>
+<b class="fc"><i>86</i>&nbsp;        view.setAreasSource(areaDAO.getAreas());</b>
+<b class="fc"><i>87</i>&nbsp;    }</b>
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;    /**
+<i>90</i>&nbsp;     * Responds to the user selecting a specialty
+<i>91</i>&nbsp;     * @param specialtyId the selected specialty
+<i>92</i>&nbsp;     */
+<i>93</i>&nbsp;    public void selectSpecialty(int specialtyId)
+<i>94</i>&nbsp;    {
+<b class="fc"><i>95</i>&nbsp;        List&lt;JobType&gt; jobTypes = jobTypeDAO.findAll();</b>
+<b class="fc"><i>96</i>&nbsp;        List&lt;Integer&gt; jobTypeIds = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>97</i>&nbsp;        List&lt;String&gt; jobTypeNames = new ArrayList&lt;&gt;();</b>
+<i>98</i>&nbsp;        //Selecting only jobtypes of selected specialty
+<b class="fc"><i>99</i>&nbsp;        for (JobType e : jobTypes)</b>
+<i>100</i>&nbsp;        {
+<b class="fc"><i>101</i>&nbsp;            if (e.getSpecialty().getUid() == specialtyId)</b>
+<i>102</i>&nbsp;            {
+<b class="fc"><i>103</i>&nbsp;                jobTypeIds.add(e.getUid());</b>
+<b class="fc"><i>104</i>&nbsp;                jobTypeNames.add(e.getName());</b>
+<i>105</i>&nbsp;            }
+<b class="fc"><i>106</i>&nbsp;        }</b>
+<b class="fc"><i>107</i>&nbsp;        selectedSpecialtyId = specialtyId;</b>
+<b class="fc"><i>108</i>&nbsp;        view.setJobTypesSource(jobTypeIds, jobTypeNames);</b>
+<i>109</i>&nbsp;        //Setting the job type drop down as enabled so the user can choose
+<b class="fc"><i>110</i>&nbsp;        view.setJobTypeSpinnerEnabled(true);</b>
+<b class="fc"><i>111</i>&nbsp;    }</b>
+<i>112</i>&nbsp;
+<i>113</i>&nbsp;    /**
+<i>114</i>&nbsp;     * Sets the date the customer wants the technician to be available and preforms validity checks
+<i>115</i>&nbsp;     * @param yearString the year as entered by the user
+<i>116</i>&nbsp;     * @param monthString the month as entered by the user
+<i>117</i>&nbsp;     * @param dayOfMonthString the day of the month as entered by the user
+<i>118</i>&nbsp;     */
+<i>119</i>&nbsp;    public void setDate(String yearString, String monthString, String dayOfMonthString)
+<i>120</i>&nbsp;    {
+<i>121</i>&nbsp;        try
+<i>122</i>&nbsp;        {
+<b class="fc"><i>123</i>&nbsp;            int year = Integer.parseInt(yearString);</b>
+<b class="fc"><i>124</i>&nbsp;            int month = Integer.parseInt(monthString);</b>
+<b class="fc"><i>125</i>&nbsp;            int dayOfMonth = Integer.parseInt(dayOfMonthString);</b>
+<b class="fc"><i>126</i>&nbsp;            if (year &gt;= 0 &amp;&amp; month &lt;= 12 &amp;&amp; month &gt;= 1 &amp;&amp; dayOfMonth &lt;= 31 &amp;&amp; dayOfMonth &gt;= 0)</b>
+<i>127</i>&nbsp;            {
+<b class="fc"><i>128</i>&nbsp;                date = new GregorianCalendar(year, month, dayOfMonth);</b>
+<i>129</i>&nbsp;            }
+<i>130</i>&nbsp;            else
+<i>131</i>&nbsp;            {
+<b class="fc"><i>132</i>&nbsp;                throw new Exception(&quot;&quot;);</b>
+<i>133</i>&nbsp;            }
+<i>134</i>&nbsp;        }
+<b class="fc"><i>135</i>&nbsp;        catch (Exception e)</b>
+<i>136</i>&nbsp;        {
+<b class="fc"><i>137</i>&nbsp;            view.showErrorMessage(&quot;Please enter a valid Date (YYYY/MM/DD)&quot;);</b>
+<b class="fc"><i>138</i>&nbsp;        }</b>
+<b class="fc"><i>139</i>&nbsp;    }</b>
+<i>140</i>&nbsp;
+<i>141</i>&nbsp;    /**
+<i>142</i>&nbsp;     * A list that represents the technicians that are showed on the view
+<i>143</i>&nbsp;     */
+<b class="fc"><i>144</i>&nbsp;    private int selectedJobTypeId = -1;</b>
+<i>145</i>&nbsp;
+<i>146</i>&nbsp;    /**
+<i>147</i>&nbsp;     * Selects the jobType to search for
+<i>148</i>&nbsp;     *
+<i>149</i>&nbsp;     * @param jobTypeId
+<i>150</i>&nbsp;     */
+<i>151</i>&nbsp;    public void selectJobType(int jobTypeId)
+<i>152</i>&nbsp;    {
+<b class="fc"><i>153</i>&nbsp;        selectedJobTypeId = jobTypeId;</b>
+<b class="fc"><i>154</i>&nbsp;    }</b>
+<i>155</i>&nbsp;
+<i>156</i>&nbsp;    /**
+<i>157</i>&nbsp;     * Filters the technicians list according to the selected area
+<i>158</i>&nbsp;     *
+<i>159</i>&nbsp;     * @param area the selected area
+<i>160</i>&nbsp;     */
+<i>161</i>&nbsp;
+<i>162</i>&nbsp;    public void setArea(String area)
+<i>163</i>&nbsp;    {
+<b class="fc"><i>164</i>&nbsp;        selectedArea = area;</b>
+<b class="fc"><i>165</i>&nbsp;    }</b>
+<i>166</i>&nbsp;
+<i>167</i>&nbsp;    /**
+<i>168</i>&nbsp;     * Filters the technician list according to their maximum price for the jobtype
+<i>169</i>&nbsp;     *
+<i>170</i>&nbsp;     * @param input the input maximum price
+<i>171</i>&nbsp;     */
+<i>172</i>&nbsp;    public void setMaxPrice(String input)
+<i>173</i>&nbsp;    {
+<i>174</i>&nbsp;        //If the input is null or empty we don&#39;t set an upper bound
+<b class="fc"><i>175</i>&nbsp;        if (input == null || input.equals(&quot;&quot;)) return;</b>
+<b class="fc"><i>176</i>&nbsp;        double price = 0;</b>
+<i>177</i>&nbsp;        //Checking if user has entered a valid price
+<i>178</i>&nbsp;        try
+<i>179</i>&nbsp;        {
+<b class="fc"><i>180</i>&nbsp;            price = Double.parseDouble(input);</b>
+<i>181</i>&nbsp;        }
+<b class="fc"><i>182</i>&nbsp;        catch (NumberFormatException e)</b>
+<i>183</i>&nbsp;        {
+<b class="fc"><i>184</i>&nbsp;            view.showErrorMessage(&quot;Please enter a valid from of price&quot;);</b>
+<b class="fc"><i>185</i>&nbsp;            return;</b>
+<b class="fc"><i>186</i>&nbsp;        }</b>
+<i>187</i>&nbsp;
+<b class="fc"><i>188</i>&nbsp;        selectedMaxPrice = price;</b>
+<b class="fc"><i>189</i>&nbsp;    }</b>
+<i>190</i>&nbsp;
+<i>191</i>&nbsp;    /**
+<i>192</i>&nbsp;     * Called when a user clicks on a technician on the list
+<i>193</i>&nbsp;     * @param technicianId the id of the technician that was selected
+<i>194</i>&nbsp;     */
+<i>195</i>&nbsp;    public void onTechnicianClick(int technicianId)
+<i>196</i>&nbsp;    {
+<b class="fc"><i>197</i>&nbsp;        if (date == null)</b>
+<i>198</i>&nbsp;        {
+<b class="fc"><i>199</i>&nbsp;            view.showErrorMessage(&quot;Please enter a valid Date (YYYY/MM/DD)&quot;);</b>
+<b class="fc"><i>200</i>&nbsp;            return;</b>
+<i>201</i>&nbsp;        }
+<i>202</i>&nbsp;
+<b class="fc"><i>203</i>&nbsp;        if (loggedInUser != 0)</b>
+<i>204</i>&nbsp;        {
+<b class="fc"><i>205</i>&nbsp;            view.navigateToRequestRepair(technicianId, selectedJobTypeId, date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));</b>
+<i>206</i>&nbsp;        }
+<i>207</i>&nbsp;        else
+<i>208</i>&nbsp;        {
+<b class="fc"><i>209</i>&nbsp;            view.navigateToLogin(technicianId, selectedJobTypeId, date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));</b>
+<i>210</i>&nbsp;        }
+<b class="fc"><i>211</i>&nbsp;    }</b>
+<i>212</i>&nbsp;
+<i>213</i>&nbsp;    /**
+<i>214</i>&nbsp;     * Called when the search button is pressed from the view and repopulates the technician list
+<i>215</i>&nbsp;     * if the user has entered correct data
+<i>216</i>&nbsp;     * @param jobID the job type id
+<i>217</i>&nbsp;     * @param price the price id
+<i>218</i>&nbsp;     * @param area the area
+<i>219</i>&nbsp;     * @param year the year
+<i>220</i>&nbsp;     * @param month the month
+<i>221</i>&nbsp;     * @param day the day
+<i>222</i>&nbsp;     */
+<i>223</i>&nbsp;    public void search(int jobID, String price, String area, String year, String month, String day)
+<i>224</i>&nbsp;    {
+<b class="fc"><i>225</i>&nbsp;        selectedJobTypeId = -1;</b>
+<b class="fc"><i>226</i>&nbsp;        selectedArea = null;</b>
+<b class="fc"><i>227</i>&nbsp;        selectedMaxPrice = -1;</b>
+<b class="fc"><i>228</i>&nbsp;        date = null;</b>
+<i>229</i>&nbsp;
+<b class="fc"><i>230</i>&nbsp;        selectJobType(jobID);</b>
+<b class="fc"><i>231</i>&nbsp;        setMaxPrice(price);</b>
+<b class="fc"><i>232</i>&nbsp;        setArea(area);</b>
+<b class="fc"><i>233</i>&nbsp;        setDate(year, month, day);</b>
+<i>234</i>&nbsp;
+<b class="fc"><i>235</i>&nbsp;        if (selectedJobTypeId == -1 || selectedArea == null || date == null)</b>
+<i>236</i>&nbsp;        {
+<b class="fc"><i>237</i>&nbsp;            return;</b>
+<i>238</i>&nbsp;        }
+<i>239</i>&nbsp;
+<b class="fc"><i>240</i>&nbsp;        repopulateTechnicianList();</b>
+<b class="fc"><i>241</i>&nbsp;    }</b>
+<i>242</i>&nbsp;
+<i>243</i>&nbsp;    /**
+<i>244</i>&nbsp;     * Searches the DAO and applies the given criteria to find the right technicians and populates
+<i>245</i>&nbsp;     * the view with results
+<i>246</i>&nbsp;     */
+<i>247</i>&nbsp;    private void repopulateTechnicianList()
+<i>248</i>&nbsp;    {
+<b class="fc"><i>249</i>&nbsp;        List&lt;Integer&gt; technicianIds = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>250</i>&nbsp;        List&lt;String&gt; technicianNames = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>251</i>&nbsp;        List&lt;Double&gt; averageRatings = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>252</i>&nbsp;        List&lt;Double&gt; prices = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>253</i>&nbsp;        for (Technician technician : technicianDAO.findAll())</b>
+<i>254</i>&nbsp;        {
+<b class="fc"><i>255</i>&nbsp;            boolean hasSpecialty = selectedSpecialtyId == -1 || technician.getSpecialty().getUid() == selectedSpecialtyId;</b>
+<b class="fc"><i>256</i>&nbsp;            boolean offersJobType = selectedJobTypeId == -1 || offersJobType(technician.getUid(), selectedJobTypeId);</b>
+<b class="fc"><i>257</i>&nbsp;            boolean underMaxPrice = selectedJobTypeId == -1 || selectedMaxPrice &lt; 0 || offersJobTypeForLessThan(technician.getUid(), selectedJobTypeId, selectedMaxPrice);</b>
+<b class="fc"><i>258</i>&nbsp;            boolean servesArea = selectedArea == null || technician.servesArea(selectedArea);</b>
+<b class="fc"><i>259</i>&nbsp;            boolean available = technician.isDayAvailable(date.get(Calendar.DAY_OF_WEEK));</b>
+<b class="fc"><i>260</i>&nbsp;            if (!(hasSpecialty &amp;&amp; offersJobType &amp;&amp; underMaxPrice &amp;&amp; servesArea &amp;&amp; available))</b>
+<i>261</i>&nbsp;            {
+<b class="nc"><i>262</i>&nbsp;                continue;</b>
+<i>263</i>&nbsp;            }
+<b class="fc"><i>264</i>&nbsp;            technicianIds.add(technician.getUid());</b>
+<b class="fc"><i>265</i>&nbsp;            technicianNames.add(technician.getName());</b>
+<b class="fc"><i>266</i>&nbsp;            averageRatings.add(getTechnicianAverageRatings(technician.getUid()));</b>
+<b class="fc"><i>267</i>&nbsp;            prices.add(getTechnicianPriceForJobType(technician.getUid(), selectedJobTypeId));</b>
+<b class="fc"><i>268</i>&nbsp;        }</b>
+<b class="fc"><i>269</i>&nbsp;        view.populateTechnicianList(technicianIds, technicianNames, averageRatings, prices);</b>
+<b class="fc"><i>270</i>&nbsp;    }</b>
+<i>271</i>&nbsp;
+<i>272</i>&nbsp;
+<i>273</i>&nbsp;    /**
+<i>274</i>&nbsp;     * Checks if the technician offers the given jobtype
+<i>275</i>&nbsp;     * @param technicianId the technician id
+<i>276</i>&nbsp;     * @param jobTypeId the job type id
+<i>277</i>&nbsp;     * @return true if technician offers the jobtype
+<i>278</i>&nbsp;     */
+<i>279</i>&nbsp;    private boolean offersJobType(int technicianId, int jobTypeId)
+<i>280</i>&nbsp;    {
+<b class="fc"><i>281</i>&nbsp;        Technician technician = technicianDAO.find(technicianId);</b>
+<b class="fc"><i>282</i>&nbsp;        for (Job job : technician.getJobs())</b>
+<i>283</i>&nbsp;        {
+<b class="fc"><i>284</i>&nbsp;            if (job.getJobType().getUid() == jobTypeId)</b>
+<i>285</i>&nbsp;            {
+<b class="fc"><i>286</i>&nbsp;                return true;</b>
+<i>287</i>&nbsp;            }
+<b class="fc"><i>288</i>&nbsp;        }</b>
+<b class="fc"><i>289</i>&nbsp;        return false;</b>
+<i>290</i>&nbsp;    }
+<i>291</i>&nbsp;
+<i>292</i>&nbsp;    /**
+<i>293</i>&nbsp;     * Checks if the technician offers the given jobtype for less than the given amount of money
+<i>294</i>&nbsp;     * @param technicianId the tehcnician id
+<i>295</i>&nbsp;     * @param jobTypeId the jobtype id
+<i>296</i>&nbsp;     * @param price the price
+<i>297</i>&nbsp;     * @return true of technician offers the job type for less than price
+<i>298</i>&nbsp;     */
+<i>299</i>&nbsp;    private boolean offersJobTypeForLessThan(int technicianId, int jobTypeId, double price)
+<i>300</i>&nbsp;    {
+<b class="fc"><i>301</i>&nbsp;        Technician technician = technicianDAO.find(technicianId);</b>
+<b class="fc"><i>302</i>&nbsp;        for (Job job : technician.getJobs())</b>
+<i>303</i>&nbsp;        {
+<b class="fc"><i>304</i>&nbsp;            if (job.getJobType().getUid() == jobTypeId)</b>
+<i>305</i>&nbsp;            {
+<b class="fc"><i>306</i>&nbsp;                if (job.getPrice() &lt;= price)</b>
+<i>307</i>&nbsp;                {
+<b class="fc"><i>308</i>&nbsp;                    return true;</b>
+<i>309</i>&nbsp;                }
+<i>310</i>&nbsp;            }
+<b class="fc"><i>311</i>&nbsp;        }</b>
+<b class="fc"><i>312</i>&nbsp;        return false;</b>
+<i>313</i>&nbsp;    }
+<i>314</i>&nbsp;
+<i>315</i>&nbsp;    /**
+<i>316</i>&nbsp;     * Returns the technicians price for the given jobtype
+<i>317</i>&nbsp;     * @param  technicianId the technician&#39;s id
+<i>318</i>&nbsp;     * @param jobTypeId the job type id
+<i>319</i>&nbsp;     * @return  the technicians price for the job type
+<i>320</i>&nbsp;     */
+<i>321</i>&nbsp;    private double getTechnicianPriceForJobType(int technicianId, int jobTypeId)
+<i>322</i>&nbsp;    {
+<b class="fc"><i>323</i>&nbsp;        Technician technician = technicianDAO.find(technicianId);</b>
+<b class="fc"><i>324</i>&nbsp;        for (Job job : technician.getJobs())</b>
+<i>325</i>&nbsp;        {
+<b class="fc"><i>326</i>&nbsp;            if (job.getJobType().getUid() == jobTypeId)</b>
+<i>327</i>&nbsp;            {
+<b class="fc"><i>328</i>&nbsp;                return job.getPrice();</b>
+<i>329</i>&nbsp;            }
+<b class="fc"><i>330</i>&nbsp;        }</b>
+<b class="nc"><i>331</i>&nbsp;        return 0;</b>
+<i>332</i>&nbsp;    }
+<i>333</i>&nbsp;
+<i>334</i>&nbsp;    /**
+<i>335</i>&nbsp;     * Calculates the average ratings for a technician
+<i>336</i>&nbsp;     * @param technicianId the technicians id
+<i>337</i>&nbsp;     * @return the average of all ratings for the technician
+<i>338</i>&nbsp;     */
+<i>339</i>&nbsp;    private double getTechnicianAverageRatings(int technicianId)
+<i>340</i>&nbsp;    {
+<b class="fc"><i>341</i>&nbsp;        Technician technician = technicianDAO.find(technicianId);</b>
+<i>342</i>&nbsp;
+<b class="fc"><i>343</i>&nbsp;        int ratingSum = 0;</b>
+<b class="fc"><i>344</i>&nbsp;        int nRatings = 0;</b>
+<b class="fc"><i>345</i>&nbsp;        for (Job job : technician.getJobs())</b>
+<i>346</i>&nbsp;        {
+<b class="fc"><i>347</i>&nbsp;            for (RepairRequest repairRequest : job.getRepairRequests())</b>
+<i>348</i>&nbsp;            {
+<i>349</i>&nbsp;                //Evaluation exists if repair request is completed
+<b class="fc"><i>350</i>&nbsp;                if (repairRequest.isCompleted() &amp;&amp; repairRequest.getRepair().getEvaluation() != null)</b>
+<i>351</i>&nbsp;                {
+<i>352</i>&nbsp;
+<b class="fc"><i>353</i>&nbsp;                    Evaluation evaluation = repairRequest.getRepair().getEvaluation();</b>
+<b class="fc"><i>354</i>&nbsp;                    System.out.println(&quot;Found 1 evalutaion&quot; + evaluation.getComment());</b>
+<b class="fc"><i>355</i>&nbsp;                    ratingSum += evaluation.getRate();</b>
+<b class="fc"><i>356</i>&nbsp;                    nRatings++;</b>
+<i>357</i>&nbsp;                }
+<b class="fc"><i>358</i>&nbsp;            }</b>
+<b class="fc"><i>359</i>&nbsp;        }</b>
+<b class="fc"><i>360</i>&nbsp;        return nRatings == 0 ? 0 : ratingSum / (float) nRatings;</b>
+<i>361</i>&nbsp;    }
+<i>362</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text/>
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>686</x>
+      <y>259</y>
+      <w>252</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>LoginPresenter
+--
++ login(username: String, password: String)
++ setTechnicianDAO(technicianDAO: TechnicianDAO)
++ setCustomerDAO(customerDAO: CustomerDAO)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1022</x>
+      <y>245</y>
+      <w>147</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+TechnicianDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>742</x>
+      <y>476</y>
+      <w>203</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>template=V: BaseView
+&lt;&lt;Abstract&gt;&gt;
+BasePresenter
+--
+# view: V
+--
++ setView(view: V)
++ clearView()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>819</x>
+      <y>392</y>
+      <w>112</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;bind&gt;&gt; V::LoginView</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1022</x>
+      <y>315</y>
+      <w>147</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+CustomerDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>931</x>
+      <y>252</y>
+      <w>105</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+has &gt;</panel_attributes>
+    <additional_attributes>130.0;10.0;40.0;10.0;40.0;50.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>931</x>
+      <y>301</y>
+      <w>105</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+has &gt;</panel_attributes>
+    <additional_attributes>130.0;40.0;40.0;40.0;40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>364</x>
+      <y>0</y>
+      <w>203</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>template=P: BasePresenter
+&lt;&lt;Abstract&gt;&gt;
+BaseViewModel
+--
+# presenter: P
+--
++ getPresenter(): P
+/# createPresenter(): P/
+# onCleared()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>322</x>
+      <y>280</y>
+      <w>252</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>LoginViewModel
+--
+# createPresenter(): P</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>91</y>
+      <w>133</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;bind&gt;&gt; P::LoginPresenter</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>567</x>
+      <y>280</y>
+      <w>133</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+has &gt;</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>329</x>
+      <y>476</y>
+      <w>252</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>LoginActivity
+--
+# createPresenter(): P
++ getPassword(): String
++ getUsername(): String
++ OnLoginCustomerSuccess(id: Integer)
++ OnLoginTechnicianSuccess(id: Integer)
++ onBackPressed()
++ showErrorMessage(title: String, message: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>133</x>
+      <y>441</y>
+      <w>133</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;bind&gt;&gt; P::LoginPresenter</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>7</x>
+      <y>350</y>
+      <w>294</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>template=VM: BaseViewModel
+&lt;&lt;Abstract&gt;&gt;
+BaseActivity
+--
+# viewModel: VM
+--
++ showErrorMessage(title: String, message: String)
+/# getViewModel(): VM/
+# onCreate(savedInstanceState: Bundle)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>518</y>
+      <w>252</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>BaseActivity&lt;LoginViewModel&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>245</x>
+      <y>518</y>
+      <w>98</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>574</y>
+      <w>21</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>329</x>
+      <y>658</y>
+      <w>252</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>LoginView
+--
+/+ getPassword(): String/
+/+ getUsername(): String/
+/+ OnLoginCustomerSuccess(id: Integer)/
+/+ OnLoginTechnicianSuccess(id: Integer)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>308</x>
+      <y>791</y>
+      <w>294</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+BaseView
+--
+/+ showErrorMessage(title: String, message: String)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>721</y>
+      <w>21</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>308</y>
+      <w>49</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>322</x>
+      <y>182</y>
+      <w>252</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>BaseViewModel&lt;LoginPresenter&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>196</y>
+      <w>21</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>693</x>
+      <y>378</y>
+      <w>252</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>BasePresenter&lt;LoginView&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>819</x>
+      <y>315</y>
+      <w>21</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>574</x>
+      <y>301</y>
+      <w>126</w>
+      <h>413</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+&lt; has</panel_attributes>
+    <additional_attributes>10.0;560.0;110.0;560.0;110.0;10.0;160.0;10.0</additional_attributes>
+  </element>
+</diagram>

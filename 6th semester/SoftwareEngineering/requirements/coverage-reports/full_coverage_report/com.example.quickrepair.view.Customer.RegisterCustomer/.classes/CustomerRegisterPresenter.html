@@ -1,0 +1,202 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CustomerRegisterPresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.Customer.RegisterCustomer</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CustomerRegisterPresenter (com.example.quickrepair.view.Customer.RegisterCustomer)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CustomerRegisterPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (39/ 39)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.Customer.RegisterCustomer;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.quickrepair.dao.CustomerDAO;
+<i>4</i>&nbsp;import com.example.quickrepair.dao.TechnicianDAO;
+<i>5</i>&nbsp;import com.example.quickrepair.domain.Customer;
+<i>6</i>&nbsp;import com.example.quickrepair.domain.Technician;
+<i>7</i>&nbsp;import com.example.quickrepair.view.Base.BasePresenter;
+<i>8</i>&nbsp;
+<b class="fc"><i>9</i>&nbsp;public class CustomerRegisterPresenter extends BasePresenter&lt;CustomerRegisterView&gt;</b>
+<i>10</i>&nbsp;{
+<i>11</i>&nbsp;    private CustomerDAO customerDAO;
+<i>12</i>&nbsp;    private TechnicianDAO technicianDAO;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    Customer customer;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    /**
+<i>17</i>&nbsp;     * Try to register a customer with the given information.
+<i>18</i>&nbsp;     *
+<i>19</i>&nbsp;     * @param name          The name of the customer.
+<i>20</i>&nbsp;     * @param surname       The surname of the customer.
+<i>21</i>&nbsp;     * @param phoneNumber   The phone number of the customer.
+<i>22</i>&nbsp;     * @param email         The email of the customer.
+<i>23</i>&nbsp;     * @param accountNumber The bank account number of the customer.
+<i>24</i>&nbsp;     * @param username      The username of the customer.
+<i>25</i>&nbsp;     * @param password      The password of the customer.
+<i>26</i>&nbsp;     */
+<i>27</i>&nbsp;    void registerCustomer(String name, String surname, String phoneNumber, String email, String accountNumber, String username, String password)
+<i>28</i>&nbsp;    {
+<b class="fc"><i>29</i>&nbsp;        if (customer == null || customer.getUid() == 0)</b>
+<i>30</i>&nbsp;        {
+<i>31</i>&nbsp;
+<b class="fc"><i>32</i>&nbsp;            for (Technician technician : technicianDAO.findAll())</b>
+<i>33</i>&nbsp;            {
+<b class="fc"><i>34</i>&nbsp;                if (technician.getUsername().equals(username))</b>
+<i>35</i>&nbsp;                {
+<b class="fc"><i>36</i>&nbsp;                    view.showErrorMessage(&quot;Username already exist&quot;, &quot;This username is already in use by another user.&quot;);</b>
+<b class="fc"><i>37</i>&nbsp;                    return;</b>
+<i>38</i>&nbsp;                }
+<b class="fc"><i>39</i>&nbsp;            }</b>
+<i>40</i>&nbsp;
+<b class="fc"><i>41</i>&nbsp;            for (Customer customer : customerDAO.findAll())</b>
+<i>42</i>&nbsp;            {
+<b class="fc"><i>43</i>&nbsp;                if (customer.getUsername().equals(username))</b>
+<i>44</i>&nbsp;                {
+<b class="fc"><i>45</i>&nbsp;                    view.showErrorMessage(&quot;Username already exist&quot;, &quot;This username is already in use by another user.&quot;);</b>
+<b class="fc"><i>46</i>&nbsp;                    return;</b>
+<i>47</i>&nbsp;                }
+<b class="fc"><i>48</i>&nbsp;            }</b>
+<i>49</i>&nbsp;
+<b class="fc"><i>50</i>&nbsp;            customer = new Customer();</b>
+<i>51</i>&nbsp;        }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;        try
+<i>54</i>&nbsp;        {
+<b class="fc"><i>55</i>&nbsp;            customer.setUserInfo(name, surname, phoneNumber, email, accountNumber, username);</b>
+<b class="fc"><i>56</i>&nbsp;            customer.setPassword(password);</b>
+<i>57</i>&nbsp;        }
+<b class="fc"><i>58</i>&nbsp;        catch (Exception e)</b>
+<i>59</i>&nbsp;        {
+<b class="fc"><i>60</i>&nbsp;            view.showErrorMessage(&quot;Invalid value&quot;, e.getMessage());</b>
+<b class="fc"><i>61</i>&nbsp;            return;</b>
+<b class="fc"><i>62</i>&nbsp;        }</b>
+<i>63</i>&nbsp;
+<b class="fc"><i>64</i>&nbsp;        if (customer.getUid() == 0)</b>
+<i>65</i>&nbsp;        {
+<b class="fc"><i>66</i>&nbsp;            customer.setUid(customerDAO.nextId());</b>
+<b class="fc"><i>67</i>&nbsp;            customerDAO.save(customer);</b>
+<i>68</i>&nbsp;        }
+<i>69</i>&nbsp;
+<b class="fc"><i>70</i>&nbsp;        view.onSuccessfulRegister(customer.getUid());</b>
+<b class="fc"><i>71</i>&nbsp;    }</b>
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;    /**
+<i>74</i>&nbsp;     * Initialize the view.
+<i>75</i>&nbsp;     */
+<i>76</i>&nbsp;    public void setUpDataSource()
+<i>77</i>&nbsp;    {
+<b class="fc"><i>78</i>&nbsp;        if (customer != null)</b>
+<i>79</i>&nbsp;        {
+<b class="fc"><i>80</i>&nbsp;            view.setName(customer.getName());</b>
+<b class="fc"><i>81</i>&nbsp;            view.setSurname(customer.getSurname());</b>
+<b class="fc"><i>82</i>&nbsp;            view.setPhoneNumber(customer.getPhoneNumber());</b>
+<b class="fc"><i>83</i>&nbsp;            view.setBankAccountNumber(customer.getBankAccount());</b>
+<b class="fc"><i>84</i>&nbsp;            view.setEmail(customer.getEmail());</b>
+<b class="fc"><i>85</i>&nbsp;            view.setUsername(customer.getUsername());</b>
+<b class="fc"><i>86</i>&nbsp;            view.setPassword(customer.getPassword());</b>
+<i>87</i>&nbsp;        }
+<b class="fc"><i>88</i>&nbsp;    }</b>
+<i>89</i>&nbsp;
+<i>90</i>&nbsp;    /**
+<i>91</i>&nbsp;     * Set the technician DAO for the presenter.
+<i>92</i>&nbsp;     *
+<i>93</i>&nbsp;     * @param technicianDAO The technician DAO.
+<i>94</i>&nbsp;     */
+<i>95</i>&nbsp;    public void setTechnicianDAO(TechnicianDAO technicianDAO)
+<i>96</i>&nbsp;    {
+<b class="fc"><i>97</i>&nbsp;        this.technicianDAO = technicianDAO;</b>
+<b class="fc"><i>98</i>&nbsp;    }</b>
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;    /**
+<i>101</i>&nbsp;     * Set the customer DAO for the presenter.
+<i>102</i>&nbsp;     *
+<i>103</i>&nbsp;     * @param customerDAO The customer DAO.
+<i>104</i>&nbsp;     */
+<i>105</i>&nbsp;    public void setCustomerDAO(CustomerDAO customerDAO)
+<i>106</i>&nbsp;    {
+<b class="fc"><i>107</i>&nbsp;        this.customerDAO = customerDAO;</b>
+<b class="fc"><i>108</i>&nbsp;    }</b>
+<i>109</i>&nbsp;
+<i>110</i>&nbsp;    /**
+<i>111</i>&nbsp;     * Load the customer in case of edit.
+<i>112</i>&nbsp;     *
+<i>113</i>&nbsp;     * @param customerID the customer id.
+<i>114</i>&nbsp;     */
+<i>115</i>&nbsp;    public void setCustomer(int customerID)
+<i>116</i>&nbsp;    {
+<b class="fc"><i>117</i>&nbsp;        customer = customerDAO.find(customerID);</b>
+<b class="fc"><i>118</i>&nbsp;    }</b>
+<i>119</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:33</div>
+</div>
+</body>
+</html>

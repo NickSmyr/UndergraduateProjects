@@ -1,0 +1,105 @@
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+    }
+html{
+    height: 100vh;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-color: burlywood;
+}
+header {
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    width: 100%;
+    align-items: center;
+    grid-row: 1;
+}
+header > h1 {
+    text-align: center;
+    font-size: 5vmin;
+}
+
+main {
+    grid-row: 2;
+    margin-left: 8%;
+    margin-right: 8%;
+    background-color: brown;
+}
+#booksearch{
+    margin-left: auto;
+    margin-right: 0;
+}
+#booksearch *{
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding: 6px;
+}
+footer p {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    grid-row: 3;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+.bookitem{
+    margin: auto;
+    border-style: solid;
+    border-radius: 25px;
+    margin-inline: 100px;
+    margin-block: 50px;
+    display: grid;
+}
+.bookitem .bookitem-container{
+    padding: 10px;
+    display: inline;
+}
+.bookitem .imageholder{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    float: left;
+}
+.bookitem .isfavourite {
+    background-color: brown;
+    float: right;
+    border-radius: 10px 10px;
+}
+.bookitem .isfavourite  div{
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+}
+.bookitem .author {
+    color: aquamarine;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.bookitem .isedit {
+    background-color: brown;
+    float: right;
+    border-radius: 10px 10px;
+}
+.bookitem .isedit div{
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+}

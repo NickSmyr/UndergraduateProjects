@@ -1,0 +1,10 @@
+elNER
+data
+test_data
+/**/*.pyc
+__pycache__
+.idea
+.ipynb_checkpoints
+models
+tmp
+venv

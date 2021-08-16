@@ -1,0 +1,13 @@
+mkdir data/ner 2>/dev/null
+rm -rf data/ner/*
+
+entities_count=$1
+
+dataset_type_lower=$(echo $2 | tr '[:upper:]' '[:lower:]')
+dataset_type_upper=$(echo $2 | tr '[:lower:]' '[:upper:]')
+
+ln -s ../$dataset_type_upper/dev_elNER$entities_count.$dataset_type_lower data/ner/dev.txt
+ln -s ../$dataset_type_upper/train_elNER$entities_count.$dataset_type_lower data/ner/train.txt
+ln -s ../$dataset_type_upper/test_elNER$entities_count.$dataset_type_lower data/ner/test.txt
+
+

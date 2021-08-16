@@ -1,0 +1,1 @@
+1) Doesnt bert generate embeddings for each word in the input sentence and also an embedding for the whole sentence? If so why is the output in nerbertmodel this nn.Linear(768 , 7 ) ? This generates and output of [ 1 , 10 , 7 ] when gieven an input of [ 1, 10] ( 1 sentence of 10 ) words.

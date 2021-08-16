@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.Customer.RegisterCustomer.CustomerRegisterActivity"
+    android:padding="20dp"
+    android:layout_centerHorizontal="true">
+
+    <TextView
+        android:id="@+id/Title"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/register"
+        android:textAlignment="center"
+        android:textSize="24sp"/>
+
+    <EditText
+        android:id="@+id/Name"
+        app:layout_constraintTop_toBottomOf="@id/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="@string/name"/>
+
+    <EditText
+        android:id="@+id/Surname"
+        app:layout_constraintTop_toBottomOf="@id/Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/surname"/>
+
+    <EditText
+        android:id="@+id/Email"
+        app:layout_constraintTop_toBottomOf="@id/Surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"/>
+
+    <EditText
+        android:id="@+id/PhoneNumber"
+        app:layout_constraintTop_toBottomOf="@id/Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:inputType="phone"
+        android:hint="@string/phone_number"/>
+
+    <EditText
+        android:id="@+id/BankAccount"
+        app:layout_constraintTop_toBottomOf="@id/PhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:inputType="number"
+        android:hint="@string/bank_account_number"/>
+
+    <EditText
+        android:id="@+id/Username"
+        app:layout_constraintTop_toBottomOf="@id/BankAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/username"/>
+
+    <EditText
+        android:id="@+id/Password"
+        app:layout_constraintTop_toBottomOf="@id/Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/password"/>
+
+    <Button
+        android:id="@+id/CustomerRegisterButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Password"
+        android:layout_marginTop="20dp"
+        android:text="@string/register"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

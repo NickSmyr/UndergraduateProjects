@@ -1,0 +1,165 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CustomerUnconfirmedRepairRequests</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.view.Customer.RepairRequests</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CustomerUnconfirmedRepairRequests (com.example.quickrepair.view.Customer.RepairRequests)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CustomerUnconfirmedRepairRequests</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.view.Customer.RepairRequests;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Bundle;
+<i>4</i>&nbsp;import android.view.LayoutInflater;
+<i>5</i>&nbsp;import android.view.View;
+<i>6</i>&nbsp;import android.view.ViewGroup;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import androidx.annotation.NonNull;
+<i>9</i>&nbsp;import androidx.annotation.Nullable;
+<i>10</i>&nbsp;import androidx.fragment.app.Fragment;
+<i>11</i>&nbsp;import androidx.recyclerview.widget.LinearLayoutManager;
+<i>12</i>&nbsp;import androidx.recyclerview.widget.RecyclerView;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;import com.example.quickrepair.R;
+<i>15</i>&nbsp;import com.example.quickrepair.domain.Customer;
+<i>16</i>&nbsp;import com.example.quickrepair.domain.RepairRequest;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;import java.util.ArrayList;
+<i>19</i>&nbsp;
+<b class="nc"><i>20</i>&nbsp;public class CustomerUnconfirmedRepairRequests extends Fragment implements ItemSelectionListener&lt;RepairRequest&gt;</b>
+<i>21</i>&nbsp;{
+<i>22</i>&nbsp;
+<b class="nc"><i>23</i>&nbsp;    public static final RepairRequest.Status status = RepairRequest.Status.UNCONFIRMED;</b>
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    CustomerRepairRequestsActivity activity;
+<i>26</i>&nbsp;    RecyclerView recyclerView;
+<i>27</i>&nbsp;    private RepairRequestAdapter mAdapter;
+<i>28</i>&nbsp;    private RecyclerView.LayoutManager mLayoutManager;
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    //new instance of this fragment
+<i>31</i>&nbsp;    public static CustomerUnconfirmedRepairRequests newInstance() {
+<b class="nc"><i>32</i>&nbsp;        return new CustomerUnconfirmedRepairRequests();</b>
+<i>33</i>&nbsp;    }
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    @Override
+<i>36</i>&nbsp;    public void onCreate(@Nullable Bundle savedInstanceState)
+<i>37</i>&nbsp;    {
+<b class="nc"><i>38</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<i>39</i>&nbsp;    }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    @Override
+<i>42</i>&nbsp;    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+<i>43</i>&nbsp;                             Bundle savedInstanceState)
+<i>44</i>&nbsp;    {
+<i>45</i>&nbsp;        // Inflate the layout for this fragment
+<b class="nc"><i>46</i>&nbsp;        return inflater.inflate(R.layout.customer_unconfirmed_repair_requests, container, false);</b>
+<i>47</i>&nbsp;    }
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    @Override
+<i>50</i>&nbsp;    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
+<i>51</i>&nbsp;    {
+<b class="nc"><i>52</i>&nbsp;        super.onViewCreated(view, savedInstanceState);</b>
+<b class="nc"><i>53</i>&nbsp;        activity = ((CustomerRepairRequestsActivity) getActivity());</b>
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;        //get unconfirmed repair requests for this customer
+<b class="nc"><i>56</i>&nbsp;        ArrayList&lt;RepairRequest&gt; repairRequests = activity.getViewModel().getPresenter().searchRepairRequests(activity.getCustomerID(), status);</b>
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;        //update UI
+<b class="nc"><i>59</i>&nbsp;        recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_view_unconfirmed);</b>
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;        // use a linear layout manager
+<b class="nc"><i>63</i>&nbsp;        mLayoutManager = new LinearLayoutManager(activity);</b>
+<b class="nc"><i>64</i>&nbsp;        recyclerView.setLayoutManager(mLayoutManager);</b>
+<i>65</i>&nbsp;
+<b class="nc"><i>66</i>&nbsp;        mAdapter = new RepairRequestAdapter(new ArrayList&lt;RepairRequest&gt;(repairRequests));</b>
+<b class="nc"><i>67</i>&nbsp;        recyclerView.setAdapter(mAdapter);</b>
+<b class="nc"><i>68</i>&nbsp;        mAdapter.setRepairRequestSelectionListener(this);</b>
+<i>69</i>&nbsp;    }
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    /**
+<i>73</i>&nbsp;     * The method will be called by the adapter, whenever the user clicks on a list item
+<i>74</i>&nbsp;     *
+<i>75</i>&nbsp;     * @param item Repair Request
+<i>76</i>&nbsp;     */
+<i>77</i>&nbsp;    @Override
+<i>78</i>&nbsp;    public void onItemSelected(RepairRequest item)
+<i>79</i>&nbsp;    {
+<b class="nc"><i>80</i>&nbsp;        activity.getViewModel().getPresenter().onRepairRequestSelectedUnconfirmed(item);</b>
+<i>81</i>&nbsp;    }
+<i>82</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: RepairRequestDAO</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.quickrepair.dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: RepairRequestDAO (com.example.quickrepair.dao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">RepairRequestDAO</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.quickrepair.dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import com.example.quickrepair.domain.RepairRequest;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.ArrayList;
+<i>7</i>&nbsp;import java.util.List;
+<i>8</i>&nbsp;import java.util.Set;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;public interface RepairRequestDAO {
+<i>11</i>&nbsp;    /**
+<i>12</i>&nbsp;     * Delete an RepairRequest
+<i>13</i>&nbsp;     * @param entity RepairRequest
+<i>14</i>&nbsp;     */
+<i>15</i>&nbsp;    void delete(RepairRequest entity);
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    /**
+<i>18</i>&nbsp;     * Find all RepairRequest
+<i>19</i>&nbsp;     * @return RepairRequest
+<i>20</i>&nbsp;     */
+<i>21</i>&nbsp;    List&lt;RepairRequest&gt; findAll();
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    /**
+<i>24</i>&nbsp;     * Save a RepairRequest
+<i>25</i>&nbsp;     * @param entity RepairRequest
+<i>26</i>&nbsp;     */
+<i>27</i>&nbsp;    void save(RepairRequest entity);
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    /**
+<i>30</i>&nbsp;     * Find the RepairRequest with the given id
+<i>31</i>&nbsp;     * @param RepairRequestID RepairRequest&#39;s id
+<i>32</i>&nbsp;     * @return RepairRequest or null
+<i>33</i>&nbsp;     */
+<i>34</i>&nbsp;    RepairRequest find(int RepairRequestID);
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    /**
+<i>37</i>&nbsp;     * Return all repair request for a Technician
+<i>38</i>&nbsp;     * @technicianID Technician&#39;s id
+<i>39</i>&nbsp;     * @status RepairRequest&#39;s status
+<i>40</i>&nbsp;     * @return RepairRequests for the particular Technician with the given status
+<i>41</i>&nbsp;     */
+<i>42</i>&nbsp;    ArrayList&lt;RepairRequest&gt; findAllForTechnicianByStatus(int technicianID, RepairRequest.Status status);
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    /**
+<i>45</i>&nbsp;     * Return all repair request for a Customer
+<i>46</i>&nbsp;     * @customerID Consumer&#39;s id
+<i>47</i>&nbsp;     * @status RepairRequest&#39;s status
+<i>48</i>&nbsp;     * @return RepairRequests for the particular Consumer with the given status
+<i>49</i>&nbsp;     */
+<i>50</i>&nbsp;    ArrayList&lt;RepairRequest&gt; findAllForCustomerByStatus(int customerID, RepairRequest.Status status);
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    /**
+<i>53</i>&nbsp;     * Return the next id for an RepairRequest.
+<i>54</i>&nbsp;     * @return RepairRequest&#39;s id
+<i>55</i>&nbsp;     */
+<i>56</i>&nbsp;    int nextId();
+<i>57</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 21:34</div>
+</div>
+</body>
+</html>
