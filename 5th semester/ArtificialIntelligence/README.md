@@ -1,4 +1,4 @@
-# Course proect for Artificial Intelligence
+# Course project for Artificial Intelligence
 
 The course project was partitioned in two parts: AI scheduler and Automatic Spam classification.
 
